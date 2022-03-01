@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "car-w-aqar-logosplash.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

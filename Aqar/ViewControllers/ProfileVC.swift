@@ -8,22 +8,36 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-
+    var profileItem:[Menu]=[]
+    @IBOutlet weak var menuTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupData(){
+        menuTable.register(MenuCell.self)
+        profileItem=Menu.menuItem
+        menuTable.delegate=self
+        menuTable.dataSource=self
     }
-    */
 
+}
+extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profileItem.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:MenuCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.menuTxt.text = profileItem[indexPath.row].menuText
+        cell.menuImg.image = profileItem[indexPath.row].menuImg
+        return cell
+    }
+    
+    
+    
+    
+    
+    
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum menu{
+enum Menu{
      static let menuItem = [NewAdvertisement,EditProfile,ContactUs,AboutUs,LogOut]
    case NewAdvertisement
     case EditProfile

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E427CFE0010094FA57 /* MenuCell.swift */; };
+		274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D03E527CFE0010094FA57 /* MenuCell.xib */; };
+		274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E827D008F80094FA57 /* ContactUSVC.swift */; };
+		274D03EB27D00BE80094FA57 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EA27D00BE80094FA57 /* AboutUsVC.swift */; };
+		274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */; };
+		274D03EF27D020D80094FA57 /* MyGoldenAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EE27D020D80094FA57 /* MyGoldenAds.swift */; };
+		274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03F227D026E30094FA57 /* AlertPackageVC.swift */; };
 		2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05427CF791B00D45B10 /* NibLoadableView.swift */; };
 		2756E05727CF797000D45B10 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05627CF797000D45B10 /* ReusableView.swift */; };
 		2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05827CF7A6900D45B10 /* TableViewHelper.swift */; };
@@ -61,6 +68,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		274D03E427CFE0010094FA57 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		274D03E527CFE0010094FA57 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		274D03E827D008F80094FA57 /* ContactUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVC.swift; sourceTree = "<group>"; };
+		274D03EA27D00BE80094FA57 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertVC.swift; sourceTree = "<group>"; };
+		274D03EE27D020D80094FA57 /* MyGoldenAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoldenAds.swift; sourceTree = "<group>"; };
+		274D03F227D026E30094FA57 /* AlertPackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPackageVC.swift; sourceTree = "<group>"; };
 		2756E05427CF791B00D45B10 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		2756E05627CF797000D45B10 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		2756E05827CF7A6900D45B10 /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
@@ -141,6 +155,8 @@
 			children = (
 				276732DE27CEAA2900928288 /* HomeCell.swift */,
 				276732DF27CEAA2900928288 /* HomeCell.xib */,
+				274D03E427CFE0010094FA57 /* MenuCell.swift */,
+				274D03E527CFE0010094FA57 /* MenuCell.xib */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -164,6 +180,7 @@
 		27734B0627CD4EA8007E9DFE /* Aqar */ = {
 			isa = PBXGroup;
 			children = (
+				2756E05327CF790100D45B10 /* Protocols */,
 				27734B4127CD6FBB007E9DFE /* ViewControllers */,
 				27734B3827CD647C007E9DFE /* Helper */,
 				27734B1B27CD5B3F007E9DFE /* Font */,
@@ -221,7 +238,6 @@
 		27734B4127CD6FBB007E9DFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2756E05327CF790100D45B10 /* Protocols */,
 				276732DD27CEA9B100928288 /* XIB */,
 				27734B4227CD7022007E9DFE /* FirstOnBoardingVC.swift */,
 				27734B5A27CD84A7007E9DFE /* SignupVC.swift */,
@@ -238,6 +254,11 @@
 				276732EA27CECCFD00928288 /* FavouriteVC.swift */,
 				276732EC27CECD2100928288 /* ProfileVC.swift */,
 				2756E05A27CF7E0300D45B10 /* SettingMenu.swift */,
+				274D03E827D008F80094FA57 /* ContactUSVC.swift */,
+				274D03EA27D00BE80094FA57 /* AboutUsVC.swift */,
+				274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */,
+				274D03EE27D020D80094FA57 /* MyGoldenAds.swift */,
+				274D03F227D026E30094FA57 /* AlertPackageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +339,7 @@
 				27734B5627CD7BE0007E9DFE /* Poppins-Bold.ttf in Resources */,
 				27734B4C27CD7BC5007E9DFE /* Poppins-ExtraLight.ttf in Resources */,
 				276732DB27CEA94A00928288 /* SearchView.xib in Resources */,
+				274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */,
 				27734B4B27CD7BC2007E9DFE /* Poppins-ThinItalic.ttf in Resources */,
 				27734B5727CD7BE3007E9DFE /* Poppins-BoldItalic.ttf in Resources */,
 				27734B3727CD5E6B007E9DFE /* OFL.txt in Resources */,
@@ -334,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */,
+				274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
@@ -343,11 +366,15 @@
 				2756E05B27CF7E0300D45B10 /* SettingMenu.swift in Sources */,
 				2756E05727CF797000D45B10 /* ReusableView.swift in Sources */,
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
+				274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
+				274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */,
 				2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */,
+				274D03EB27D00BE80094FA57 /* AboutUsVC.swift in Sources */,
+				274D03EF27D020D80094FA57 /* MyGoldenAds.swift in Sources */,
 				27734B3F27CD64AB007E9DFE /* UIImageViewDesignable.swift in Sources */,
 				276732ED27CECD2100928288 /* ProfileVC.swift in Sources */,
 				27734B5927CD8481007E9DFE /* LoginVC.swift in Sources */,
@@ -355,6 +382,7 @@
 				276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,
+				274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */,
 				276732E727CECCB300928288 /* FilterVC.swift in Sources */,
 				27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */,
 				276732E527CECC8400928288 /* SearchVC.swift in Sources */,

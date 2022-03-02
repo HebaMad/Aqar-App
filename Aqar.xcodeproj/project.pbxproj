@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05427CF791B00D45B10 /* NibLoadableView.swift */; };
+		2756E05727CF797000D45B10 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05627CF797000D45B10 /* ReusableView.swift */; };
+		2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05827CF7A6900D45B10 /* TableViewHelper.swift */; };
+		2756E05B27CF7E0300D45B10 /* SettingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05A27CF7E0300D45B10 /* SettingMenu.swift */; };
 		276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732CF27CE8D2D00928288 /* ConfirmationCodeVC.swift */; };
 		276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732D127CE8D7400928288 /* ForgetPasswordVC.swift */; };
 		276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732D327CE932600928288 /* ForgettenPasswordVC.swift */; };
@@ -43,7 +47,6 @@
 		27734B4C27CD7BC5007E9DFE /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B3327CD5E4A007E9DFE /* Poppins-ExtraLight.ttf */; };
 		27734B4D27CD7BC8007E9DFE /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B3227CD5E42007E9DFE /* Poppins-ExtraLightItalic.ttf */; };
 		27734B4E27CD7BCB007E9DFE /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B3127CD5C81007E9DFE /* Poppins-Light.ttf */; };
-		27734B4F27CD7BCD007E9DFE /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B3027CD5C7A007E9DFE /* Poppins-LightItalic.ttf */; };
 		27734B5027CD7BD0007E9DFE /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B2E27CD5C6D007E9DFE /* Poppins-Regular.ttf */; };
 		27734B5127CD7BD2007E9DFE /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B2D27CD5C64007E9DFE /* Poppins-Italic.ttf */; };
 		27734B5227CD7BD5007E9DFE /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27734B2C27CD5C59007E9DFE /* Poppins-Medium.ttf */; };
@@ -58,6 +61,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2756E05427CF791B00D45B10 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		2756E05627CF797000D45B10 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		2756E05827CF7A6900D45B10 /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
+		2756E05A27CF7E0300D45B10 /* SettingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenu.swift; sourceTree = "<group>"; };
 		276732CF27CE8D2D00928288 /* ConfirmationCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCodeVC.swift; sourceTree = "<group>"; };
 		276732D127CE8D7400928288 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		276732D327CE932600928288 /* ForgettenPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgettenPasswordVC.swift; sourceTree = "<group>"; };
@@ -92,7 +99,6 @@
 		27734B2C27CD5C59007E9DFE /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		27734B2D27CD5C64007E9DFE /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		27734B2E27CD5C6D007E9DFE /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		27734B3027CD5C7A007E9DFE /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-LightItalic.ttf"; path = "../../../../../Downloads/Poppins/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		27734B3127CD5C81007E9DFE /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		27734B3227CD5E42007E9DFE /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		27734B3327CD5E4A007E9DFE /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -121,6 +127,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2756E05327CF790100D45B10 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2756E05627CF797000D45B10 /* ReusableView.swift */,
+				2756E05427CF791B00D45B10 /* NibLoadableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		276732DD27CEA9B100928288 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +190,6 @@
 				27734B3327CD5E4A007E9DFE /* Poppins-ExtraLight.ttf */,
 				27734B3227CD5E42007E9DFE /* Poppins-ExtraLightItalic.ttf */,
 				27734B3127CD5C81007E9DFE /* Poppins-Light.ttf */,
-				27734B3027CD5C7A007E9DFE /* Poppins-LightItalic.ttf */,
 				27734B2E27CD5C6D007E9DFE /* Poppins-Regular.ttf */,
 				27734B2D27CD5C64007E9DFE /* Poppins-Italic.ttf */,
 				27734B2C27CD5C59007E9DFE /* Poppins-Medium.ttf */,
@@ -191,6 +205,7 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2756E05827CF7A6900D45B10 /* TableViewHelper.swift */,
 				276732E227CEC6CB00928288 /* UITextFieldDataPicker.swift */,
 				276732DA27CEA94A00928288 /* SearchView.swift */,
 				276732D927CEA94A00928288 /* SearchView.xib */,
@@ -206,6 +221,7 @@
 		27734B4127CD6FBB007E9DFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2756E05327CF790100D45B10 /* Protocols */,
 				276732DD27CEA9B100928288 /* XIB */,
 				27734B4227CD7022007E9DFE /* FirstOnBoardingVC.swift */,
 				27734B5A27CD84A7007E9DFE /* SignupVC.swift */,
@@ -221,6 +237,7 @@
 				276732E827CECCD600928288 /* HomeVC.swift */,
 				276732EA27CECCFD00928288 /* FavouriteVC.swift */,
 				276732EC27CECD2100928288 /* ProfileVC.swift */,
+				2756E05A27CF7E0300D45B10 /* SettingMenu.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -298,7 +315,6 @@
 				27734B4627CD7BB4007E9DFE /* Poppins-BlackItalic.ttf in Resources */,
 				27734B5027CD7BD0007E9DFE /* Poppins-Regular.ttf in Resources */,
 				27734B5127CD7BD2007E9DFE /* Poppins-Italic.ttf in Resources */,
-				27734B4F27CD7BCD007E9DFE /* Poppins-LightItalic.ttf in Resources */,
 				27734B5627CD7BE0007E9DFE /* Poppins-Bold.ttf in Resources */,
 				27734B4C27CD7BC5007E9DFE /* Poppins-ExtraLight.ttf in Resources */,
 				276732DB27CEA94A00928288 /* SearchView.xib in Resources */,
@@ -318,16 +334,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */,
+				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
 				27734B0827CD4EA8007E9DFE /* AppDelegate.swift in Sources */,
 				27734B3E27CD64AB007E9DFE /* UIButtonDesignable.swift in Sources */,
+				2756E05B27CF7E0300D45B10 /* SettingMenu.swift in Sources */,
+				2756E05727CF797000D45B10 /* ReusableView.swift in Sources */,
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
+				2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */,
 				27734B3F27CD64AB007E9DFE /* UIImageViewDesignable.swift in Sources */,
 				276732ED27CECD2100928288 /* ProfileVC.swift in Sources */,
 				27734B5927CD8481007E9DFE /* LoginVC.swift in Sources */,

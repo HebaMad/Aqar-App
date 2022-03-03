@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */; };
+		2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC327D0C27D008A7D6A /* DetailsVC.swift */; };
 		274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E427CFE0010094FA57 /* MenuCell.swift */; };
 		274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D03E527CFE0010094FA57 /* MenuCell.xib */; };
 		274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E827D008F80094FA57 /* ContactUSVC.swift */; };
@@ -68,6 +70,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAdverstimentVC.swift; sourceTree = "<group>"; };
+		2746CAC327D0C27D008A7D6A /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		274D03E427CFE0010094FA57 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		274D03E527CFE0010094FA57 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		274D03E827D008F80094FA57 /* ContactUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVC.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */,
 				274D03EE27D020D80094FA57 /* MyGoldenAds.swift */,
 				274D03F227D026E30094FA57 /* AlertPackageVC.swift */,
+				2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */,
+				2746CAC327D0C27D008A7D6A /* DetailsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
+				2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
 				27734B0827CD4EA8007E9DFE /* AppDelegate.swift in Sources */,
@@ -367,6 +374,7 @@
 				2756E05727CF797000D45B10 /* ReusableView.swift in Sources */,
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
 				274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */,
+				2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,

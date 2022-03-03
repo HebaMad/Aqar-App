@@ -16,6 +16,10 @@
 		274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */; };
 		274D03EF27D020D80094FA57 /* MyGoldenAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EE27D020D80094FA57 /* MyGoldenAds.swift */; };
 		274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03F227D026E30094FA57 /* AlertPackageVC.swift */; };
+		2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753A60E27D1306100A3E762 /* PhotosVC.swift */; };
+		2753A61227D1319300A3E762 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2753A61027D1319300A3E762 /* PhotoCell.xib */; };
+		2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753A61427D13C0100A3E762 /* PhotoCell.swift */; };
+		2753A61727D13CCF00A3E762 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753A61627D13CCF00A3E762 /* CollectionViewHelper.swift */; };
 		2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05427CF791B00D45B10 /* NibLoadableView.swift */; };
 		2756E05727CF797000D45B10 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05627CF797000D45B10 /* ReusableView.swift */; };
 		2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756E05827CF7A6900D45B10 /* TableViewHelper.swift */; };
@@ -79,6 +83,10 @@
 		274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertVC.swift; sourceTree = "<group>"; };
 		274D03EE27D020D80094FA57 /* MyGoldenAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoldenAds.swift; sourceTree = "<group>"; };
 		274D03F227D026E30094FA57 /* AlertPackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPackageVC.swift; sourceTree = "<group>"; };
+		2753A60E27D1306100A3E762 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
+		2753A61027D1319300A3E762 /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		2753A61427D13C0100A3E762 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		2753A61627D13CCF00A3E762 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		2756E05427CF791B00D45B10 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		2756E05627CF797000D45B10 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		2756E05827CF7A6900D45B10 /* TableViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
@@ -157,10 +165,12 @@
 		276732DD27CEA9B100928288 /* XIB */ = {
 			isa = PBXGroup;
 			children = (
+				2753A61027D1319300A3E762 /* PhotoCell.xib */,
 				276732DE27CEAA2900928288 /* HomeCell.swift */,
 				276732DF27CEAA2900928288 /* HomeCell.xib */,
 				274D03E427CFE0010094FA57 /* MenuCell.swift */,
 				274D03E527CFE0010094FA57 /* MenuCell.xib */,
+				2753A61427D13C0100A3E762 /* PhotoCell.swift */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -226,6 +236,7 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2753A61627D13CCF00A3E762 /* CollectionViewHelper.swift */,
 				2756E05827CF7A6900D45B10 /* TableViewHelper.swift */,
 				276732E227CEC6CB00928288 /* UITextFieldDataPicker.swift */,
 				276732DA27CEA94A00928288 /* SearchView.swift */,
@@ -265,6 +276,7 @@
 				274D03F227D026E30094FA57 /* AlertPackageVC.swift */,
 				2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */,
 				2746CAC327D0C27D008A7D6A /* DetailsVC.swift */,
+				2753A60E27D1306100A3E762 /* PhotosVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -348,6 +360,7 @@
 				274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */,
 				27734B4B27CD7BC2007E9DFE /* Poppins-ThinItalic.ttf in Resources */,
 				27734B5727CD7BE3007E9DFE /* Poppins-BoldItalic.ttf in Resources */,
+				2753A61227D1319300A3E762 /* PhotoCell.xib in Resources */,
 				27734B3727CD5E6B007E9DFE /* OFL.txt in Resources */,
 				276732E127CEAA2900928288 /* HomeCell.xib in Resources */,
 				27734B0F27CD4EA8007E9DFE /* Main.storyboard in Resources */,
@@ -377,6 +390,7 @@
 				2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
+				2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
 				274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */,
@@ -390,6 +404,7 @@
 				276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,
+				2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */,
 				274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */,
 				276732E727CECCB300928288 /* FilterVC.swift in Sources */,
 				27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */,
@@ -397,6 +412,7 @@
 				276732D627CE994300928288 /* ResetSuccessfullyVC.swift in Sources */,
 				276732E027CEAA2900928288 /* HomeCell.swift in Sources */,
 				276732D827CE9C0F00928288 /* ResetPasswordVC.swift in Sources */,
+				2753A61727D13CCF00A3E762 /* CollectionViewHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

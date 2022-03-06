@@ -27,3 +27,6 @@ class SearchVC: UIViewController {
     */
 
 }
+extension SearchVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

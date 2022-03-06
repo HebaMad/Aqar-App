@@ -27,3 +27,6 @@ class DetailsVC: UIViewController {
     */
 
 }
+extension DetailsVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

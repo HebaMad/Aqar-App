@@ -17,3 +17,6 @@ class ResetSuccessfullyVC: UIViewController {
 
 
 }
+extension ResetSuccessfullyVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

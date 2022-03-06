@@ -9,14 +9,25 @@ import UIKit
 
 class AboutUsVC: UIViewController {
 
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var aboutUsText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
+        tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
 
+
+    }
+  
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+dismiss(animated: true, completion: nil)
+        
+    }
  
 
+}
+extension AboutUsVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
 }

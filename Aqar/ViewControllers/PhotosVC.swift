@@ -155,3 +155,7 @@ extension PhotosVC{
     
     
 }
+extension PhotosVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}
+

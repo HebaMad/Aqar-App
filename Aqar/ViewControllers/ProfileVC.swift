@@ -23,6 +23,10 @@ class ProfileVC: UIViewController {
     }
 
 }
+extension ProfileVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}
+
 extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profileItem.count
@@ -36,8 +40,33 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row{
+        case 0 :
+            navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
+        case 1:
+        
+            navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
+
+        case 2:
+        let vc = ContactUSVC.instantiate()
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+        case 3:
+            let vc = AboutUsVC.instantiate()
+                vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+        case 4:
+            let vc = LogoutAlertVC.instantiate()
+                vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+ 
+        default:
+           
+print("error")
+        }
     
     
     
-    
+}
 }

@@ -9,11 +9,19 @@ import UIKit
 
 class AlertPackageVC: UIViewController {
 
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var packageDetailsTxt: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
 
-        // Do any additional setup after loading the view.
+
+    }
+  
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func confirmBtn(_ sender: Any) {
@@ -27,3 +35,7 @@ class AlertPackageVC: UIViewController {
     @IBAction func goldenPackage(_ sender: Any) {
     }
 }
+extension AlertPackageVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}
+

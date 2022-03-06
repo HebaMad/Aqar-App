@@ -30,3 +30,6 @@ class ConfirmationCodeVC: UIViewController {
     
 
 }
+extension ConfirmationCodeVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

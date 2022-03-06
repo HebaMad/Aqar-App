@@ -27,3 +27,6 @@ class FilterVC: UIViewController {
     */
 
 }
+extension FilterVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

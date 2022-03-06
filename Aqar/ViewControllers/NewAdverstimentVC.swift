@@ -27,3 +27,6 @@ class NewAdverstimentVC: UIViewController {
     */
 
 }
+extension NewAdverstimentVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}

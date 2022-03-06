@@ -24,6 +24,10 @@ class MyGoldenAds: UIViewController {
     }
     
 }
+extension MyGoldenAds:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}
+
 extension MyGoldenAds:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5

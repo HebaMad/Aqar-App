@@ -14,8 +14,18 @@ class ContactUSVC: UIViewController {
     @IBOutlet weak var contactNumber: UIButtonDesignable!
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        tapGes.addTarget(self, action: #selector(self.handleTap(_:)))
+
 
     }
+  
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+dismiss(animated: true, completion: nil)
+        
+    }
+    
     
     @IBAction func phoneCall(_ sender: Any) {
     }
@@ -23,3 +33,7 @@ class ContactUSVC: UIViewController {
  
 
 }
+extension ContactUSVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
+}
+

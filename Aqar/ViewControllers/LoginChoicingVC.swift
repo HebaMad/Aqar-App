@@ -12,18 +12,19 @@ class LoginChoicingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func guestAction(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
+    }
+    
+    @IBAction func userBtn(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension LoginChoicingVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
 }

@@ -16,6 +16,7 @@
 		274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */; };
 		274D03EF27D020D80094FA57 /* MyGoldenAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03EE27D020D80094FA57 /* MyGoldenAds.swift */; };
 		274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03F227D026E30094FA57 /* AlertPackageVC.swift */; };
+		274E398C27D542AF003A911F /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E398B27D542AF003A911F /* EditProfileVC.swift */; };
 		2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753A60E27D1306100A3E762 /* PhotosVC.swift */; };
 		2753A61227D1319300A3E762 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2753A61027D1319300A3E762 /* PhotoCell.xib */; };
 		2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2753A61427D13C0100A3E762 /* PhotoCell.swift */; };
@@ -71,6 +72,13 @@
 		27734B5927CD8481007E9DFE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5827CD8481007E9DFE /* LoginVC.swift */; };
 		27734B5B27CD84A7007E9DFE /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5A27CD84A7007E9DFE /* SignupVC.swift */; };
 		27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5C27CD86A1007E9DFE /* BottomBorderTextField.swift */; };
+		27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */; };
+		27C99CD227D4BB0900870E6E /* StoryBoarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD027D4BB0900870E6E /* StoryBoarded.swift */; };
+		27C99CD627D4CEED00870E6E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD527D4CEED00870E6E /* Extension.swift */; };
+		27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD827D4CF3C00870E6E /* CustomAlert.swift */; };
+		27C99CDB27D4CF3D00870E6E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C99CD927D4CF3D00870E6E /* CustomAlert.xib */; };
+		27C99CDF27D4D18200870E6E /* carAqarTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */; };
+		27C99CE127D4D37C00870E6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CE027D4D37C00870E6E /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +91,7 @@
 		274D03EC27D00E6D0094FA57 /* LogoutAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertVC.swift; sourceTree = "<group>"; };
 		274D03EE27D020D80094FA57 /* MyGoldenAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGoldenAds.swift; sourceTree = "<group>"; };
 		274D03F227D026E30094FA57 /* AlertPackageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPackageVC.swift; sourceTree = "<group>"; };
+		274E398B27D542AF003A911F /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		2753A60E27D1306100A3E762 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
 		2753A61027D1319300A3E762 /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		2753A61427D13C0100A3E762 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -140,6 +149,13 @@
 		27734B5827CD8481007E9DFE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		27734B5A27CD84A7007E9DFE /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		27734B5C27CD86A1007E9DFE /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
+		27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsPresenting.swift; sourceTree = "<group>"; };
+		27C99CD027D4BB0900870E6E /* StoryBoarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoarded.swift; sourceTree = "<group>"; };
+		27C99CD527D4CEED00870E6E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		27C99CD827D4CF3C00870E6E /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		27C99CD927D4CF3D00870E6E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
+		27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carAqarTabBarController.swift; sourceTree = "<group>"; };
+		27C99CE027D4D37C00870E6E /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +172,8 @@
 		2756E05327CF790100D45B10 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */,
+				27C99CD027D4BB0900870E6E /* StoryBoarded.swift */,
 				2756E05627CF797000D45B10 /* ReusableView.swift */,
 				2756E05427CF791B00D45B10 /* NibLoadableView.swift */,
 			);
@@ -194,6 +212,7 @@
 		27734B0627CD4EA8007E9DFE /* Aqar */ = {
 			isa = PBXGroup;
 			children = (
+				27C99CD727D4CF2C00870E6E /* Component */,
 				2756E05327CF790100D45B10 /* Protocols */,
 				27734B4127CD6FBB007E9DFE /* ViewControllers */,
 				27734B3827CD647C007E9DFE /* Helper */,
@@ -236,6 +255,8 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				27C99CE027D4D37C00870E6E /* Validator.swift */,
+				27C99CD527D4CEED00870E6E /* Extension.swift */,
 				2753A61627D13CCF00A3E762 /* CollectionViewHelper.swift */,
 				2756E05827CF7A6900D45B10 /* TableViewHelper.swift */,
 				276732E227CEC6CB00928288 /* UITextFieldDataPicker.swift */,
@@ -277,8 +298,19 @@
 				2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */,
 				2746CAC327D0C27D008A7D6A /* DetailsVC.swift */,
 				2753A60E27D1306100A3E762 /* PhotosVC.swift */,
+				27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */,
+				274E398B27D542AF003A911F /* EditProfileVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27C99CD727D4CF2C00870E6E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				27C99CD827D4CF3C00870E6E /* CustomAlert.swift */,
+				27C99CD927D4CF3D00870E6E /* CustomAlert.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +390,7 @@
 				27734B4C27CD7BC5007E9DFE /* Poppins-ExtraLight.ttf in Resources */,
 				276732DB27CEA94A00928288 /* SearchView.xib in Resources */,
 				274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */,
+				27C99CDB27D4CF3D00870E6E /* CustomAlert.xib in Resources */,
 				27734B4B27CD7BC2007E9DFE /* Poppins-ThinItalic.ttf in Resources */,
 				27734B5727CD7BE3007E9DFE /* Poppins-BoldItalic.ttf in Resources */,
 				2753A61227D1319300A3E762 /* PhotoCell.xib in Resources */,
@@ -379,10 +412,12 @@
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */,
+				27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
 				27734B0827CD4EA8007E9DFE /* AppDelegate.swift in Sources */,
 				27734B3E27CD64AB007E9DFE /* UIButtonDesignable.swift in Sources */,
+				27C99CD627D4CEED00870E6E /* Extension.swift in Sources */,
 				2756E05B27CF7E0300D45B10 /* SettingMenu.swift in Sources */,
 				2756E05727CF797000D45B10 /* ReusableView.swift in Sources */,
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
@@ -390,6 +425,7 @@
 				2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
+				27C99CD227D4BB0900870E6E /* StoryBoarded.swift in Sources */,
 				2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
@@ -401,14 +437,18 @@
 				276732ED27CECD2100928288 /* ProfileVC.swift in Sources */,
 				27734B5927CD8481007E9DFE /* LoginVC.swift in Sources */,
 				27734B5B27CD84A7007E9DFE /* SignupVC.swift in Sources */,
+				274E398C27D542AF003A911F /* EditProfileVC.swift in Sources */,
+				27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */,
 				276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,
 				2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */,
 				274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */,
 				276732E727CECCB300928288 /* FilterVC.swift in Sources */,
+				27C99CE127D4D37C00870E6E /* Validator.swift in Sources */,
 				27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */,
 				276732E527CECC8400928288 /* SearchVC.swift in Sources */,
+				27C99CDF27D4D18200870E6E /* carAqarTabBarController.swift in Sources */,
 				276732D627CE994300928288 /* ResetSuccessfullyVC.swift in Sources */,
 				276732E027CEAA2900928288 /* HomeCell.swift in Sources */,
 				276732D827CE9C0F00928288 /* ResetPasswordVC.swift in Sources */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A542609213E0A56EB464C0C /* Pods_Aqar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */; };
 		2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */; };
 		2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC327D0C27D008A7D6A /* DetailsVC.swift */; };
 		274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E427CFE0010094FA57 /* MenuCell.swift */; };
@@ -72,6 +73,18 @@
 		27734B5927CD8481007E9DFE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5827CD8481007E9DFE /* LoginVC.swift */; };
 		27734B5B27CD84A7007E9DFE /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5A27CD84A7007E9DFE /* SignupVC.swift */; };
 		27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B5C27CD86A1007E9DFE /* BottomBorderTextField.swift */; };
+		2773FE2927D671FD00A69B7B /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE2827D671FD00A69B7B /* Networkable.swift */; };
+		2773FE2C27D6755900A69B7B /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE2B27D6755900A69B7B /* BaseResponse.swift */; };
+		2773FE2E27D675C300A69B7B /* dataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE2D27D675C300A69B7B /* dataModel.swift */; };
+		2773FE3227D6769300A69B7B /* AuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3127D6769300A69B7B /* AuthTarget.swift */; };
+		2773FE3427D676F800A69B7B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3327D676F800A69B7B /* AppConfig.swift */; };
+		2773FE3627D67CBA00A69B7B /* AuthNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */; };
+		27C89D1327D7AC9800FCB743 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */; };
+		27C89D1527D7ACB100FCB743 /* ProfileNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */; };
+		27C89D1727D7D03400FCB743 /* AqarTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1627D7D03400FCB743 /* AqarTarget.swift */; };
+		27C89D1A27D7D05000FCB743 /* AqarNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1927D7D05000FCB743 /* AqarNetworkable.swift */; };
+		27C89D1D27D7E99000FCB743 /* CarTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1C27D7E99000FCB743 /* CarTarget.swift */; };
+		27C89D1F27D7E99E00FCB743 /* CarNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1E27D7E99E00FCB743 /* CarNetworkable.swift */; };
 		27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */; };
 		27C99CD227D4BB0900870E6E /* StoryBoarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD027D4BB0900870E6E /* StoryBoarded.swift */; };
 		27C99CD627D4CEED00870E6E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD527D4CEED00870E6E /* Extension.swift */; };
@@ -82,6 +95,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqar.debug.xcconfig"; path = "Target Support Files/Pods-Aqar/Pods-Aqar.debug.xcconfig"; sourceTree = "<group>"; };
 		2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAdverstimentVC.swift; sourceTree = "<group>"; };
 		2746CAC327D0C27D008A7D6A /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		274D03E427CFE0010094FA57 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -149,6 +163,18 @@
 		27734B5827CD8481007E9DFE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		27734B5A27CD84A7007E9DFE /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		27734B5C27CD86A1007E9DFE /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
+		2773FE2827D671FD00A69B7B /* Networkable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		2773FE2B27D6755900A69B7B /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		2773FE2D27D675C300A69B7B /* dataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataModel.swift; sourceTree = "<group>"; };
+		2773FE3127D6769300A69B7B /* AuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTarget.swift; sourceTree = "<group>"; };
+		2773FE3327D676F800A69B7B /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkable.swift; sourceTree = "<group>"; };
+		27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
+		27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkable.swift; sourceTree = "<group>"; };
+		27C89D1627D7D03400FCB743 /* AqarTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarTarget.swift; sourceTree = "<group>"; };
+		27C89D1927D7D05000FCB743 /* AqarNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarNetworkable.swift; sourceTree = "<group>"; };
+		27C89D1C27D7E99000FCB743 /* CarTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTarget.swift; sourceTree = "<group>"; };
+		27C89D1E27D7E99E00FCB743 /* CarNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNetworkable.swift; sourceTree = "<group>"; };
 		27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsPresenting.swift; sourceTree = "<group>"; };
 		27C99CD027D4BB0900870E6E /* StoryBoarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoarded.swift; sourceTree = "<group>"; };
 		27C99CD527D4CEED00870E6E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -156,6 +182,8 @@
 		27C99CD927D4CF3D00870E6E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carAqarTabBarController.swift; sourceTree = "<group>"; };
 		27C99CE027D4D37C00870E6E /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27209E19EB6C11D0ECF1DE0 /* Pods-Aqar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqar.release.xcconfig"; path = "Target Support Files/Pods-Aqar/Pods-Aqar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A542609213E0A56EB464C0C /* Pods_Aqar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +201,7 @@
 		2756E05327CF790100D45B10 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2773FE2827D671FD00A69B7B /* Networkable.swift */,
 				27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */,
 				27C99CD027D4BB0900870E6E /* StoryBoarded.swift */,
 				2756E05627CF797000D45B10 /* ReusableView.swift */,
@@ -198,6 +228,8 @@
 			children = (
 				27734B0627CD4EA8007E9DFE /* Aqar */,
 				27734B0527CD4EA8007E9DFE /* Products */,
+				4B38BFCE00D147BDFA86F320 /* Pods */,
+				CEC5993D2A9771251C261CFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +244,8 @@
 		27734B0627CD4EA8007E9DFE /* Aqar */ = {
 			isa = PBXGroup;
 			children = (
+				2773FE2F27D6763B00A69B7B /* Networkable */,
+				2773FE2A27D6723900A69B7B /* Model */,
 				27C99CD727D4CF2C00870E6E /* Component */,
 				2756E05327CF790100D45B10 /* Protocols */,
 				27734B4127CD6FBB007E9DFE /* ViewControllers */,
@@ -255,6 +289,7 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2773FE3327D676F800A69B7B /* AppConfig.swift */,
 				27C99CE027D4D37C00870E6E /* Validator.swift */,
 				27C99CD527D4CEED00870E6E /* Extension.swift */,
 				2753A61627D13CCF00A3E762 /* CollectionViewHelper.swift */,
@@ -304,6 +339,62 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		2773FE2A27D6723900A69B7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2773FE2B27D6755900A69B7B /* BaseResponse.swift */,
+				2773FE2D27D675C300A69B7B /* dataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2773FE2F27D6763B00A69B7B /* Networkable */ = {
+			isa = PBXGroup;
+			children = (
+				27C89D1B27D7E98300FCB743 /* Car */,
+				27C89D1827D7D03900FCB743 /* Aqar */,
+				27C89D1127D7AC7900FCB743 /* Profile */,
+				2773FE3027D6764E00A69B7B /* Auth */,
+			);
+			path = Networkable;
+			sourceTree = "<group>";
+		};
+		2773FE3027D6764E00A69B7B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				2773FE3127D6769300A69B7B /* AuthTarget.swift */,
+				2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		27C89D1127D7AC7900FCB743 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */,
+				27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		27C89D1827D7D03900FCB743 /* Aqar */ = {
+			isa = PBXGroup;
+			children = (
+				27C89D1627D7D03400FCB743 /* AqarTarget.swift */,
+				27C89D1927D7D05000FCB743 /* AqarNetworkable.swift */,
+			);
+			path = Aqar;
+			sourceTree = "<group>";
+		};
+		27C89D1B27D7E98300FCB743 /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				27C89D1C27D7E99000FCB743 /* CarTarget.swift */,
+				27C89D1E27D7E99E00FCB743 /* CarNetworkable.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
 		27C99CD727D4CF2C00870E6E /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +404,23 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		4B38BFCE00D147BDFA86F320 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */,
+				F27209E19EB6C11D0ECF1DE0 /* Pods-Aqar.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CEC5993D2A9771251C261CFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,9 +428,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27734B1827CD4EA9007E9DFE /* Build configuration list for PBXNativeTarget "Aqar" */;
 			buildPhases = (
+				13BDF902226B6796813F260B /* [CP] Check Pods Manifest.lock */,
 				27734B0027CD4EA8007E9DFE /* Sources */,
 				27734B0127CD4EA8007E9DFE /* Frameworks */,
 				27734B0227CD4EA8007E9DFE /* Resources */,
+				21C6537BC6364D486C062124 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -402,6 +512,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13BDF902226B6796813F260B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aqar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21C6537BC6364D486C062124 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aqar/Pods-Aqar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aqar/Pods-Aqar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aqar/Pods-Aqar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27734B0027CD4EA8007E9DFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -415,22 +567,30 @@
 				27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
+				27C89D1527D7ACB100FCB743 /* ProfileNetworkable.swift in Sources */,
 				27734B0827CD4EA8007E9DFE /* AppDelegate.swift in Sources */,
 				27734B3E27CD64AB007E9DFE /* UIButtonDesignable.swift in Sources */,
 				27C99CD627D4CEED00870E6E /* Extension.swift in Sources */,
+				27C89D1327D7AC9800FCB743 /* ProfileTarget.swift in Sources */,
 				2756E05B27CF7E0300D45B10 /* SettingMenu.swift in Sources */,
 				2756E05727CF797000D45B10 /* ReusableView.swift in Sources */,
+				2773FE2E27D675C300A69B7B /* dataModel.swift in Sources */,
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
 				274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */,
+				27C89D1D27D7E99000FCB743 /* CarTarget.swift in Sources */,
 				2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */,
+				27C89D1A27D7D05000FCB743 /* AqarNetworkable.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
 				276732DC27CEA94A00928288 /* SearchView.swift in Sources */,
 				27C99CD227D4BB0900870E6E /* StoryBoarded.swift in Sources */,
 				2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
+				2773FE2927D671FD00A69B7B /* Networkable.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
 				274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */,
 				2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */,
+				2773FE3227D6769300A69B7B /* AuthTarget.swift in Sources */,
+				2773FE3427D676F800A69B7B /* AppConfig.swift in Sources */,
 				274D03EB27D00BE80094FA57 /* AboutUsVC.swift in Sources */,
 				274D03EF27D020D80094FA57 /* MyGoldenAds.swift in Sources */,
 				27734B3F27CD64AB007E9DFE /* UIImageViewDesignable.swift in Sources */,
@@ -445,11 +605,15 @@
 				2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */,
 				274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */,
 				276732E727CECCB300928288 /* FilterVC.swift in Sources */,
+				2773FE2C27D6755900A69B7B /* BaseResponse.swift in Sources */,
 				27C99CE127D4D37C00870E6E /* Validator.swift in Sources */,
 				27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */,
+				27C89D1F27D7E99E00FCB743 /* CarNetworkable.swift in Sources */,
 				276732E527CECC8400928288 /* SearchVC.swift in Sources */,
 				27C99CDF27D4D18200870E6E /* carAqarTabBarController.swift in Sources */,
 				276732D627CE994300928288 /* ResetSuccessfullyVC.swift in Sources */,
+				27C89D1727D7D03400FCB743 /* AqarTarget.swift in Sources */,
+				2773FE3627D67CBA00A69B7B /* AuthNetworkable.swift in Sources */,
 				276732E027CEAA2900928288 /* HomeCell.swift in Sources */,
 				276732D827CE9C0F00928288 /* ResetPasswordVC.swift in Sources */,
 				2753A61727D13CCF00A3E762 /* CollectionViewHelper.swift in Sources */,
@@ -596,6 +760,7 @@
 		};
 		27734B1927CD4EA9007E9DFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -624,6 +789,7 @@
 		};
 		27734B1A27CD4EA9007E9DFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F27209E19EB6C11D0ECF1DE0 /* Pods-Aqar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

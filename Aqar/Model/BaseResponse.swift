@@ -7,7 +7,7 @@
 
 import Foundation
 struct BaseResponse<T:Decodable>: Decodable {
-    let status: String
+    let status: Bool
 //    let statusCode: Int
     let message: String
 //    let errors: [ErrorElement]?
@@ -16,7 +16,7 @@ struct BaseResponse<T:Decodable>: Decodable {
     enum CodingKeys: String, CodingKey {
         case status
 //        case statusCode = "status_code"
-        case message = "status_message"
+        case message
 //        case errors
 
         case  data

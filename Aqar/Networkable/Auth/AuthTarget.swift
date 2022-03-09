@@ -21,7 +21,7 @@ enum AuthApiTarget:TargetType{
     
     var path: String {
         switch self {
-        case .login:return ""
+        case .login:return "Login"
         case .sendRecoveryCode: return "SendRecoveryCode"
     
         }

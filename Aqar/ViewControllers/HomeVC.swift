@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
+    var cars:[Car]=[]
     @IBOutlet weak var carAqarTable: UITableView!
     
     @IBOutlet weak var carBtn: UIButton!
@@ -23,6 +23,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         TableDataSetup()
+        Home()
         
     }
     
@@ -58,10 +59,11 @@ class HomeVC: UIViewController {
 }
 extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return cars.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.configureHomeData(carData: cars[indexPath.row])
         return cell
         
     }
@@ -69,4 +71,47 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
 }
 extension HomeVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
+}
+
+extension HomeVC{
+    func Home(){
+        CarManager.shared.getAllCar { Response in
+            
+            switch Response{
+
+     
+                  case let .success(response):
+                
+                if response.status == true{
+                    guard let  responsedata = response.data else {return}
+
+                do {
+                    self.cars=responsedata.cars ?? []
+                    self.carAqarTable.reloadData()
+
+                } catch let error {
+               
+                }
+                    
+                }else{
+                    self.showAlert(title: "Failed", message: response.message)
+
+                }
+                
+                  case let .failure(error):
+      
+                      self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+      
+                      }
+      
+      
+  }
+            
+            
+            
+            
+            
+            
+        }
+    }
 }

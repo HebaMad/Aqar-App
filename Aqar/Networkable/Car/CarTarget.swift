@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 import Moya
 
 enum CarApiTarget:TargetType{
@@ -20,7 +18,7 @@ enum CarApiTarget:TargetType{
     case carDetails(id:Int)
     
     var baseURL: URL {
-        return URL(string: "\(AppConfig.apiBaseUrl)/RealEstateAdvertisment/")!
+        return URL(string: "\(AppConfig.apiBaseUrl)/CarAdvertisment/")!
     }
     
     

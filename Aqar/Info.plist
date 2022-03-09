@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Used to access Image Gallery</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Aaqr want access to  your location to complete your request</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We want to use your location to make you request</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-BlackItalic.ttf</string>

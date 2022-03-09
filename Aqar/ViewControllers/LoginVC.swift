@@ -8,12 +8,12 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var userNameTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     @IBAction func signupBtn(_ sender: Any) {
         self.sceneDelegate.setRootVC(vc: SignupVC.instantiate())
@@ -26,10 +26,11 @@ class LoginVC: UIViewController {
     @IBAction func loginBtn(_ sender: Any) {
         do{
             
-            let userEmail = try userNameTxt.validatedText(validationType: .username)
-            let userPassword = try passTxt.validatedText(validationType: .password)
-      self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
-
+            let userEmail = try userNameTxt.validatedText(validationType: .email)
+            let userPassword = try passTxt.validatedText(validationType: .requiredField(field: "password required"))
+            login(email: userEmail, password: userPassword)
+//            self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
+            
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
         }
@@ -37,4 +38,50 @@ class LoginVC: UIViewController {
 }
 extension LoginVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
+}
+extension LoginVC{
+    
+    func login(email:String,password:String){
+        AuthManager.shared.login(email: email, password: password) { Response in
+            
+            switch Response{
+                
+            case let .success(response):
+                
+                do {
+                    if response.status == true{
+                        guard let  responsedata = response.data else {return}
+                        do{
+                            try KeychainWrapper.set(value: responsedata.accessToken ?? "", key: responsedata.email ?? "")
+                            AppData.email = responsedata.email ?? ""
+                        }
+                        
+                        self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
+                        
+                    }else{
+                        
+                        self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+                        
+                    }
+                } catch let error {
+                    
+                    self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        
+                    }
+                }
+            case let .failure(error):
+                
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        
+    }
+    
+    
 }

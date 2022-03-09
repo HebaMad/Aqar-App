@@ -132,6 +132,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="FavButton" destination="Sai-hY-Sbl" id="TwE-Fz-yRk"/>
+                <outlet property="backgroundImg" destination="yHn-5Z-VRi" id="VhD-Wt-o2D"/>
+                <outlet property="descriptionText" destination="7aV-sm-mBT" id="fJw-09-VRN"/>
+                <outlet property="optionbtn" destination="n1D-bw-r4t" id="jTv-hV-0az"/>
+                <outlet property="seenLabel" destination="UFD-VK-LFs" id="7nX-EK-pcU"/>
+                <outlet property="titleTxt" destination="VBR-oR-16G" id="VTF-dA-hYO"/>
+            </connections>
             <point key="canvasLocation" x="84.782608695652186" y="25.78125"/>
         </tableViewCell>
     </objects>

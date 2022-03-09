@@ -10,6 +10,9 @@
 		1A542609213E0A56EB464C0C /* Pods_Aqar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */; };
 		2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */; };
 		2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC327D0C27D008A7D6A /* DetailsVC.swift */; };
+		274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */; };
+		274AA7A227D8B2BB00FED3E5 /* KeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AA7A027D8B2BB00FED3E5 /* KeychainOperations.swift */; };
+		274AA7A427D8B2E000FED3E5 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AA7A327D8B2E000FED3E5 /* AppData.swift */; };
 		274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E427CFE0010094FA57 /* MenuCell.swift */; };
 		274D03E727CFE0010094FA57 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D03E527CFE0010094FA57 /* MenuCell.xib */; };
 		274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274D03E827D008F80094FA57 /* ContactUSVC.swift */; };
@@ -98,6 +101,9 @@
 		23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqar.debug.xcconfig"; path = "Target Support Files/Pods-Aqar/Pods-Aqar.debug.xcconfig"; sourceTree = "<group>"; };
 		2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAdverstimentVC.swift; sourceTree = "<group>"; };
 		2746CAC327D0C27D008A7D6A /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		274AA7A027D8B2BB00FED3E5 /* KeychainOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainOperations.swift; sourceTree = "<group>"; };
+		274AA7A327D8B2E000FED3E5 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		274D03E427CFE0010094FA57 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		274D03E527CFE0010094FA57 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		274D03E827D008F80094FA57 /* ContactUSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUSVC.swift; sourceTree = "<group>"; };
@@ -289,6 +295,9 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				274AA7A327D8B2E000FED3E5 /* AppData.swift */,
+				274AA7A027D8B2BB00FED3E5 /* KeychainOperations.swift */,
+				274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */,
 				2773FE3327D676F800A69B7B /* AppConfig.swift */,
 				27C99CE027D4D37C00870E6E /* Validator.swift */,
 				27C99CD527D4CEED00870E6E /* Extension.swift */,
@@ -564,6 +573,7 @@
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */,
+				274AA7A427D8B2E000FED3E5 /* AppData.swift in Sources */,
 				27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
@@ -578,6 +588,7 @@
 				276732D027CE8D2D00928288 /* ConfirmationCodeVC.swift in Sources */,
 				274D03E927D008F80094FA57 /* ContactUSVC.swift in Sources */,
 				27C89D1D27D7E99000FCB743 /* CarTarget.swift in Sources */,
+				274AA7A227D8B2BB00FED3E5 /* KeychainOperations.swift in Sources */,
 				2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */,
 				27C89D1A27D7D05000FCB743 /* AqarNetworkable.swift in Sources */,
 				276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */,
@@ -600,6 +611,7 @@
 				274E398C27D542AF003A911F /* EditProfileVC.swift in Sources */,
 				27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */,
 				276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */,
+				274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,
 				2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */,

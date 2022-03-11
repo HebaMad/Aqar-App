@@ -67,6 +67,18 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let vc=DetailsVC.instantiate()
+        vc.carDetails=cars[indexPath.row]
+        vc.stateType="car"
+        navigationController?.pushViewController(vc, animated: true)
+        
+        
+        
+        
+    }
   
 }
 extension HomeVC:Storyboarded{

@@ -54,3 +54,12 @@ struct Car:Codable{
     let longitude : Int?
            
 }
+
+struct AppSetting:Decodable{
+    
+    let id:Int?
+    let parentId:Int?
+    let value:String?
+
+
+}

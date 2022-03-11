@@ -339,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="s2T-9G-4l8">
-                                <rect key="frame" x="32" y="379" width="350" height="167"/>
+                                <rect key="frame" x="32" y="287" width="350" height="167"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vX3-cE-4Ow">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="116"/>
@@ -378,7 +378,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mPa-3l-csp">
-                                <rect key="frame" x="35" y="708" width="344" height="95"/>
+                                <rect key="frame" x="35" y="494" width="344" height="95"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cv-pp-y20" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="344" height="52"/>
@@ -438,11 +438,11 @@
                             <constraint firstItem="s2T-9G-4l8" firstAttribute="leading" secondItem="WsB-gk-18P" secondAttribute="leading" constant="32" id="8Bd-34-jWE"/>
                             <constraint firstItem="WsB-gk-18P" firstAttribute="trailing" secondItem="mPa-3l-csp" secondAttribute="trailing" constant="35" id="Ilg-Kq-9vY"/>
                             <constraint firstItem="s2T-9G-4l8" firstAttribute="centerX" secondItem="KWI-dT-7hu" secondAttribute="centerX" id="R0m-cB-JZ3"/>
-                            <constraint firstItem="s2T-9G-4l8" firstAttribute="top" secondItem="MZR-vG-Sw7" secondAttribute="bottom" constant="192" id="SQ3-Ya-J1k"/>
+                            <constraint firstItem="s2T-9G-4l8" firstAttribute="top" secondItem="MZR-vG-Sw7" secondAttribute="bottom" constant="100" id="SQ3-Ya-J1k"/>
                             <constraint firstItem="mPa-3l-csp" firstAttribute="leading" secondItem="WsB-gk-18P" secondAttribute="leading" constant="35" id="eFj-u0-GAe"/>
                             <constraint firstItem="MZR-vG-Sw7" firstAttribute="top" secondItem="WsB-gk-18P" secondAttribute="top" constant="91" id="enw-sh-AHm"/>
                             <constraint firstItem="WsB-gk-18P" firstAttribute="trailing" secondItem="s2T-9G-4l8" secondAttribute="trailing" constant="32" id="nfB-In-G7I"/>
-                            <constraint firstItem="mPa-3l-csp" firstAttribute="top" secondItem="s2T-9G-4l8" secondAttribute="bottom" constant="162" id="pJa-fH-icA"/>
+                            <constraint firstItem="mPa-3l-csp" firstAttribute="top" secondItem="s2T-9G-4l8" secondAttribute="bottom" constant="40" id="pJa-fH-icA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1050,7 +1050,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPE-gt-Gis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4657" y="84"/>
+            <point key="canvasLocation" x="4664" y="59"/>
         </scene>
         <!--Reset SuccessfullyVC-->
         <scene sceneID="QFM-Q9-vOS">
@@ -3274,7 +3274,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R7K-ab-t9Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="576"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXJ-YS-n1U">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -3302,6 +3302,9 @@
                                                         <color key="tintColor" name="buton"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" image="chevron.backward" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="backBtn:" destination="dI9-Sv-5i1" eventType="touchUpInside" id="oNv-kb-2oR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3439,14 +3442,14 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-wK-X3l">
-                                                <rect key="frame" x="0.0" y="506" width="414" height="137"/>
+                                                <rect key="frame" x="0.0" y="506" width="414" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="137" id="flP-YF-27Q"/>
+                                                    <constraint firstAttribute="height" constant="30" id="flP-YF-27Q"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="riZ-VM-DAg">
-                                                <rect key="frame" x="0.0" y="643" width="414" height="40"/>
+                                                <rect key="frame" x="0.0" y="536" width="414" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRQ-5i-YWg" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
                                                         <rect key="frame" x="17" y="0.0" width="118.5" height="40"/>
@@ -3465,6 +3468,9 @@
                                                                 <real key="value" value="6"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="emailBtn:" destination="dI9-Sv-5i1" eventType="touchUpInside" id="U6w-fT-Bec"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1i-Mc-Z9E" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
                                                         <rect key="frame" x="147.5" y="0.0" width="119" height="40"/>
@@ -3481,6 +3487,9 @@
                                                                 <real key="value" value="6"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="callBtn:" destination="dI9-Sv-5i1" eventType="touchUpInside" id="6YJ-cg-Tzk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8o-IL-IKA" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
                                                         <rect key="frame" x="278.5" y="0.0" width="118.5" height="40"/>
@@ -3528,6 +3537,12 @@
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="addressTxt" destination="8Rz-Na-4fF" id="RFn-j4-nnL"/>
+                        <outlet property="backgroundImg" destination="6mj-Ap-ym7" id="fhU-OI-LFi"/>
+                        <outlet property="descriptionTxt" destination="xmZ-MC-Lz1" id="bcb-9b-Evd"/>
+                        <outlet property="titleTxt" destination="wri-aN-ZAd" id="Yws-VU-14a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T7s-2A-bSD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

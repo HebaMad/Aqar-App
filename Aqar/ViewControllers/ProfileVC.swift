@@ -8,11 +8,16 @@
 import UIKit
 
 class ProfileVC: UIViewController {
+    var aboutUsText=""
+    var contactUsText=""
+
     var profileItem:[Menu]=[]
     @IBOutlet weak var menuTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
+        contactUsData()
+        aboutus()
     }
     
     func setupData(){
@@ -51,10 +56,12 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
         case 2:
         let vc = ContactUSVC.instantiate()
             vc.modalPresentationStyle = .overFullScreen
+            vc.contactUS=contactUsText
             present(vc, animated: true, completion: nil)
         case 3:
             let vc = AboutUsVC.instantiate()
                 vc.modalPresentationStyle = .overFullScreen
+            vc.aboutusTxt = aboutUsText
             present(vc, animated: true, completion: nil)
         case 4:
             let vc = LogoutAlertVC.instantiate()
@@ -69,4 +76,49 @@ print("error")
     
     
 }
+}
+
+
+extension ProfileVC{
+    
+    func contactUsData(){
+        SettingManager.shared.contactUs { Response in
+            switch Response{
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    guard let responseData = response.data else {return}
+                    self.contactUsText=responseData.value ?? ""
+                }
+                
+            case let .failure(error):
+                
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+            }
+        }
+    }
+    
+    func aboutus(){
+        SettingManager.shared.aboutus { Response in
+            switch Response{
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    guard let responseData = response.data else {return}
+                    self.aboutUsText=responseData.value ?? ""
+                }
+            case let .failure(error):
+                
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+                
+                
+            }
+        }
+    }
 }

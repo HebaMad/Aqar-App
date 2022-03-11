@@ -8,25 +8,50 @@
 import UIKit
 
 class DetailsVC: UIViewController {
-
+var stateType="car"
+    @IBOutlet weak var descriptionTxt: UILabel!
+    @IBOutlet weak var addressTxt: UILabel!
+    @IBOutlet weak var titleTxt: UILabel!
+    @IBOutlet weak var backgroundImg: UIImageViewDesignable!
+    
+    
+    var carDetails:Car?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if stateType == "car"{
+            carData()
+        }else{
+            
+        }
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backBtn(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
-    */
-
+    @IBAction func callBtn(_ sender: Any) {
+//        self.callMobile(mobileNum: carDetails.p)
+    }
+    
+    @IBAction func emailBtn(_ sender: Any) {
+//        self.sendEmail(email: "")
+    }
+    
 }
 extension DetailsVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
+}
+
+extension DetailsVC{
+    
+    func carData(){
+        descriptionTxt.text = carDetails?.description
+        addressTxt.text = carDetails?.location
+        titleTxt.text = carDetails?.title
+
+    }
+    
+    
+    
 }

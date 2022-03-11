@@ -31,10 +31,10 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
     
     func configureHomeData(carData:Car){
         
-        backgroundImg.sd_setImage(with: URL(string: carData.images?[0] ?? ""))
+//        backgroundImg.sd_setImage(with: URL(string: carData.images?[0] ?? "" ))
         titleTxt.text=carData.title
         descriptionText.text=carData.description
-        seenLabel.text="\(carData.views)"
+        seenLabel.text="\(carData.views ?? 0)"
         
         if carData.isFavourite == true {
             FavButton.tintColor = .red

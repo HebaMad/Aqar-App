@@ -5,7 +5,7 @@
 //  Created by moumen isawe on 07/09/2021.
 //
 
-
+import MessageUI
 import UIKit
 extension UIColor {
     public convenience init?(hex: String) {
@@ -57,7 +57,31 @@ extension UIViewController{
         }
     
     
-    
+    func sendEmail(email:String){
+        let composeViewController = MFMailComposeViewController()
+
+        if email == ""{
+            showAlert(title: "Error", message: "you should add your email")
+
+        }else{
+            
+        
+
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+            mail.setToRecipients([email])
+            mail.setMessageBody("<h1>Hello there, This is a test.<h1>", isHTML: true)
+            present(mail, animated: true)
+        } else {
+            showAlert(title: "Error", message: "Cannot send email")
+            print("Cannot send email")
+        }
+        func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            controller.dismiss(animated: true)
+        }
+    }
+    }
     
     
     

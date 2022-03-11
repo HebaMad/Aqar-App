@@ -1,20 +1,21 @@
 //
 //  ContactUSVC.swift
 //  Aqar
-//
 //  Created by heba isaa on 02/03/2022.
-//
 
 import UIKit
 
 class ContactUSVC: UIViewController {
+    var contactUS=""
 
     @IBOutlet var tapGes: UITapGestureRecognizer!
     @IBOutlet weak var contactDetails: UILabel!
     @IBOutlet weak var contactNumber: UIButtonDesignable!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        contactDetails.text = contactUS
         tapGes.addTarget(self, action: #selector(self.handleTap(_:)))
 
 
@@ -22,7 +23,7 @@ class ContactUSVC: UIViewController {
   
 
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
         
     }
     
@@ -36,4 +37,5 @@ dismiss(animated: true, completion: nil)
 extension ContactUSVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }
+
 

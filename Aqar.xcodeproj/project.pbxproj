@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A542609213E0A56EB464C0C /* Pods_Aqar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */; };
+		273F32B327DA23E5001FA62F /* SettingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F32B227DA23E5001FA62F /* SettingTarget.swift */; };
+		273F32B527DA23F4001FA62F /* SettingNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F32B427DA23F4001FA62F /* SettingNetworkable.swift */; };
 		2746CAC227D0C256008A7D6A /* NewAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */; };
 		2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC327D0C27D008A7D6A /* DetailsVC.swift */; };
 		274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */; };
@@ -99,6 +101,8 @@
 
 /* Begin PBXFileReference section */
 		23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqar.debug.xcconfig"; path = "Target Support Files/Pods-Aqar/Pods-Aqar.debug.xcconfig"; sourceTree = "<group>"; };
+		273F32B227DA23E5001FA62F /* SettingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTarget.swift; sourceTree = "<group>"; };
+		273F32B427DA23F4001FA62F /* SettingNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNetworkable.swift; sourceTree = "<group>"; };
 		2746CAC127D0C256008A7D6A /* NewAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAdverstimentVC.swift; sourceTree = "<group>"; };
 		2746CAC327D0C27D008A7D6A /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -204,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273F32B127DA23B4001FA62F /* AppSetting */ = {
+			isa = PBXGroup;
+			children = (
+				273F32B227DA23E5001FA62F /* SettingTarget.swift */,
+				273F32B427DA23F4001FA62F /* SettingNetworkable.swift */,
+			);
+			path = AppSetting;
+			sourceTree = "<group>";
+		};
 		2756E05327CF790100D45B10 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +373,7 @@
 		2773FE2F27D6763B00A69B7B /* Networkable */ = {
 			isa = PBXGroup;
 			children = (
+				273F32B127DA23B4001FA62F /* AppSetting */,
 				27C89D1B27D7E98300FCB743 /* Car */,
 				27C89D1827D7D03900FCB743 /* Aqar */,
 				27C89D1127D7AC7900FCB743 /* Profile */,
@@ -597,6 +611,7 @@
 				2753A60F27D1306100A3E762 /* PhotosVC.swift in Sources */,
 				27734B4027CD64AB007E9DFE /* UIViewExtension.swift in Sources */,
 				2773FE2927D671FD00A69B7B /* Networkable.swift in Sources */,
+				273F32B327DA23E5001FA62F /* SettingTarget.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
 				274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */,
 				2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */,
@@ -611,6 +626,7 @@
 				274E398C27D542AF003A911F /* EditProfileVC.swift in Sources */,
 				27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */,
 				276732D227CE8D7400928288 /* ForgetPasswordVC.swift in Sources */,
+				273F32B527DA23F4001FA62F /* SettingNetworkable.swift in Sources */,
 				274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,

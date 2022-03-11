@@ -8,13 +8,14 @@
 import UIKit
 
 class AboutUsVC: UIViewController {
-
+var aboutusTxt=""
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var aboutUsText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        aboutUsText.text = aboutusTxt
         tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
 
 
@@ -31,3 +32,4 @@ dismiss(animated: true, completion: nil)
 extension AboutUsVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }
+

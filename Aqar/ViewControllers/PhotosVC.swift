@@ -9,7 +9,9 @@ import UIKit
 
 class PhotosVC: UIViewController {
     @IBOutlet var displayTable: UICollectionView!
+    var stateType="car"
 
+    var realStatePhotos:[String]=[]
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
@@ -22,19 +24,20 @@ class PhotosVC: UIViewController {
         displayTable.dataSource=self
     }
 
-
+    @IBAction func backBtn(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension PhotosVC: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
-        return 10
+        return realStatePhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
         let cell:PhotoCell = collectionView.dequeueReusableCell(for: indexPath)
-
+        cell.configureImage(realstateImage: realStatePhotos[indexPath.row])
         return cell
         
         

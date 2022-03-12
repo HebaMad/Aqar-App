@@ -29,6 +29,9 @@
                 <constraint firstAttribute="bottom" secondItem="vaC-Wi-1Fa" secondAttribute="bottom" constant="5" id="zUt-eL-4Qx"/>
             </constraints>
             <size key="customSize" width="175" height="221"/>
+            <connections>
+                <outlet property="realstatePhoto" destination="vaC-Wi-1Fa" id="wcY-uJ-oRM"/>
+            </connections>
             <point key="canvasLocation" x="228" y="4"/>
         </collectionViewCell>
     </objects>

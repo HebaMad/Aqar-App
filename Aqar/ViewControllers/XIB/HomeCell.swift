@@ -29,14 +29,30 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
         // Configure the view for the selected state
     }
     
-    func configureHomeData(carData:Car){
+    func configureCarData(carData:Car){
         
-//        backgroundImg.sd_setImage(with: URL(string: carData.images?[0] ?? "" ))
+        backgroundImg.sd_setImage(with: URL(string: carData.mainImage ?? ""))
         titleTxt.text=carData.title
         descriptionText.text=carData.description
         seenLabel.text="\(carData.views ?? 0)"
         
         if carData.isFavourite == true {
+            FavButton.tintColor = .red
+        }else{
+            FavButton.tintColor = UIColor(named: "view")
+        }
+        
+        
+    }
+    
+    func configureAqarData(aqarData:Aqar){
+        
+        backgroundImg.sd_setImage(with: URL(string: aqarData.mainImage ?? ""))
+        titleTxt.text=aqarData.title
+        descriptionText.text=aqarData.description
+        seenLabel.text="\(aqarData.views ?? 0)"
+        
+        if aqarData.isFavourite == true {
             FavButton.tintColor = .red
         }else{
             FavButton.tintColor = UIColor(named: "view")

@@ -116,7 +116,7 @@ enum AqarApiTarget:TargetType{
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
-                return ["token":token ,"Accept":"application/json"]
+                return ["Authorization":token ,"Accept":"application/json"]
             }
             catch{
                 return ["Accept":"application/json"]

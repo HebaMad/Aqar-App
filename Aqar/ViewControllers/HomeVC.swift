@@ -9,6 +9,8 @@ import UIKit
 
 class HomeVC: UIViewController {
     var cars:[Car]=[]
+    var aqars:[Aqar]=[]
+    
     @IBOutlet weak var carAqarTable: UITableView!
     
     @IBOutlet weak var carBtn: UIButton!
@@ -18,13 +20,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var aqarBtn: UIButton!
     @IBOutlet weak var aqarView: UIView!
     
-    var buttonText=""
+    var buttonText="car"
     override func viewDidLoad() {
         super.viewDidLoad()
 
         TableDataSetup()
-        Home()
-        
+        getAllCar()
+        getAllAqar()
     }
     
     func TableDataSetup(){
@@ -41,7 +43,8 @@ class HomeVC: UIViewController {
         aqarView.backgroundColor = UIColor(named: "view")
         carBtn.setTitleColor(.black, for: .normal)
         aqarBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
-        
+        self.carAqarTable.reloadData()
+
         
     }
     
@@ -52,6 +55,8 @@ class HomeVC: UIViewController {
     
         aqarBtn.setTitleColor(.black, for: .normal)
         carBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
+        self.carAqarTable.reloadData()
+
         
     }
     
@@ -59,11 +64,24 @@ class HomeVC: UIViewController {
 }
 extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cars.count
+        if buttonText == "car"{
+            return cars.count
+
+        }else{
+            return aqars.count
+
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.configureHomeData(carData: cars[indexPath.row])
+        cell.optionbtn.isHidden = true
+        if buttonText == "car"{
+            cell.configureCarData(carData: cars[indexPath.row])
+
+        }else{
+            cell.configureAqarData(aqarData: aqars[indexPath.row])
+
+        }
         return cell
         
     }
@@ -71,8 +89,16 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         let vc=DetailsVC.instantiate()
-        vc.carDetails=cars[indexPath.row]
-        vc.stateType="car"
+        if buttonText == "car"{
+            vc.stateType = "car"
+            vc.carDetails=cars[indexPath.row]
+
+        }else{
+            vc.stateType = "aqar"
+
+            vc.aqarDetails = aqars[indexPath.row]
+
+        }
         navigationController?.pushViewController(vc, animated: true)
         
         
@@ -86,7 +112,7 @@ extension HomeVC:Storyboarded{
 }
 
 extension HomeVC{
-    func Home(){
+    func getAllCar(){
         CarManager.shared.getAllCar { Response in
             
             switch Response{
@@ -102,7 +128,6 @@ extension HomeVC{
                     self.carAqarTable.reloadData()
 
                 } catch let error {
-               
                 }
                     
                 }else{
@@ -116,14 +141,42 @@ extension HomeVC{
       
                       }
       
-      
   }
-            
-            
-            
-            
-            
-            
         }
     }
+    
+    func getAllAqar(){
+        AqarManager.shared.getAllAqar { Response in
+            switch Response{
+
+     
+                  case let .success(response):
+                
+                if response.status == true{
+                    guard let  responsedata = response.data else {return}
+
+                do {
+                    self.aqars=responsedata.realStates ?? []
+
+                } catch let error {
+                }
+                    
+                }else{
+                    self.showAlert(title: "Failed", message: response.message)
+
+                }
+                
+                  case let .failure(error):
+      
+                      self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+      
+                      }
+      
+  }
+        }
+    }
+    
+    
+    
+    
 }

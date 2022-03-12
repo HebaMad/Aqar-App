@@ -50,9 +50,9 @@ extension LoginVC{
                 
                 do {
                     if response.status == true{
-                        guard let  responsedata = response.data else {return}
+                        guard let  responsedata = response.data else {  return  }
                         do{
-                            try KeychainWrapper.set(value: responsedata.accessToken ?? "", key: responsedata.email ?? "")
+                            try KeychainWrapper.set(value: "Bearer"+" "+responsedata.accessToken!  , key: responsedata.email ?? "")
                             AppData.email = responsedata.email ?? ""
                         }
                         

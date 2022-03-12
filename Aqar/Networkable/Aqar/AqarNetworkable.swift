@@ -10,7 +10,7 @@ import Moya
 
 protocol AqarNetworkable:Networkable  {
     
-    func getAllAqar(completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ())
+    func getAllAqar(completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ())
     func deleteAqar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func aqarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 func AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
@@ -30,7 +30,7 @@ class AqarManager:AqarNetworkable{
    typealias targetType = AqarApiTarget
 
  
-    func getAllAqar(completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+    func getAllAqar(completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
         request(target: .getAllAqar, completion: completion)
     }
     

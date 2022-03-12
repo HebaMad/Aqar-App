@@ -38,6 +38,7 @@ struct HomeModel:Decodable{
 struct Car:Codable{
     
     let id : Int?
+    let mainImage:String?
     let modelName : String?
     let miles : Int?
     let speed : Int?
@@ -48,6 +49,8 @@ struct Car:Codable{
     let isFavourite : Bool?
     let price : Int?
     let views : Int?
+    let userPhone:String?
+    let userEmail:String?
     let advertismentType : Int?
     let packageType : Int?
     let latitude : Int?
@@ -62,4 +65,56 @@ struct AppSetting:Decodable{
     let value:String?
 
 
+}
+struct AqarHome:Decodable{
+    let realStates:[Aqar]?
+
+}
+
+struct Aqar:Codable{
+    
+    let id : Int?
+    let mainImage:String?
+    let modelName : String?
+    let miles : Int?
+    let speed : Int?
+    let images : [String]?
+    let title : String?
+    let location : String?
+    let description : String?
+    let isFavourite : Bool?
+    let price : Int?
+    let views : Int?
+    let advertismentType : Int?
+    let packageType : Int?
+    let latitude : Int?
+    let longitude : Int?
+    let area:Int?
+    let isArchive:Bool
+    let userPhone:String?
+    let userEmail:String?
+    let numberOfBedrooms : Int?
+    let numberOfBathrooms : Int?
+    let numberOfKitchens : Int?
+    let numberOfGarages : Int?
+
+
+}
+struct ProfileModel:Decodable{
+    
+    let id:String?
+    let accessToken:String?
+    let fullName:String?
+    let country:String?
+    let phoneNumber:String?
+    let email:String?
+    let silverAdsCount:Int?
+    let bronzeAdsCount:Int?
+    let goldenAdsCount:Int?
+    let carAdvertisments:[String]?
+    let realEstateAdvertisements:[String]?
+    let favCarAdvertisments:[String]?
+    let favRealEstateAdvertisments:String?
+    let image:String?
+ 
 }

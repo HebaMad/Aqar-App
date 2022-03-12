@@ -43,8 +43,7 @@ extension UIViewController{
     
     func callMobile(mobileNum:String){
             if mobileNum == nil || mobileNum == "" {
-            
-                showAlert(title: "Error", message: "you should add your phone number")
+            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
             }else{
                 
             let number = Int(mobileNum)
@@ -61,8 +60,7 @@ extension UIViewController{
         let composeViewController = MFMailComposeViewController()
 
         if email == ""{
-            showAlert(title: "Error", message: "you should add your email")
-
+            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
         }else{
             
         

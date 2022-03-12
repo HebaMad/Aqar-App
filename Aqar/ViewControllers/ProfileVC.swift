@@ -12,10 +12,19 @@ class ProfileVC: UIViewController {
     var contactUsText=""
 
     var profileItem:[Menu]=[]
+    
+    @IBOutlet weak var bronzeAdsTxt: UILabel!
+    @IBOutlet weak var silverAdsTxt: UILabel!
+    @IBOutlet weak var goldenAdsTxt: UILabel!
+    @IBOutlet weak var countryTxt: UILabel!
+    @IBOutlet weak var mobileNumTxt: UILabel!
+    @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var menuTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
+        getUserData()
         contactUsData()
         aboutus()
     }
@@ -119,6 +128,37 @@ extension ProfileVC{
                 
                 
             }
+        }
+    }
+    
+    
+    func getUserData(){
+        ProfileManager.shared.profileDetails { Response in
+            
+            switch Response{
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    guard let responsedata = response.data else {return}
+                    self.countryTxt.text=responsedata.country ?? ""
+                    self.mobileNumTxt.text=responsedata.phoneNumber ?? ""
+                    self.usernameTxt.text=responsedata.fullName ?? ""
+
+                    self.bronzeAdsTxt.text=String(describing:responsedata.bronzeAdsCount ?? 0)
+                    self.silverAdsTxt.text=String(describing:responsedata.silverAdsCount ?? 0)
+                    self.goldenAdsTxt.text=String(describing:responsedata.goldenAdsCount ?? 0)
+                }
+                
+            case let .failure(error):
+                
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+            }
+            
+            
+            
         }
     }
 }

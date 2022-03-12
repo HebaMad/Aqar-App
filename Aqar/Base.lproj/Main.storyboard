@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1uz-0X-WG0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bli-CK-gVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -792,9 +792,9 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="NTK-pn-XWR">
-                                <rect key="frame" x="80" y="413" width="254" height="43"/>
+                                <rect key="frame" x="80" y="471" width="254" height="43"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EAM-Zn-ppw" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EAM-Zn-ppw" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30.5" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -807,7 +807,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yR7-TB-qcb" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yR7-TB-qcb" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="44.5" y="0.0" width="31" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -820,7 +820,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mdf-FJ-gLg" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mdf-FJ-gLg" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="89.5" y="0.0" width="30.5" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -833,7 +833,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdA-G2-WBT" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdA-G2-WBT" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="134" y="0.0" width="30.5" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -846,7 +846,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-j0-iyW" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-j0-iyW" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="178.5" y="0.0" width="31" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -859,7 +859,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Vl-5i-vhU" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Vl-5i-vhU" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
                                         <rect key="frame" x="223.5" y="0.0" width="30.5" height="43"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -878,7 +878,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abB-p6-YNl">
-                                <rect key="frame" x="98" y="499" width="218" height="38"/>
+                                <rect key="frame" x="98" y="557" width="218" height="38"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Resend recovery code">
@@ -888,6 +888,20 @@
                                     <action selector="resetRecoveryDataBtn:" destination="Bli-CK-gVM" eventType="touchUpInside" id="RDt-uB-aDj"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9j-9t-zH0" customClass="BottomBorderTextField" customModule="Aqar" customModuleProvider="target">
+                                <rect key="frame" x="84" y="471" width="270" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6PE-OJ-aRh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="LineColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CJJ-3C-uVi"/>
                         <color key="backgroundColor" name="bgColor"/>
@@ -896,11 +910,14 @@
                             <constraint firstItem="abB-p6-YNl" firstAttribute="leading" secondItem="CJJ-3C-uVi" secondAttribute="leading" constant="98" id="83b-UP-75v"/>
                             <constraint firstItem="0yk-ha-eRt" firstAttribute="top" secondItem="CJJ-3C-uVi" secondAttribute="top" constant="15" id="8KX-D7-J6v"/>
                             <constraint firstItem="abB-p6-YNl" firstAttribute="top" secondItem="NTK-pn-XWR" secondAttribute="bottom" constant="43" id="AiB-Yt-BBr"/>
+                            <constraint firstItem="CJJ-3C-uVi" firstAttribute="trailing" secondItem="y9j-9t-zH0" secondAttribute="trailing" constant="60" id="CTb-pq-CoT"/>
                             <constraint firstItem="CJJ-3C-uVi" firstAttribute="trailing" secondItem="NTK-pn-XWR" secondAttribute="trailing" constant="80" id="Czz-sI-iTn"/>
                             <constraint firstItem="vxf-Un-HHv" firstAttribute="leading" secondItem="CJJ-3C-uVi" secondAttribute="leading" constant="27" id="Eae-IA-GOq"/>
                             <constraint firstItem="CJJ-3C-uVi" firstAttribute="trailing" secondItem="abB-p6-YNl" secondAttribute="trailing" constant="98" id="LJs-1g-ydh"/>
+                            <constraint firstItem="y9j-9t-zH0" firstAttribute="leading" secondItem="CJJ-3C-uVi" secondAttribute="leading" constant="84" id="LnZ-CP-023"/>
                             <constraint firstItem="vxf-Un-HHv" firstAttribute="top" secondItem="0yk-ha-eRt" secondAttribute="bottom" constant="142" id="Mbt-WZ-VrZ"/>
-                            <constraint firstItem="NTK-pn-XWR" firstAttribute="top" secondItem="vxf-Un-HHv" secondAttribute="bottom" constant="42" id="mxj-Fx-i1u"/>
+                            <constraint firstItem="y9j-9t-zH0" firstAttribute="top" secondItem="vxf-Un-HHv" secondAttribute="bottom" constant="100" id="awg-tL-fFp"/>
+                            <constraint firstItem="NTK-pn-XWR" firstAttribute="top" secondItem="vxf-Un-HHv" secondAttribute="bottom" constant="100" id="mxj-Fx-i1u"/>
                             <constraint firstItem="CJJ-3C-uVi" firstAttribute="trailing" secondItem="vxf-Un-HHv" secondAttribute="trailing" constant="27" id="rtO-NX-sjy"/>
                             <constraint firstItem="NTK-pn-XWR" firstAttribute="leading" secondItem="CJJ-3C-uVi" secondAttribute="leading" constant="80" id="uWI-EC-0pu"/>
                         </constraints>
@@ -912,11 +929,12 @@
                         <outlet property="num4" destination="XdA-G2-WBT" id="UYP-eA-Q5d"/>
                         <outlet property="num5" destination="aLR-j0-iyW" id="QJ3-bb-jHt"/>
                         <outlet property="num6" destination="1Vl-5i-vhU" id="tDD-HU-V9g"/>
+                        <outlet property="verificationCode" destination="y9j-9t-zH0" id="DpM-zA-xH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qet-Sx-BPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3870" y="90"/>
+            <point key="canvasLocation" x="3869.5652173913045" y="89.732142857142847"/>
         </scene>
         <!--Reset PasswordVC-->
         <scene sceneID="pue-NU-jqP">
@@ -4179,7 +4197,7 @@
             <size key="intrinsicContentSize" width="12.5" height="22"/>
         </designable>
         <designable name="1Vl-5i-vhU">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="3DW-s5-AdQ">
             <size key="intrinsicContentSize" width="11" height="22"/>
@@ -4194,7 +4212,7 @@
             <size key="intrinsicContentSize" width="308" height="169"/>
         </designable>
         <designable name="8Ih-fj-xk6">
-            <size key="intrinsicContentSize" width="63" height="34"/>
+            <size key="intrinsicContentSize" width="35" height="18.5"/>
         </designable>
         <designable name="9cv-pp-y20">
             <size key="intrinsicContentSize" width="49" height="38"/>
@@ -4203,10 +4221,10 @@
             <size key="intrinsicContentSize" width="120" height="110"/>
         </designable>
         <designable name="EAM-Zn-ppw">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="FFi-5M-0HI">
-            <size key="intrinsicContentSize" width="63" height="34"/>
+            <size key="intrinsicContentSize" width="35" height="18.5"/>
         </designable>
         <designable name="G8o-IL-IKA">
             <size key="intrinsicContentSize" width="100" height="22"/>
@@ -4224,7 +4242,7 @@
             <size key="intrinsicContentSize" width="67" height="35"/>
         </designable>
         <designable name="LbC-Ib-Fo8">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="M2I-qz-RKG">
             <size key="intrinsicContentSize" width="128" height="22"/>
@@ -4236,7 +4254,7 @@
             <size key="intrinsicContentSize" width="55" height="46"/>
         </designable>
         <designable name="SXf-bj-lyV">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="Sgh-94-o3h">
             <size key="intrinsicContentSize" width="74.5" height="32"/>
@@ -4248,16 +4266,16 @@
             <size key="intrinsicContentSize" width="45" height="30"/>
         </designable>
         <designable name="XWF-gi-bLf">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="XdA-G2-WBT">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="aFk-GL-xBe">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="76" height="34"/>
         </designable>
         <designable name="aLR-j0-iyW">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="aPM-t5-sjO">
             <size key="intrinsicContentSize" width="120" height="110"/>
@@ -4272,7 +4290,7 @@
             <size key="intrinsicContentSize" width="20" height="20"/>
         </designable>
         <designable name="fMF-FA-yvo">
-            <size key="intrinsicContentSize" width="63" height="34"/>
+            <size key="intrinsicContentSize" width="35" height="18.5"/>
         </designable>
         <designable name="gew-rZ-x2A">
             <size key="intrinsicContentSize" width="30" height="29"/>
@@ -4287,7 +4305,7 @@
             <size key="intrinsicContentSize" width="42" height="36"/>
         </designable>
         <designable name="mdf-FJ-gLg">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="qWS-gs-n5m">
             <size key="intrinsicContentSize" width="19.5" height="22"/>
@@ -4302,13 +4320,13 @@
             <size key="intrinsicContentSize" width="36" height="35"/>
         </designable>
         <designable name="yR7-TB-qcb">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="4" height="18.5"/>
         </designable>
         <designable name="ywL-Oh-nDH">
             <size key="intrinsicContentSize" width="69" height="38"/>
         </designable>
         <designable name="zwh-u3-xwq">
-            <size key="intrinsicContentSize" width="63" height="34"/>
+            <size key="intrinsicContentSize" width="35" height="18.5"/>
         </designable>
     </designables>
     <resources>

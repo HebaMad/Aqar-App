@@ -29,8 +29,9 @@ class SignupVC: UIViewController {
             let password = try passwordTxt.validatedText(validationType: .requiredField(field: "password required"))
             let country = try countryTxt.validatedText(validationType: .requiredField(field: "country required"))
             signup(email: email, username: username, phoneNum: phonenum, password: password, country: country)
-            
+
          
+            
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
         }
@@ -63,7 +64,8 @@ extension SignupVC{
                         
                       do {
                           self.showAlert(title: "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: "", hideCancelBtn: true) { action in
-                              self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+                              self.sendCode(email: email)
+                             
                           }
                     
                               
@@ -87,4 +89,31 @@ extension SignupVC{
         }
     }
 }
+    func sendCode(email:String){
+        AuthManager.shared.sendRecoveryCode(email: email) { Response in
+            
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    let vc=ConfirmationCodeVC.instantiate()
+                    vc.email=email
+                    self.sceneDelegate.setRootVC(vc:vc)
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+            
+            
+            
+            
+        }
+    }
+    
+    
+    
 }

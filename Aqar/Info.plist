@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>App want to access to your camera to take photo</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to use your location to make you request</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -9,8 +13,6 @@
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to access Image Gallery</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Aaqr want access to  your location to complete your request</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We want to use your location to make you request</string>
 	<key>UIAppFonts</key>

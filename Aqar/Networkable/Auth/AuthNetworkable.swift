@@ -8,9 +8,10 @@
 import Foundation
 import Moya
 protocol AuthNetworkable:Networkable  {
-    
+    func sendRecoveryCode(email:String , completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+
     func login(email:String,password:String , completion: @escaping (Result<BaseResponse<loginModel>, Error>) -> ())
-    func sendRecoveryCode(email:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+    func verifyRecoveryCode(email:String,code:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 
 }
 class AuthManager:AuthNetworkable{
@@ -28,8 +29,12 @@ class AuthManager:AuthNetworkable{
     func login(email: String, password: String, completion: @escaping (Result<BaseResponse<loginModel>, Error>) -> ()) {
         request(target: .login(email: email, password: password), completion: completion)
     }
+    func verifyRecoveryCode(email: String,code:String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+        request(target: .verifyRecoveryCode(email: email,code:code), completion: completion)
+    }
     func sendRecoveryCode(email: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
         request(target: .sendRecoveryCode(email: email), completion: completion)
     }
+    
 
 }

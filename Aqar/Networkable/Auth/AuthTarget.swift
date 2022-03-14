@@ -10,8 +10,9 @@ import Moya
 
 enum AuthApiTarget:TargetType{
     case login(email:String,password:String )
+    case verifyRecoveryCode(email:String,code:String)
     case sendRecoveryCode(email:String)
-    
+
 
     
     var baseURL: URL {
@@ -22,14 +23,15 @@ enum AuthApiTarget:TargetType{
     var path: String {
         switch self {
         case .login:return "Login"
+        case .verifyRecoveryCode: return "VerifyRecoveryCode"
         case .sendRecoveryCode: return "SendRecoveryCode"
-    
+
         }
     }
     
     var method: Moya.Method {
         switch self{
-        case .sendRecoveryCode:
+        case .verifyRecoveryCode,.sendRecoveryCode:
             return .get
         case .login:
             // change this later
@@ -43,8 +45,7 @@ enum AuthApiTarget:TargetType{
     var task: Task{
         switch self{
   
-            
-        case .sendRecoveryCode:
+        case .verifyRecoveryCode,.sendRecoveryCode:
                 return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
         case .login:
@@ -56,15 +57,7 @@ enum AuthApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .sendRecoveryCode:
-            
-            do {
-                let token = try KeychainWrapper.get(key: AppData.email) ?? ""
-                return ["token":token ,"Accept":"application/json"]
-            }
-            catch{
-                return ["Accept":"application/json"]
-            }
+   
       
             
         default:return ["Accept":"application/json"]
@@ -76,9 +69,13 @@ enum AuthApiTarget:TargetType{
         
         
         switch self {
-     
+        case .sendRecoveryCode(let email):
+            return ["email":email]
+
             
-      
+        case .verifyRecoveryCode(let email,let  code):
+            return ["email":email,"code":code]
+
         case .login(let email,let  password):
             return ["email":email,"password":password]
 

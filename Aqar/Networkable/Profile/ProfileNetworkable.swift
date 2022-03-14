@@ -11,7 +11,6 @@ protocol ProfileNetworkable:Networkable  {
     
     func signin(FullName:String,Country:String,PhoneNumber:String,Email:String,Password:String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ())
     func changePassword(email:String,password:String , completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
-    func sendRecoveryCode(email:String , completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func profileDetails(completion: @escaping (Result<BaseResponse<ProfileModel>, Error>)-> ())
     func getUserCar( completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func getUserAqar( completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
@@ -41,10 +40,7 @@ class ProfileManager:ProfileNetworkable{
     func changePassword(email: String, password: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
         request(target: .changePassword(email: email, password: password), completion: completion)
     }
-    func sendRecoveryCode(email: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
-        request(target: .sendRecoveryCode(email: email), completion: completion)
-    }
-    
+  
     func profileDetails(completion: @escaping (Result<BaseResponse<ProfileModel>, Error>) -> ()) {
         request(target: .profileDetails, completion: completion)
     }

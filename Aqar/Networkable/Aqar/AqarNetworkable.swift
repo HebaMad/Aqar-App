@@ -13,7 +13,7 @@ protocol AqarNetworkable:Networkable  {
     func getAllAqar(completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ())
     func deleteAqar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func aqarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
-func AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+func AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     
     func UpdateAqar(id:Int,Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 }
@@ -42,7 +42,7 @@ class AqarManager:AqarNetworkable{
         request(target: .AqarDetails(id: id), completion: completion)
     }
     
-    func AddAqar(Area: String, NumberOfBedrooms: Int, NumberOfBathrooms: Int, NumberOfKitchens: Int, NumberOfGarages: Int, imags: Data, Title: String, Location: String, Description: String, Price: Int, AdvertismentType: Int, PackageType: Int, Longitude: String, Latitude: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+    func AddAqar(Area: String, NumberOfBedrooms: Int, NumberOfBathrooms: Int, NumberOfKitchens: Int, NumberOfGarages: Int, imags: [Data], Title: String, Location: String, Description: String, Price: Int, AdvertismentType: Int, PackageType: Int, Longitude: String, Latitude: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
         request(target: .AddAqar(Area: Area, NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: imags, Title: Title, Location: Location, Description: Description, Price: Price, AdvertismentType: AdvertismentType, PackageType: PackageType, Longitude: Longitude, Latitude: Latitude), completion: completion)
     }
     func UpdateAqar(id:Int,Area: String, NumberOfBedrooms: Int, NumberOfBathrooms: Int, NumberOfKitchens: Int, NumberOfGarages: Int, imags: Data, Title: String, Location: String, Description: String, Price: Int, AdvertismentType: Int, PackageType: Int, Longitude: String, Latitude: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {

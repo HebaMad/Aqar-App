@@ -8,6 +8,8 @@
 import UIKit
 
 class ConfirmationCodeVC: UIViewController {
+  var email=""
+    var screenName="Signup"
 
     @IBOutlet weak var num1: BottomBorderTextField!
     @IBOutlet weak var num2: BottomBorderTextField!
@@ -37,8 +39,10 @@ class ConfirmationCodeVC: UIViewController {
         
         
         if code.count == 6{
-           
             self.view.endEditing(true)
+
+            verifyCode(email: self.email, code: code)
+            
         }
         
         
@@ -47,95 +51,82 @@ class ConfirmationCodeVC: UIViewController {
     }
     
     
-    
-    //    @objc func handleSubmit() {
-//        if  txt == num1.text{
-//            
-//            guard let code = num1.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num1.attributedText = attributedString
-//            
-//            if txt.count == 1{
-//             self.num1.isEditing=false
-//                self.num1.endEditing(true)
-//                
-//            }
-//            
-//            
-//        }else if txt == num2.text{
-//            guard let code = num2.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num2.attributedText = attributedString
-//            
-//            if txt.count == 1{
-//                self.num1.isEditing=false
-//                num2.isEditing=true
-//            }
-//            
-//        }else if txt == num3.text{
-//            
-//            guard let code = num3.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num3.attributedText = attributedString
-//            
-//
-//
-//        }else if txt == num4.text{
-//            guard let code = num4.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num4.attributedText = attributedString
-//            
-//
-//
-//            
-//        }else if txt == num5.text{
-//            guard let code = num5.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num5.attributedText = attributedString
-//            
-//
-//
-//        }else if txt == num6.text{
-//            guard let code = num6.text, code.count > 0 else { return }
-//            let attributedString = NSMutableAttributedString(string: code)
-//            attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(75), range: NSRange(location: 0, length: attributedString.length))
-//            self.num6.attributedText = attributedString
-//            
-//
-//
-//            
-//            
-//        }
-//            
-//
-//          if code.count == 4 {
-//              self.continueOTP(code: txtOTP.text!, mobileNumber: mobileNumber)
-//              self.view.endEditing(true)
-//          }
-//          
-//          
-//          
-//          
-//      }
-//   
-    
+    @IBAction func backBtn(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: ForgettenPasswordVC.instantiate())
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func resetRecoveryDataBtn(_ sender: Any) {
+        sendCode(email: self.email)
     }
     
 
 }
 extension ConfirmationCodeVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
+}
+
+extension ConfirmationCodeVC{
+    func verifyCode(email:String,code:String){
+        
+        AuthManager.shared.verifyRecoveryCode(email: email, code: code) { Response in
+            switch Response{
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        if self.screenName == "forgetPass"{
+                            let vc = ResetPasswordVC.instantiate()
+                            vc.email = email
+                            self.sceneDelegate.setRootVC(vc:vc)
+
+                        }else{
+                            
+                            self.sceneDelegate.setRootVC(vc:carAqarTabBarController.instantiate())
+
+                        }
+                        
+                }
+                }else{
+                    self.showAlert(title:  "Error", message: response.message, confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                }
+                }
+       
+                case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+            
+    
+}
+}
+    }
+    
+    func sendCode(email:String){
+        AuthManager.shared.sendRecoveryCode(email: email) { Response in
+            
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+            
+            
+            
+            
+        }
+    }
 }

@@ -12,7 +12,7 @@ import Moya
 
 enum AqarApiTarget:TargetType{
     case getAllAqar
-    case AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
+    case AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateAqar(id:Int,Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
@@ -62,8 +62,9 @@ enum AqarApiTarget:TargetType{
             return .requestParameters(parameters: param, encoding: URLEncoding.httpBody)
 
         case .AddAqar(let Area,let NumberOfBedrooms,let NumberOfBathrooms,let NumberOfKitchens,let NumberOfGarages,let imags,let Title,let Location,let Description,let Price,let AdvertismentType,let PackageType,let Longitude,let Latitude):
-            
-         let pngData = MultipartFormData(provider: .data(imags), name: "Images", fileName: "images", mimeType: "image/png")
+            var multipartData:[MultipartFormData]=[]
+
+       
            let area = MultipartFormData(provider: .data(Area.data(using: .utf8)!), name: "Area")
             let numBedrooms = MultipartFormData(provider: .data("\(NumberOfBedrooms)".data(using: .utf8)!), name: "NumberOfBedrooms")
             let numBathrooms = MultipartFormData(provider: .data("\(NumberOfBathrooms)".data(using: .utf8)!), name: "NumberOfBathrooms")
@@ -80,7 +81,12 @@ enum AqarApiTarget:TargetType{
             let latitude = MultipartFormData(provider: .data(Latitude.data(using: .utf8)!), name: "Latitude")
 
             
-            let multipartData = [pngData, area,numBedrooms,numBathrooms,numKitchens,numGarages,title,location,description,price,advertismentType,packageType,longitude,latitude]
+            multipartData = [ area,numBedrooms,numBathrooms,numKitchens,numGarages,title,location,description,price,advertismentType,packageType,longitude,latitude]
+            
+            for index in 0 ... imags.count - 1 {
+                multipartData.append(MultipartFormData(provider: .data(imags[index]), name: "Images", fileName: "images", mimeType: "image/png"))
+
+            }
 
                       return .uploadMultipart(multipartData)
             

@@ -10,7 +10,7 @@ import Moya
 
 enum CarApiTarget:TargetType{
     case getAllCar
-    case AddCar(ModelName:String,Miles:Int,Speed:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
+    case AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
@@ -40,7 +40,6 @@ enum CarApiTarget:TargetType{
         case .getAllCar,.carDetails:
             return .get
         case .AddCar,.updateCar:
-            // change this later
             return Method.post
           
 
@@ -58,8 +57,8 @@ enum CarApiTarget:TargetType{
 
    
         case .AddCar(let ModelName,let Miles,let Speed,let imags,let Title,let Location,let Description,let Price,let AdvertismentType,let PackageType,let Longitude,let Latitude):
-            
-         let pngData = MultipartFormData(provider: .data(imags), name: "Images", fileName: "images", mimeType: "image/png")
+            var multipartData:[MultipartFormData]=[]
+    
       
             let modelName = MultipartFormData(provider: .data(ModelName.data(using: .utf8)!), name: "ModelName")
             let miles = MultipartFormData(provider: .data("\(Miles)".data(using: .utf8)!), name: "Miles")
@@ -75,8 +74,12 @@ enum CarApiTarget:TargetType{
             let latitude = MultipartFormData(provider: .data(Latitude.data(using: .utf8)!), name: "Latitude")
 
             
-            let multipartData = [pngData, modelName,miles,speed,title,location,description,price,advertismentType,packageType,longitude,latitude]
+           multipartData = [modelName,miles,speed,title,location,description,price,advertismentType,packageType,longitude,latitude]
+            
+            for index in 0 ... imags.count - 1 {
+                multipartData.append(MultipartFormData(provider: .data(imags[index]), name: "Images", fileName: "images", mimeType: "image/png"))
 
+            }
                       return .uploadMultipart(multipartData)
             
         case .updateCar(let id,let ModelName,let Miles,let Speed,let imags,let Title,let Location,let Description,let Price,let AdvertismentType,let PackageType,let Longitude,let Latitude):

@@ -11,7 +11,6 @@ import Moya
 enum ProfileApiTarget:TargetType{
     case signin(FullName:String,Country:String,PhoneNumber:String,Email:String,Password:String)
     case changePassword(email:String,password:String )
-    case sendRecoveryCode(email:String)
     case profileDetails
     case getUserCar
     case getUserAqar
@@ -34,7 +33,6 @@ enum ProfileApiTarget:TargetType{
         switch self {
         case .signin:return "Create"
         case .changePassword:return "ChangePassword"
-        case .sendRecoveryCode: return "SendRecoveryCode"
         case .profileDetails : return "GetUserDetail"
         case .getUserCar:return "GetUserCars"
         case .getUserAqar:return "GetUserRealStates"
@@ -42,7 +40,7 @@ enum ProfileApiTarget:TargetType{
         case .getUserCarFav:return "GetUserCarFav"
         case .removeFavCar:return "RemoveFavCar"
         case .removeFavAqar:return "RemoveFavRealEstate"
-        case .updateProfile:return "updateProfile"
+        case .updateProfile:return "Update"
         case .addFavCar:return "AddFavCar"
         case .addFavAqar:return "AddFavRealEstate"
         }
@@ -57,11 +55,11 @@ enum ProfileApiTarget:TargetType{
         case .removeFavCar,.removeFavAqar:
             return .delete
             
-        case .sendRecoveryCode,.profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav:
+        case .profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav,.changePassword:
             return .get
             
             
-        case .signin,.changePassword:
+        case .signin:
             // change this later
             return Method.post
           
@@ -75,10 +73,10 @@ enum ProfileApiTarget:TargetType{
   
         case .profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav:
             return .requestPlain
-        case .sendRecoveryCode:
-                return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
+        case .changePassword:
+            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
-        case .signin,.changePassword,.removeFavCar,.removeFavAqar,.addFavCar,.addFavAqar:
+        case .signin,.removeFavCar,.removeFavAqar,.addFavCar,.addFavAqar:
             return .requestParameters(parameters: param, encoding: URLEncoding.httpBody)
 
         case .updateProfile(let FullName,let Country,let PhoneNumber,let Email,let img):
@@ -117,7 +115,7 @@ enum ProfileApiTarget:TargetType{
         
         
         switch self {
-         
+  
         case .addFavAqar(let id):
             return ["RealStateId":id]
         case .addFavCar(let id):

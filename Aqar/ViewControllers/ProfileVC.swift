@@ -57,7 +57,7 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0 :
-            navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
+            navigationController?.pushViewController(NewCarAdverstimentVC.instantiate(), animated: true)
         case 1:
         
             navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)

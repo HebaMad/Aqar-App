@@ -6,7 +6,7 @@
 import UIKit
 
 class ResetPasswordVC: UIViewController {
-
+var email=""
     @IBOutlet weak var newPasswordTxt: UITextField!
     
     @IBOutlet weak var confirmPasswordTxt: UITextField!
@@ -15,16 +15,24 @@ class ResetPasswordVC: UIViewController {
 
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: ConfirmationCodeVC.instantiate())
+    }
     
     @IBAction func loginBtn(_ sender: Any) {
         do{
-            
- let newPassword = try newPasswordTxt.validatedText(validationType: .username)
- let confirmPassword = try confirmPasswordTxt.validatedText(validationType: .password)
-            
- self.sceneDelegate.setRootVC(vc: ResetSuccessfullyVC.instantiate())
+                let newPassword = try newPasswordTxt.validatedText(validationType: .requiredField(field: "password required"))
+                let confirmPassword = try confirmPasswordTxt.validatedText(validationType: .requiredField(field: "password required"))
+            if (newPasswordTxt.text == confirmPasswordTxt.text!){
 
-            
+              changePassword(email: email, password: confirmPasswordTxt.text!)
+                           
+            }else{
+                self.showAlert(title:  "Notice", message: "passwords not match", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
         }
@@ -36,4 +44,25 @@ class ResetPasswordVC: UIViewController {
 }
 extension ResetPasswordVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
+}
+extension ResetPasswordVC{
+    func changePassword(email:String,password:String){
+        ProfileManager.shared.changePassword(email: email, password: password) { Response in
+            
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.sceneDelegate.setRootVC(vc: ResetSuccessfullyVC.instantiate())
+
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+    }
 }

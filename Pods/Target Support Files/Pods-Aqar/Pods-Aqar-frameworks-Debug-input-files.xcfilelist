@@ -1,4 +1,8 @@
 ${PODS_ROOT}/Target Support Files/Pods-Aqar/Pods-Aqar-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
+${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework

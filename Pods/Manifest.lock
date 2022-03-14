@@ -1,28 +1,44 @@
 PODS:
   - Alamofire (5.4.4)
+  - IQKeyboardManagerSwift (6.3.0)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
+  - PryntTrimmerView (4.0.2)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
+  - SteviaLayout (4.7.3)
+  - YPImagePicker (5.0.0):
+    - PryntTrimmerView (= 4.0.2)
+    - SteviaLayout (= 4.7.3)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift (= 6.3.0)
   - Moya
   - SDWebImage (~> 5.0)
+  - YPImagePicker
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - Moya
+    - PryntTrimmerView
     - SDWebImage
+    - SteviaLayout
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  YPImagePicker: 1463a19a36244e209dcb03c30e63559c5afa9602
 
-PODFILE CHECKSUM: 577c238f77a4787e1eb386141841089c320744d4
+PODFILE CHECKSUM: e002266dd3aee1569090b49acc481d34fd58dcce
 
 COCOAPODS: 1.11.2

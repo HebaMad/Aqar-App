@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 class MapVC: UIViewController {
-
+var AdverstimentType="car"
     @IBOutlet weak var mapView: MKMapView!
     let locationmanager:LocationManager? = nil
     let regionInMeters: Double = 10000
@@ -33,15 +33,26 @@ var Fulladdress = ""
     }
     @IBAction func saveButton(_ sender: Any) {
         for viewController: UIViewController in (self.navigationController?.viewControllers)!{
+            if AdverstimentType == "car"{
+                if (viewController is NewCarAdverstimentVC){
 
-               if (viewController is NewCarAdverstimentVC){
+                    let vc: NewCarAdverstimentVC = (viewController as? NewCarAdverstimentVC)!
+                    vc.location=Fulladdress
+                    vc.lat=lat
+                    vc.long=long
+                      self.navigationController?.popToViewController(vc, animated: true)
+                }
+            }else{
+                
+                if (viewController is AddAqarAdverstimentVC){
 
-                   let vc: NewCarAdverstimentVC = (viewController as? NewCarAdverstimentVC)!
-                   vc.location=Fulladdress
-                   vc.lat=lat
-                   vc.long=long
-                     self.navigationController?.popToViewController(vc, animated: true)
-               }
+                    let vc: AddAqarAdverstimentVC = (viewController as? AddAqarAdverstimentVC)!
+                    vc.location=Fulladdress
+                    vc.lat=lat
+                    vc.long=long
+                    self.navigationController?.popToViewController(vc, animated: true)
+            }
+        
     }
            
   
@@ -50,7 +61,7 @@ var Fulladdress = ""
         }
     
     
-    
+    }
             
     func setupLocation(){
         guard let loc = locationmanager else {return}

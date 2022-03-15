@@ -2698,13 +2698,14 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="deleteBtn" destination="VgS-4W-nDV" id="hcy-LV-Fy0"/>
                         <outlet property="tapGesture" destination="EE2-nY-K6o" id="wyj-0T-EYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gf-Iw-bIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="EE2-nY-K6o"/>
             </objects>
-            <point key="canvasLocation" x="15981" y="117"/>
+            <point key="canvasLocation" x="16001" y="117"/>
         </scene>
         <!--Alert PackageVC-->
         <scene sceneID="88k-kv-4RL">
@@ -3394,7 +3395,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Add">
+                                                <state key="normal" title="Next">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -3439,6 +3440,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="AddBtn" destination="vBw-kd-QvE" id="lfJ-eu-YhQ"/>
                         <outlet property="address" destination="JtQ-72-ZJj" id="oeD-mQ-2RL"/>
                         <outlet property="adverstementType" destination="CHb-6q-qCR" id="zgo-Gm-rKa"/>
                         <outlet property="carModelText" destination="rnM-8D-Ey7" id="XJv-TS-qXk"/>
@@ -4878,6 +4880,9 @@
                                                         <real key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="AddAqarBtn:" destination="cgN-zZ-feP" eventType="touchUpInside" id="qPL-c8-gav"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4923,6 +4928,129 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAy-sO-qKw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18287" y="-612"/>
+        </scene>
+        <!--Add Adverstiment Type-->
+        <scene sceneID="MDh-HJ-8L1">
+            <objects>
+                <viewController storyboardIdentifier="AddAdverstimentType" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ekr-dL-8f5" customClass="AddAdverstimentType" customModule="Aqar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aeb-1f-4k2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-vY-OpL" customClass="UIViewDesignable" customModule="Aqar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="646" width="414" height="250"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZZ-b6-KoO">
+                                        <rect key="frame" x="177" y="17" width="60" height="4"/>
+                                        <color key="backgroundColor" name="TEXT"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="UO8-jp-L3U"/>
+                                            <constraint firstAttribute="width" constant="60" id="z5b-ZH-9yp"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="eFb-N5-eFg">
+                                        <rect key="frame" x="37" y="51" width="340" height="153"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure to log out?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybe-Wb-6qY">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="o9j-iK-xKm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="nGC-Mr-Qex">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="153"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdL-wY-wjP" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="65.5"/>
+                                                        <color key="backgroundColor" name="buton"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Add Car Adverstiment">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" name="buton"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="AddCarBtn:" destination="ekr-dL-8f5" eventType="touchUpInside" id="niG-ev-FZ3"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp1-PP-cIJ" customClass="UIButtonDesignable" customModule="Aqar" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="87.5" width="340" height="65.5"/>
+                                                        <color key="backgroundColor" name="buton"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Add Aqar Adverstiment">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="TEXT"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                                                <color key="value" name="buton"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="addAqarBtn:" destination="ekr-dL-8f5" eventType="touchUpInside" id="dvR-RT-375"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eFb-N5-eFg" secondAttribute="trailing" constant="37" id="VDF-bS-6jc"/>
+                                    <constraint firstItem="eFb-N5-eFg" firstAttribute="leading" secondItem="PqY-vY-OpL" secondAttribute="leading" constant="37" id="YJa-Dd-Bmd"/>
+                                    <constraint firstAttribute="bottom" secondItem="eFb-N5-eFg" secondAttribute="bottom" constant="46" id="Yot-nG-IMe"/>
+                                    <constraint firstItem="tZZ-b6-KoO" firstAttribute="centerX" secondItem="PqY-vY-OpL" secondAttribute="centerX" id="ayu-4a-RfK"/>
+                                    <constraint firstAttribute="height" constant="250" id="bFE-9p-Kh7"/>
+                                    <constraint firstItem="tZZ-b6-KoO" firstAttribute="top" secondItem="PqY-vY-OpL" secondAttribute="top" constant="17" id="bVh-lK-OGx"/>
+                                    <constraint firstItem="eFb-N5-eFg" firstAttribute="top" secondItem="tZZ-b6-KoO" secondAttribute="bottom" constant="30" id="hEw-kG-n6H"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Abf-bb-keg"/>
+                        <color key="backgroundColor" name="Alert Background"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PqY-vY-OpL" secondAttribute="bottom" id="CJF-Ns-A7x"/>
+                            <constraint firstItem="PqY-vY-OpL" firstAttribute="leading" secondItem="Abf-bb-keg" secondAttribute="leading" id="Qcr-6x-YGR"/>
+                            <constraint firstItem="PqY-vY-OpL" firstAttribute="trailing" secondItem="Abf-bb-keg" secondAttribute="trailing" id="tYc-34-v1n"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UZS-c7-scD" appends="YES" id="vN9-ud-ZJY"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="tapGesture" destination="UZS-c7-scD" id="sRi-Lv-rDy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p7n-0u-a2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UZS-c7-scD"/>
+            </objects>
+            <point key="canvasLocation" x="15957" y="840"/>
         </scene>
     </scenes>
     <designables>
@@ -4970,6 +5098,9 @@
         </designable>
         <designable name="IWb-F9-rZf">
             <size key="intrinsicContentSize" width="15.5" height="22"/>
+        </designable>
+        <designable name="IdL-wY-wjP">
+            <size key="intrinsicContentSize" width="173" height="33"/>
         </designable>
         <designable name="J1i-Mc-Z9E">
             <size key="intrinsicContentSize" width="52.5" height="21"/>
@@ -5055,11 +5186,14 @@
         <designable name="rJ8-t1-EUG">
             <size key="intrinsicContentSize" width="168" height="38"/>
         </designable>
+        <designable name="sp1-PP-cIJ">
+            <size key="intrinsicContentSize" width="183" height="33"/>
+        </designable>
         <designable name="swO-zc-yGa">
             <size key="intrinsicContentSize" width="30" height="33"/>
         </designable>
         <designable name="vBw-kd-QvE">
-            <size key="intrinsicContentSize" width="33" height="35"/>
+            <size key="intrinsicContentSize" width="36" height="35"/>
         </designable>
         <designable name="y9j-9t-zH0">
             <size key="intrinsicContentSize" width="32" height="34"/>

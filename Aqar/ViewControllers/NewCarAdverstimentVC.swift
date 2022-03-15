@@ -9,12 +9,13 @@ import UIKit
 import YPImagePicker
 class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var selectedImage:Data?
-
+    var packageNum:Int?
     var imagesArray:[Data]=[]
     var location=""
     var lat = ""
     var long = ""
     
+    @IBOutlet weak var AddBtn: UIButtonDesignable!
     @IBOutlet weak var titleTxt: UITextField!
     
     @IBOutlet weak var priceTxt: UITextField!
@@ -73,13 +74,24 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
     }
     
     @IBAction func selectLocation(_ sender: Any) {
-        
-     navigationController?.pushViewController(MapVC.instantiate(), animated: true)
+        let vc=MapVC.instantiate()
+        vc.AdverstimentType = "car"
+     navigationController?.pushViewController(vc, animated: true)
         
     }
     
 
     @IBAction func AddCarBtn(_ sender: Any) {
+        
+        if AddBtn.title(for: .normal) == "next"{
+          
+                let vc = AlertPackageVC.instantiate()
+                vc.modalPresentationStyle = .overFullScreen
+                present(vc, animated: true, completion: nil)
+                
+        }else{
+        
+        
         do{
         let title = try titleTxt.validatedText(validationType: .requiredField(field: "Title required"))
         let price = try priceTxt.validatedText(validationType: .requiredField(field: "price required"))
@@ -96,7 +108,7 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
         }
     }
 }
-
+}
 extension NewCarAdverstimentVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }

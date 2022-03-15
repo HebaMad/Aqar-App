@@ -76,7 +76,9 @@ class AddAqarAdverstimentVC: UIViewController {
     
     @IBAction func selectLocation(_ sender: Any) {
         
-     navigationController?.pushViewController(MapVC.instantiate(), animated: true)
+        let vc=MapVC.instantiate()
+        vc.AdverstimentType = "aqar"
+     navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -123,4 +125,7 @@ extension AddAqarAdverstimentVC{
             }
         }
     }
+}
+extension AddAqarAdverstimentVC:Storyboarded{
+    static var storyboardName: StoryboardName = .main
 }

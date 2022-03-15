@@ -57,11 +57,11 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0 :
-            navigationController?.pushViewController(NewCarAdverstimentVC.instantiate(), animated: true)
+            let vc = NewCarAdverstimentVC.instantiate()
+                vc.modalPresentationStyle = .overFullScreen
+                present(vc, animated: true, completion: nil)
         case 1:
-        
-            navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
-
+             navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
         case 2:
         let vc = ContactUSVC.instantiate()
             vc.modalPresentationStyle = .overFullScreen
@@ -75,15 +75,14 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
         case 4:
             let vc = LogoutAlertVC.instantiate()
                 vc.modalPresentationStyle = .overFullScreen
+            vc.command = "logout"
             present(vc, animated: true, completion: nil)
  
         default:
            
 print("error")
         }
-    
-    
-    
+   
 }
 }
 

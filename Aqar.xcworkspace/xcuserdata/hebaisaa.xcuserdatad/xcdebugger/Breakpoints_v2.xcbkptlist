@@ -670,10 +670,10 @@
             filePath = "Aqar/ViewControllers/NewCarAdverstimentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "AddCar(modelName:miles:speed:img:title:location:description:price:advertismentType:packageType:lat:long:)"
-            landmarkType = "7">
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "NewCarAdverstimentVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -686,8 +686,8 @@
             filePath = "Aqar/ViewControllers/NewCarAdverstimentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "AddCar(modelName:miles:speed:img:title:location:description:price:advertismentType:packageType:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +702,8 @@
             filePath = "Aqar/ViewControllers/NewCarAdverstimentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "AddCar(modelName:miles:speed:img:title:location:description:price:advertismentType:packageType:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +718,8 @@
             filePath = "Aqar/ViewControllers/NewCarAdverstimentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "AddCar(modelName:miles:speed:img:title:location:description:price:advertismentType:packageType:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,8 +734,8 @@
             filePath = "Aqar/ViewControllers/NewCarAdverstimentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "AddCar(modelName:miles:speed:img:title:location:description:price:advertismentType:packageType:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>

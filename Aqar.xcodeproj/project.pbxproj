@@ -84,6 +84,7 @@
 		2773FE3427D676F800A69B7B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3327D676F800A69B7B /* AppConfig.swift */; };
 		2773FE3627D67CBA00A69B7B /* AuthNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */; };
 		2780311E27DFC66200604726 /* AddAqarAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */; };
+		2780312027E0FA7500604726 /* AddAdverstimentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780311F27E0FA7500604726 /* AddAdverstimentType.swift */; };
 		27C89D1327D7AC9800FCB743 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */; };
 		27C89D1527D7ACB100FCB743 /* ProfileNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */; };
 		27C89D1727D7D03400FCB743 /* AqarTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1627D7D03400FCB743 /* AqarTarget.swift */; };
@@ -181,6 +182,7 @@
 		2773FE3327D676F800A69B7B /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkable.swift; sourceTree = "<group>"; };
 		2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAqarAdverstimentVC.swift; sourceTree = "<group>"; };
+		2780311F27E0FA7500604726 /* AddAdverstimentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdverstimentType.swift; sourceTree = "<group>"; };
 		27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
 		27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkable.swift; sourceTree = "<group>"; };
 		27C89D1627D7D03400FCB743 /* AqarTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarTarget.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				274E398B27D542AF003A911F /* EditProfileVC.swift */,
 				27EB9C1227DE071D005DABEE /* MapVC.swift */,
 				2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */,
+				2780311F27E0FA7500604726 /* AddAdverstimentType.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */,
 				274AA7A427D8B2E000FED3E5 /* AppData.swift in Sources */,
 				27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */,
+				2780312027E0FA7500604726 /* AddAdverstimentType.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
 				27C89D1527D7ACB100FCB743 /* ProfileNetworkable.swift in Sources */,

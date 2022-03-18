@@ -12,8 +12,8 @@ enum ProfileApiTarget:TargetType{
     case signin(FullName:String,Country:String,PhoneNumber:String,Email:String,Password:String)
     case changePassword(email:String,password:String )
     case profileDetails
-    case getUserCar
-    case getUserAqar
+    case getUserCar(packageType:Int)
+    case getUserAqar(packageType:Int)
     case getUserAqarFav
     case getUserCarFav
     case removeFavCar(id:Int)
@@ -62,18 +62,16 @@ enum ProfileApiTarget:TargetType{
         case .signin:
             // change this later
             return Method.post
-          
-
-        
+       
         }
     }
     
     var task: Task{
         switch self{
   
-        case .profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav:
+        case .profileDetails,.getUserAqarFav,.getUserCarFav:
             return .requestPlain
-        case .changePassword:
+        case .changePassword,.getUserCar,.getUserAqar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
         case .signin,.removeFavCar,.removeFavAqar,.addFavCar,.addFavAqar:
@@ -115,7 +113,11 @@ enum ProfileApiTarget:TargetType{
         
         
         switch self {
-  
+        case .getUserCar(let packageType):
+            return ["packageType":packageType]
+        case .getUserAqar(let packageType):
+            return ["packageType":packageType]
+
         case .addFavAqar(let id):
             return ["RealStateId":id]
         case .addFavCar(let id):

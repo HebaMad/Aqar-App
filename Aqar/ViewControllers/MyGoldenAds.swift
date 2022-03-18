@@ -8,7 +8,15 @@
 import UIKit
 
 class MyGoldenAds: UIViewController {
-
+    var cars:[Car]=[]
+    var aqars:[Aqar]=[]
+    var buttonText="car"
+    @IBOutlet weak var carBtn: UIButton!
+    @IBOutlet weak var carView: UIView!
+    
+    
+    @IBOutlet weak var aqarBtn: UIButton!
+    @IBOutlet weak var aqarView: UIView!
     @IBOutlet weak var adsTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +30,30 @@ class MyGoldenAds: UIViewController {
     
     @IBAction func archievedBtn(_ sender: Any) {
     }
+    @IBAction func carButton(_ sender: Any) {
+        
+        buttonText="car"
+        carView.backgroundColor = UIColor(named: "buton")
+        aqarView.backgroundColor = UIColor(named: "view")
+        carBtn.setTitleColor(.black, for: .normal)
+        aqarBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
+        self.adsTable.reloadData()
+
+        
+    }
+    
+    @IBAction func aqarButton(_ sender: Any) {
+        buttonText="aqar"
+        aqarView.backgroundColor = UIColor(named: "buton")
+        carView.backgroundColor = UIColor(named: "view")
+    
+        aqarBtn.setTitleColor(.black, for: .normal)
+        carBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
+        self.adsTable.reloadData()
+
+        
+    }
+    
     
 }
 extension MyGoldenAds:Storyboarded{
@@ -30,11 +62,25 @@ extension MyGoldenAds:Storyboarded{
 
 extension MyGoldenAds:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if buttonText == "car"{
+            return cars.count
+
+        }else{
+            return aqars.count
+
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.FavButton.isHidden = true
+        if buttonText == "car"{
+            cell.configureCarData(carData: cars[indexPath.row])
+
+        }else{
+            cell.configureAqarData(aqarData: aqars[indexPath.row])
+
+        }
         return cell
     }
     

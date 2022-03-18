@@ -53,8 +53,8 @@ struct Car:Codable{
     let userEmail:String?
     let advertismentType : Int?
     let packageType : Int?
-    let latitude : Int?
-    let longitude : Int?
+    let latitude : Double?
+    let longitude : Double?
            
 }
 

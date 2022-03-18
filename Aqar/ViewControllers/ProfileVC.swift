@@ -10,7 +10,8 @@ import UIKit
 class ProfileVC: UIViewController {
     var aboutUsText=""
     var contactUsText=""
-
+    var car:[Car]=[]
+    var Aqar:[Aqar]=[]
     var profileItem:[Menu]=[]
     
     @IBOutlet weak var bronzeAdsTxt: UILabel!
@@ -35,7 +36,27 @@ class ProfileVC: UIViewController {
         menuTable.delegate=self
         menuTable.dataSource=self
     }
+    
+    @IBAction func goldenPackageBtn(_ sender: Any) {
+        getCarPackage(packageType: 3)
+        getAqarPackage(packageType: 3)
+    }
+    
+    
+    @IBAction func silverPackageBtn(_ sender: Any) {
+        getCarPackage(packageType: 2)
+        getAqarPackage(packageType: 2)
 
+    }
+    
+    
+    @IBAction func bronzePackageBtn(_ sender: Any) {
+        getAqarPackage(packageType: 1)
+
+        getCarPackage(packageType: 1)
+
+    }
+    
 }
 extension ProfileVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
@@ -57,9 +78,12 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0 :
-            let vc = NewCarAdverstimentVC.instantiate()
-                vc.modalPresentationStyle = .overFullScreen
-                present(vc, animated: true, completion: nil)
+            let vc = AddAdverstimentType.instantiate()
+                    let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .overFullScreen
+                    
+                   present(nav, animated: true, completion: nil)
+              
         case 1:
              navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
         case 2:
@@ -158,6 +182,50 @@ extension ProfileVC{
             
             
             
+        }
+    }
+    
+    func  getCarPackage(packageType:Int){
+        ProfileManager.shared.getUserCar(packageType: packageType) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.car = response.data?.cars ?? []
+                    let vc = MyGoldenAds.instantiate()
+                    vc.cars = self.car
+                    vc.aqars=self.Aqar
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+    }
+    
+    
+    func getAqarPackage(packageType:Int){
+        ProfileManager.shared.getUserAqar(packageType: packageType) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.Aqar = response.data?.realStates ?? []
+                 
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
         }
     }
 }

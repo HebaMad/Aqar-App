@@ -32,7 +32,7 @@ dismiss(animated: true, completion: nil)
         do{
             try KeychainWrapper.set(value: "" , key: email )
             AppData.email = email
-            navigationController?.pushViewController(LoginVC.instantiate(), animated: true)
+            self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
 
         }catch let error {
             

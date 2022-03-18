@@ -14,8 +14,8 @@ protocol ProfileNetworkable:Networkable  {
     func profileDetails(completion: @escaping (Result<BaseResponse<ProfileModel>, Error>)-> ())
     func getUserCar(packageType:Int, completion: @escaping (Result<BaseResponse<HomeModel>, Error>)-> ())
     func getUserAqar(packageType:Int, completion: @escaping (Result<BaseResponse<AqarHome>, Error>)-> ())
-    func getUserAqarFav( completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
-    func getUserCarFav( completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+    func getUserAqarFav( completion: @escaping (Result<BaseResponse<AqarHome>, Error>)-> ())
+    func getUserCarFav( completion: @escaping (Result<BaseResponse<HomeModel>, Error>)-> ())
     func removeFavCar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func removeFavAqar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func updateProfile(FullName:String,Country:String,PhoneNumber:String,Email:String,img:Data, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
@@ -51,10 +51,10 @@ class ProfileManager:ProfileNetworkable{
     func getUserAqar(packageType:Int,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
         request(target: .getUserAqar(packageType:packageType), completion: completion)
     }
-    func getUserAqarFav(completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+    func getUserAqarFav(completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
         request(target: .getUserAqarFav, completion: completion)
     }
-    func getUserCarFav(completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+    func getUserCarFav(completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
         request(target: .getUserCarFav, completion: completion)
     }
     

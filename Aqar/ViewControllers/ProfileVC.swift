@@ -98,9 +98,11 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
             present(vc, animated: true, completion: nil)
         case 4:
             let vc = LogoutAlertVC.instantiate()
-                vc.modalPresentationStyle = .overFullScreen
+            let nav = UINavigationController(rootViewController: vc)
+    nav.modalPresentationStyle = .overFullScreen
             vc.command = "logout"
-            present(vc, animated: true, completion: nil)
+           present(nav, animated: true, completion: nil)
+          
  
         default:
            

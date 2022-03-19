@@ -12,11 +12,9 @@ var command = ""
     var email = ""
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    @IBOutlet weak var deleteBtn: UIButtonDesignable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        deleteBtnHidden()
         tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
         
 
@@ -46,17 +44,7 @@ dismiss(animated: true, completion: nil)
 
     }
     
-    func  deleteBtnHidden(){
-        if command == "logout"{
-            
-            deleteBtn.isHidden = true
-            
-        }else{
-            
-            deleteBtn.isHidden = false
 
-        }
-    }
     
     
 }

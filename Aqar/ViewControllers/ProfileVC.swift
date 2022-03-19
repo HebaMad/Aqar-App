@@ -21,13 +21,13 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var mobileNumTxt: UILabel!
     @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var menuTable: UITableView!
-    
+    @IBOutlet weak var notRegistedView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupData()
-        getUserData()
-        contactUsData()
-        aboutus()
+        notRegistedView.isHidden = true
+        checkVisitor()
+      
     }
     
     func setupData(){
@@ -36,6 +36,26 @@ class ProfileVC: UIViewController {
         menuTable.delegate=self
         menuTable.dataSource=self
     }
+    func checkVisitor(){
+        do {
+            let token = try KeychainWrapper.get(key: AppData.email) ?? ""
+            if token != ""{
+                setupData()
+                getUserData()
+                contactUsData()
+                aboutus()
+            }else{
+                notRegistedView.isHidden=false
+
+
+            }
+        }
+        catch{
+print(error)
+            
+        }
+    }
+    
     
     @IBAction func goldenPackageBtn(_ sender: Any) {
         getCarPackage(packageType: 3)
@@ -49,7 +69,12 @@ class ProfileVC: UIViewController {
 
     }
     
-    
+    @IBAction func registerBtn(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: SignupVC.instantiate())
+    }
+    @IBAction func loginBtn(_ sender: Any) {
+        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+    }
     @IBAction func bronzePackageBtn(_ sender: Any) {
         getAqarPackage(packageType: 1)
 

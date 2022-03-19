@@ -46,16 +46,27 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate & UINaviga
     }
  
     @IBAction func editBtn(_ sender: Any) {
+      let pic = selectedImage ?? Data()
+        print(pic.description)
+        if pic.isEmpty == false{
+            
+        
         do{
             
             let email = try emailTxt.validatedText(validationType: .email)
             let username = try fullNameTxt.validatedText(validationType: .username)
             let phonenum = try phoneNum.validatedText(validationType: .phoneNumber)
             let country = try countryTxt.validatedText(validationType: .requiredField(field: "country required"))
-            editProfile(email: email, country: country, phoneNum: phonenum, fullname: username, img: selectedImage ?? Data())
+            
+            
+            editProfile(email: email, country: country, phoneNum: phonenum, fullname: username, img: pic)
          
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
+        }
+        }else{
+            self.showAlert(title:  "Notice", message: "profile image required", confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+        }
         }
     }
     
@@ -74,6 +85,7 @@ extension EditProfileVC{
                 
                 if response.status == true {
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.navigationController?.popViewController(animated: true)
                 }
                 }else{
                     self.showAlert(title:  "Error", message: response.message, confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in

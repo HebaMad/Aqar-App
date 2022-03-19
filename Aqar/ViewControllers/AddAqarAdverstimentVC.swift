@@ -28,6 +28,7 @@ class AddAqarAdverstimentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
     }
     override func viewWillAppear(_ animated: Bool) {

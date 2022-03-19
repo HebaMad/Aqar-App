@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class FavouriteVC: UIViewController {
     var cars:[Car]=[]
@@ -66,7 +67,15 @@ print(error)
     @IBAction func loginBtn(_ sender: Any) {
         self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
     }
-    
+    @objc func facAction(_ sender : UIButton ) {
+        if buttonText == "car"{
+            deleteCarFav(id: cars[sender.tag].id ?? 0)
+        }else{
+            
+            deleteAqarFav(id: aqars[sender.tag].id ?? 0)
+            
+        }
+}
     
     @IBAction func carButton(_ sender: Any) {
         
@@ -122,6 +131,7 @@ extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
         cell.optionbtn.isHidden = true
+        cell.FavButton.tintColor = .red
         if buttonText == "car"{
             cell.configureCarData(carData: cars[indexPath.row])
             
@@ -129,8 +139,12 @@ extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
             cell.configureAqarData(aqarData: aqars[indexPath.row])
             
         }
+        cell.FavButton.addTarget(self, action: #selector(facAction(_:)), for: .touchUpInside)
+        cell.FavButton.tag = indexPath.row
         return cell
         
+       
+
     }
    
     
@@ -175,7 +189,13 @@ extension FavouriteVC{
             case let .success(response):
                 if response.status == true{
                     self.aqars = response.data?.realStates ?? []
-                 
+                    if self.aqars.count != 0{
+                        self.noDataView.isHidden=true
+                        
+                    }else{
+                        self.noDataView.isHidden=false
+                    }
+                    self.carAqarTable.reloadData()
                 }
                 
             case let .failure(error):
@@ -186,4 +206,52 @@ extension FavouriteVC{
         }
     }
     
+    
+    
+    func deleteCarFav(id:Int){
+     
+        CarManager.shared.deleteCar(id: id) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.favCar()
+                    }
+                    
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+        
+        
+    }
+    func deleteAqarFav(id:Int){
+        AqarManager.shared.deleteAqar(id: id) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.favAqar()
+                    }
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+        
+        
+    }
 }

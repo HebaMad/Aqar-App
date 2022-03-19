@@ -9,17 +9,22 @@ import UIKit
 
 class AddAdverstimentType: UIViewController {
     
-    
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
+
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         
-        navigationController?.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+
         
     }
+    
     
     @IBAction func addCar(_ sender: Any) {
         navigationController?.pushViewController(NewCarAdverstimentVC.instantiate(), animated: true)

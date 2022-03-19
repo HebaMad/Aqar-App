@@ -116,5 +116,5 @@ struct ProfileModel:Decodable{
     let favCarAdvertisments:[String]?
     let favRealEstateAdvertisments:String?
     let image:String?
- 
+    var isActive:Bool
 }

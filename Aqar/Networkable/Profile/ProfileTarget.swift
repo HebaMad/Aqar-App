@@ -123,7 +123,7 @@ enum ProfileApiTarget:TargetType{
         case .addFavCar(let id):
             return["CarId":id]
         case .updateProfile(let FullName,let Country,let PhoneNumber,let Email,let img):
-            return["FullName":FullName,"Country":Country,"PhoneNumber":PhoneNumber,"Email":Email,"img":img]
+            return["FullName":FullName,"Country":Country,"PhoneNumber":PhoneNumber,"Email":Email,"Image":img]
         case .removeFavAqar(let id):
             return ["realStateId":id]
             

@@ -42,8 +42,7 @@ class ProfileVC: UIViewController {
             if token != ""{
                 setupData()
                 getUserData()
-                contactUsData()
-                aboutus()
+              
             }else{
                 notRegistedView.isHidden=false
 
@@ -58,14 +57,15 @@ print(error)
     
     
     @IBAction func goldenPackageBtn(_ sender: Any) {
-        getCarPackage(packageType: 3)
         getAqarPackage(packageType: 3)
+        getCarPackage(packageType: 3)
+
     }
     
     
     @IBAction func silverPackageBtn(_ sender: Any) {
-        getCarPackage(packageType: 2)
         getAqarPackage(packageType: 2)
+        getCarPackage(packageType: 2)
 
     }
     
@@ -140,46 +140,8 @@ print("error")
 
 extension ProfileVC{
     
-    func contactUsData(){
-        SettingManager.shared.contactUs { Response in
-            switch Response{
-                
-            case let .success(response):
-                
-                if response.status == true {
-                    guard let responseData = response.data else {return}
-                    self.contactUsText=responseData.value ?? ""
-                }
-                
-            case let .failure(error):
-                
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
-                }
-            }
-        }
-    }
-    
-    func aboutus(){
-        SettingManager.shared.aboutus { Response in
-            switch Response{
-                
-            case let .success(response):
-                
-                if response.status == true {
-                    guard let responseData = response.data else {return}
-                    self.aboutUsText=responseData.value ?? ""
-                }
-            case let .failure(error):
-                
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
-                }
-                
-                
-            }
-        }
-    }
+
+
     
     
     func getUserData(){
@@ -194,7 +156,8 @@ extension ProfileVC{
                     self.countryTxt.text=responsedata.country ?? ""
                     self.mobileNumTxt.text=responsedata.phoneNumber ?? ""
                     self.usernameTxt.text=responsedata.fullName ?? ""
-
+                    self.aboutUsText = responsedata.aboutUs ?? ""
+                    self.contactUsText = responsedata.contactUs ?? ""
                     self.bronzeAdsTxt.text=String(describing:responsedata.bronzeAdsCount ?? 0)
                     self.silverAdsTxt.text=String(describing:responsedata.silverAdsCount ?? 0)
                     self.goldenAdsTxt.text=String(describing:responsedata.goldenAdsCount ?? 0)
@@ -221,6 +184,7 @@ extension ProfileVC{
                 if response.status == true{
                     self.car = response.data?.cars ?? []
                     let vc = MyGoldenAds.instantiate()
+                    vc.packageType=packageType
                     vc.cars = self.car
                     vc.aqars=self.Aqar
                     self.navigationController?.pushViewController(vc, animated: true)

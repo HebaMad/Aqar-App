@@ -117,4 +117,6 @@ struct ProfileModel:Decodable{
     let favRealEstateAdvertisments:String?
     let image:String?
     var isActive:Bool
+    var contactUs:String?
+    var aboutUs:String?
 }

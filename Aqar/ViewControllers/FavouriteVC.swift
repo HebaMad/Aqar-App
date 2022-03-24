@@ -130,7 +130,9 @@ extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.optionbtn.isHidden = true
+        cell.editBtn.isHidden = true
+        cell.removebtn.isHidden = true
+
         cell.FavButton.tintColor = .red
         if buttonText == "car"{
             cell.configureCarData(carData: cars[indexPath.row])

@@ -108,7 +108,7 @@ enum CarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddCar,.updateCar,.deleteCar:
+        case .AddCar,.updateCar,.deleteCar,.getAllCar:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""

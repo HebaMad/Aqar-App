@@ -11,6 +11,7 @@ class MyGoldenAds: UIViewController {
     var cars:[Car]=[]
     var aqars:[Aqar]=[]
     var buttonText="car"
+    var packageType=0
     @IBOutlet weak var carBtn: UIButton!
     @IBOutlet weak var carView: UIView!
     
@@ -44,6 +45,15 @@ class MyGoldenAds: UIViewController {
     @IBAction func backBtn(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    @objc func deleteAction(_ sender : UIButton ) {
+        if buttonText == "car"{
+            deleteCar(id: cars[sender.tag].id ?? 0)
+        }else{
+            
+            deleteAqar(id: aqars[sender.tag].id ?? 0)
+            
+        }
+}
     
     
     @IBAction func archievedBtn(_ sender: Any) {
@@ -111,8 +121,102 @@ extension MyGoldenAds:UITableViewDelegate,UITableViewDataSource{
             cell.configureAqarData(aqarData: aqars[indexPath.row])
             
         }
+        cell.removebtn.addTarget(self, action: #selector(deleteAction(_:)), for: .touchUpInside)
+        cell.removebtn.tag = indexPath.row
         return cell
     }
     
     
+}
+
+extension MyGoldenAds{
+    func  getCarPackage(packageType:Int){
+        ProfileManager.shared.getUserCar(packageType: packageType) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.cars = response.data?.cars ?? []
+                    self.adsTable.reloadData()
+
+                    
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+    }
+    
+    
+    func getAqarPackage(packageType:Int){
+        ProfileManager.shared.getUserAqar(packageType: packageType) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.aqars = response.data?.realStates ?? []
+                    self.adsTable.reloadData()
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+    }
+    func deleteCar(id:Int){
+        CarManager.shared.deleteCar(id: id) { Response in
+            switch Response{
+                
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getCarPackage(packageType: self.packageType)
+                }
+                }else{
+                    self.showAlert(title:  "Error", message: response.message, confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                }
+                }
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+                
+                
+            }
+        }
+    }
+    func deleteAqar(id:Int){
+        CarManager.shared.deleteCar(id: id) { Response in
+            switch Response{
+                
+                
+            case let .success(response):
+                
+                if response.status == true {
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getAqarPackage(packageType: self.packageType)
+                }
+                }else{
+                    self.showAlert(title:  "Error", message: response.message, confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                }
+                }
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    
+                }
+                
+                
+            }
+        }
+    }
 }

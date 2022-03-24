@@ -15,8 +15,9 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
     @IBOutlet weak var seenLabel: UILabel!
     
     @IBOutlet weak var FavButton: UIButton!
-    @IBOutlet weak var optionbtn: UIButton!
+    @IBOutlet weak var removebtn: UIButton!
     
+    @IBOutlet weak var editBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

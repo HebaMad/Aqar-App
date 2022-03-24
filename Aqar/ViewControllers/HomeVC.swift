@@ -59,7 +59,28 @@ class HomeVC: UIViewController {
 
         
     }
-    
+    @objc func favAction(_ sender : UIButton ) {
+        if buttonText == "car"{
+            
+            if cars[sender.tag].isFavourite == true{
+                deleteCarFav(id: cars[sender.tag].id ?? 0)
+
+            }else{
+               AddCarFav(id: cars[sender.tag].id ?? 0)
+            }
+            
+            
+        }else{
+            if aqars[sender.tag].isFavourite == true{
+                deleteCarFav(id: aqars[sender.tag].id ?? 0)
+
+            }else{
+               AddCarFav(id: aqars[sender.tag].id ?? 0)
+            }
+            
+            
+        }
+}
 
 }
 extension HomeVC:UITableViewDelegate,UITableViewDataSource{
@@ -74,7 +95,9 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.optionbtn.isHidden = true
+        cell.editBtn.isHidden = true
+        cell.removebtn.isHidden = true
+
         if buttonText == "car"{
             cell.configureCarData(carData: cars[indexPath.row])
 
@@ -82,6 +105,8 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             cell.configureAqarData(aqarData: aqars[indexPath.row])
 
         }
+        cell.FavButton.addTarget(self, action: #selector(favAction(_:)), for: .touchUpInside)
+        cell.FavButton.tag = indexPath.row
         return cell
         
     }
@@ -176,7 +201,89 @@ extension HomeVC{
         }
     }
     
+    func deleteCarFav(id:Int){
+     
+        CarManager.shared.deleteCar(id: id) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getAllCar()
+                    }
+                    
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+        
+        
+    }
+    func deleteAqarFav(id:Int){
+        AqarManager.shared.deleteAqar(id: id) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getAllAqar()
+                    }
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+        
+        
+    }
     
-    
+    func AddCarFav(id:Int){
+        ProfileManager.shared.addFavCar(id: id) { Response in
+            switch Response{
+
+         
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    }
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+    }
+    func AddAqarFav(id:Int){
+        ProfileManager.shared.addFavAqar(id: id) { Response in
+            switch Response{
+
+            case let .success(response):
+                if response.status == true{
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    }
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+        }
+        
+    }
     
 }

@@ -76,8 +76,7 @@ struct Aqar:Codable{
     let id : Int?
     let mainImage:String?
     let modelName : String?
-    let miles : Int?
-    let speed : Int?
+
     let images : [String]?
     let title : String?
     let location : String?
@@ -87,8 +86,8 @@ struct Aqar:Codable{
     let views : Int?
     let advertismentType : Int?
     let packageType : Int?
-    let latitude : Int?
-    let longitude : Int?
+    let latitude : Double?
+    let longitude : Double?
     let area:Int?
     let isArchive:Bool
     let userPhone:String?

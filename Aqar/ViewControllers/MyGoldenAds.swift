@@ -55,7 +55,23 @@ class MyGoldenAds: UIViewController {
         }
 }
     
-    
+    @objc func editAction(_ sender : UIButton ) {
+        if buttonText == "car"{
+            let vc = NewCarAdverstimentVC.instantiate()
+            vc.status="edit"
+            vc.id=cars[sender.tag].id ?? 0
+            vc.car=cars[sender.tag]
+            navigationController?.pushViewController(vc, animated: true)
+        }else{
+            
+            let vc = AddAqarAdverstimentVC.instantiate()
+            vc.status="edit"
+            vc.id=aqars[sender.tag].id ?? 0
+            vc.aqar=aqars[sender.tag]
+            navigationController?.pushViewController(vc, animated: true)
+            
+        }
+}
     @IBAction func archievedBtn(_ sender: Any) {
     }
     @IBAction func carButton(_ sender: Any) {
@@ -83,6 +99,7 @@ class MyGoldenAds: UIViewController {
         
         aqarBtn.setTitleColor(.black, for: .normal)
         carBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
+        print(aqars.count)
         if aqars.count != 0{
             noDataView.isHidden=true
             
@@ -123,6 +140,9 @@ extension MyGoldenAds:UITableViewDelegate,UITableViewDataSource{
         }
         cell.removebtn.addTarget(self, action: #selector(deleteAction(_:)), for: .touchUpInside)
         cell.removebtn.tag = indexPath.row
+        
+        cell.editBtn.addTarget(self, action: #selector(editAction(_:)), for: .touchUpInside)
+        cell.editBtn.tag = indexPath.row
         return cell
     }
     

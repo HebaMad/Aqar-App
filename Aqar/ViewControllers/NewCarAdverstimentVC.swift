@@ -7,6 +7,12 @@
 
 import UIKit
 import YPImagePicker
+
+
+protocol packageType{
+    func packageNum(packageType:Int)
+
+}
 class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var selectedImage:Data?
     var packageNum:Int?
@@ -14,7 +20,13 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
     var location=""
     var lat = ""
     var long = ""
+   var packageNumber=0
+    var car:Car?
+    var status = "Add"
+var id=0
     
+    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var uploadBtn: UIButtonDesignable!
     @IBOutlet weak var AddBtn: UIButtonDesignable!
     @IBOutlet weak var titleTxt: UITextField!
@@ -29,11 +41,38 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        if status == "Add"{
+            titleLabel.text = "Add Car Adveristement"
+
+        }else{
+            titleLabel.text = "Edit Car Adveristement"
+            editData()
+
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         address.text = location
         
+    }
+    
+    func editData(){
+        guard let carData = car else { return  }
+        priceTxt.text = "\(carData.price ?? 0)"
+        milesTxt.text = "\(carData.miles ?? 0)"
+        speedTxt.text = "\(carData.speed ?? 0)"
+        titleTxt.text = carData.title ?? ""
+        address.text=carData.location ?? ""
+        descriptionTxt.text=carData.description ?? ""
+        carModelText.text=carData.modelName ?? ""
+        guard let carImages = carData.images else{return}
+        
+        for index in 0 ... carImages.count-1 {
+            let data = NSData(contentsOf: URL(string: carImages[index]) ?? URL(fileURLWithPath: ""))
+            imagesArray.append(data as! Data)
+        }
+
+
     }
 
     @IBAction func uploadCarPhotoBtn(_ sender: Any) {
@@ -85,14 +124,15 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
 
     @IBAction func AddCarBtn(_ sender: Any) {
         
-        if AddBtn.title(for: .normal) == "next"{
+        if AddBtn.title(for: .normal) == "Next"{
           
                 let vc = AlertPackageVC.instantiate()
                 vc.modalPresentationStyle = .overFullScreen
+            vc.package=self
                 present(vc, animated: true, completion: nil)
                 
         }else{
-        
+          
         
         do{
         let title = try titleTxt.validatedText(validationType: .requiredField(field: "Title required"))
@@ -102,9 +142,12 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
         let description = try descriptionTxt.validatedText(validationType: .requiredField(field: "description required"))
         
         let carmodel = try carModelText.validatedText(validationType: .requiredField(field: "car model required"))
-            
-        AddCar(modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: 1, lat: lat, long: long)
-            
+            if self.status == "Add"{
+        AddCar(modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+            }else{
+                print(imagesArray.count)
+                EditCar(id:id,modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+            }
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
         }
@@ -142,5 +185,49 @@ extension NewCarAdverstimentVC{
             
         }
     }
+    func EditCar(id:Int,modelName:String,miles:Int,speed:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
+        CarManager.shared.updateCar(id:id,ModelName: modelName, Miles: miles, Speed: speed, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType: packageType, Longitude: long, Latitude: lat) { Response in
+            
+            switch Response{
+
+                
+            case let .success(response):
+                if response.status == true{
+            
+                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
+                    }
+                    
+                    
+                    
+                }
+                
+            case let .failure(error):
+                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+            }
+            
+        }
+    }
+}
+
+extension NewCarAdverstimentVC:packageType{
+    func packageNum(packageType: Int) {
+        packageNumber=packageType
+        if packageNumber != 0 {
+            if status == "Add"{
+                AddBtn.setTitle("Add car", for: .normal)
+
+            }else{
+                AddBtn.setTitle("Edit car", for: .normal)
+
+            }
+        }else{
+            AddBtn.setTitle("Next", for: .normal)
+
+        }
+    }
+    
     
 }

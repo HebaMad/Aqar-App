@@ -17,7 +17,7 @@ protocol CarNetworkable:Networkable  {
     func CarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 func AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     
-    func updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:Data,Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+    func updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     
 
 }
@@ -47,7 +47,7 @@ class CarManager:CarNetworkable{
         request(target: .AddCar(ModelName: ModelName, Miles: Miles, Speed: Speed, imags: imags, Title: Title, Location: Location, Description: Description, Price: Price, AdvertismentType: AdvertismentType, PackageType: PackageType, Longitude: Longitude, Latitude: Latitude), completion: completion)
     }
     
-    func updateCar(id: Int, ModelName: String, Miles: Int, Speed: Int, imags: Data, Title: String, Location: String, Description: String, Price: Int, AdvertismentType: Int, PackageType: Int, Longitude: String, Latitude: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
+    func updateCar(id: Int, ModelName: String, Miles: Int, Speed: Int, imags: [Data], Title: String, Location: String, Description: String, Price: Int, AdvertismentType: Int, PackageType: Int, Longitude: String, Latitude: String, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
         request(target: .updateCar(id: id,ModelName: ModelName, Miles: Miles, Speed: Speed, imags: imags, Title: Title, Location: Location, Description: Description, Price: Price, AdvertismentType: AdvertismentType, PackageType: PackageType, Longitude: Longitude, Latitude: Latitude), completion: completion)
     }
 }

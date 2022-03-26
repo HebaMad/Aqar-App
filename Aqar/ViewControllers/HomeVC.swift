@@ -60,26 +60,51 @@ class HomeVC: UIViewController {
         
     }
     @objc func favAction(_ sender : UIButton ) {
-        if buttonText == "car"{
-            
-            if cars[sender.tag].isFavourite == true{
-                deleteCarFav(id: cars[sender.tag].id ?? 0)
+        
+        do {
+            let token = try KeychainWrapper.get(key: AppData.email) ?? ""
+            if token != ""{
+                if buttonText == "car"{
+                    
+                    if cars[sender.tag].isFavourite == true{
+                        
+                        deleteCarFav(id: cars[sender.tag].id ?? 0)
 
-            }else{
-               AddCarFav(id: cars[sender.tag].id ?? 0)
-            }
-            
-            
-        }else{
-            if aqars[sender.tag].isFavourite == true{
-                deleteCarFav(id: aqars[sender.tag].id ?? 0)
+                        
+                    }else{
+                        
+                       AddCarFav(id: cars[sender.tag].id ?? 0)
 
+                    }
+                    
+                    
+                }else{
+                    
+                    if aqars[sender.tag].isFavourite == true{
+                        
+                        deleteAqarFav(id:  aqars[sender.tag].id ?? 0)
+
+                    }else{
+                        
+                        AddAqarFav(id:  aqars[sender.tag].id ?? 0)
+                        
+                    }
+                    
+                    
+                }
+              
             }else{
-               AddCarFav(id: aqars[sender.tag].id ?? 0)
+                self.showAlert(title:  "Notice", message: "you should login to complete your event", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                }
+
             }
-            
+        }
+        catch{
+print(error)
             
         }
+ 
 }
 
 }
@@ -256,6 +281,8 @@ extension HomeVC{
             case let .success(response):
                 if response.status == true{
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getAllCar()
+
                     }
                 }
                 
@@ -274,6 +301,8 @@ extension HomeVC{
             case let .success(response):
                 if response.status == true{
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        self.getAllAqar()
+
                     }
                 }
                 

@@ -14,6 +14,7 @@ class AddAqarAdverstimentVC: UIViewController {
     var location=""
     var lat = ""
     var long = ""
+    @IBOutlet weak var uploadBtn: UIButtonDesignable!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var priceTxt: UITextField!
     @IBOutlet weak var adverstementType: UISegmentedControl!
@@ -55,7 +56,8 @@ class AddAqarAdverstimentVC: UIViewController {
                     selectedImage=photo.originalImage.jpegData(compressionQuality: 0.5)
                     imagesArray.append(selectedImage ?? Data())
                     print("PHOTO", photo.originalImage,  imagesArray.count)
-                    
+                    uploadBtn.setTitle("\(imagesArray.count) photos", for: .normal)
+
                 case .video(let video):
                     print(video)
                     

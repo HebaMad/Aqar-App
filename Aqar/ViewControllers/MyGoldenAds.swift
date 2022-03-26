@@ -11,7 +11,7 @@ class MyGoldenAds: UIViewController {
     var cars:[Car]=[]
     var aqars:[Aqar]=[]
     var buttonText="car"
-    var packageType=0
+    var packageType=1
     @IBOutlet weak var carBtn: UIButton!
     @IBOutlet weak var carView: UIView!
     
@@ -196,7 +196,7 @@ extension MyGoldenAds{
         }
     }
     func deleteAqar(id:Int){
-        CarManager.shared.deleteCar(id: id) { Response in
+        AqarManager.shared.deleteAqar(id: id) { Response in
             switch Response{
                 
                 

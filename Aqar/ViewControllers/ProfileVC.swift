@@ -29,6 +29,25 @@ class ProfileVC: UIViewController {
         checkVisitor()
       
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            let token = try KeychainWrapper.get(key: AppData.email) ?? ""
+            if token != ""{
+                setupData()
+                getUserData()
+              
+            }else{
+                notRegistedView.isHidden=false
+
+
+            }
+        }
+        catch{
+print(error)
+            
+        }
+    }
     
     func setupData(){
         menuTable.register(MenuCell.self)

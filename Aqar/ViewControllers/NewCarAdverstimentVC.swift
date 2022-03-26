@@ -15,6 +15,7 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
     var lat = ""
     var long = ""
     
+    @IBOutlet weak var uploadBtn: UIButtonDesignable!
     @IBOutlet weak var AddBtn: UIButtonDesignable!
     @IBOutlet weak var titleTxt: UITextField!
     
@@ -52,8 +53,9 @@ class NewCarAdverstimentVC: UIViewController,UIImagePickerControllerDelegate & U
                     
                     selectedImage=photo.originalImage.jpegData(compressionQuality: 0.5)
                     imagesArray.append(selectedImage ?? Data())
-                    print("PHOTO", photo.originalImage,  imagesArray.count)
-                    
+         print("PHOTO", photo.originalImage,  imagesArray.count)
+                
+               uploadBtn.setTitle("\(imagesArray.count) photos", for: .normal)
                 case .video(let video):
                     print(video)
                     
@@ -138,15 +140,7 @@ extension NewCarAdverstimentVC{
                 }
             }
             
-            
-            
-          
-            
-            
-            
         }
     }
-    
-    
     
 }

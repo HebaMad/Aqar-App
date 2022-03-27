@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A542609213E0A56EB464C0C /* Pods_Aqar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */; };
-		273F32B327DA23E5001FA62F /* SettingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F32B227DA23E5001FA62F /* SettingTarget.swift */; };
-		273F32B527DA23F4001FA62F /* SettingNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F32B427DA23F4001FA62F /* SettingNetworkable.swift */; };
 		2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC127D0C256008A7D6A /* NewCarAdverstimentVC.swift */; };
 		2746CAC427D0C27D008A7D6A /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746CAC327D0C27D008A7D6A /* DetailsVC.swift */; };
 		274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */; };
@@ -83,6 +81,8 @@
 		2773FE3227D6769300A69B7B /* AuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3127D6769300A69B7B /* AuthTarget.swift */; };
 		2773FE3427D676F800A69B7B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3327D676F800A69B7B /* AppConfig.swift */; };
 		2773FE3627D67CBA00A69B7B /* AuthNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */; };
+		277D2A1127F0DF9800F26F14 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277D2A1027F0DF9800F26F14 /* Color.xcassets */; };
+		277D2A1327F0E2F800F26F14 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277D2A1227F0E2F800F26F14 /* UIViewControllerExtension.swift */; };
 		2780311E27DFC66200604726 /* AddAqarAdverstimentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */; };
 		2780312027E0FA7500604726 /* AddAdverstimentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780311F27E0FA7500604726 /* AddAdverstimentType.swift */; };
 		27C89D1327D7AC9800FCB743 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */; };
@@ -104,8 +104,6 @@
 
 /* Begin PBXFileReference section */
 		23B7F89188AF37D966422216 /* Pods-Aqar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aqar.debug.xcconfig"; path = "Target Support Files/Pods-Aqar/Pods-Aqar.debug.xcconfig"; sourceTree = "<group>"; };
-		273F32B227DA23E5001FA62F /* SettingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTarget.swift; sourceTree = "<group>"; };
-		273F32B427DA23F4001FA62F /* SettingNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNetworkable.swift; sourceTree = "<group>"; };
 		2746CAC127D0C256008A7D6A /* NewCarAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarAdverstimentVC.swift; sourceTree = "<group>"; };
 		2746CAC327D0C27D008A7D6A /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		274AA79F27D8B2BB00FED3E5 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -181,6 +179,8 @@
 		2773FE3127D6769300A69B7B /* AuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTarget.swift; sourceTree = "<group>"; };
 		2773FE3327D676F800A69B7B /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkable.swift; sourceTree = "<group>"; };
+		277D2A1027F0DF9800F26F14 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		277D2A1227F0E2F800F26F14 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAqarAdverstimentVC.swift; sourceTree = "<group>"; };
 		2780311F27E0FA7500604726 /* AddAdverstimentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdverstimentType.swift; sourceTree = "<group>"; };
 		27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
@@ -214,15 +214,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		273F32B127DA23B4001FA62F /* AppSetting */ = {
-			isa = PBXGroup;
-			children = (
-				273F32B227DA23E5001FA62F /* SettingTarget.swift */,
-				273F32B427DA23F4001FA62F /* SettingNetworkable.swift */,
-			);
-			path = AppSetting;
-			sourceTree = "<group>";
-		};
 		2756E05327CF790100D45B10 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +260,7 @@
 		27734B0627CD4EA8007E9DFE /* Aqar */ = {
 			isa = PBXGroup;
 			children = (
+				277D2A0F27F0DF8600F26F14 /* Resource */,
 				2773FE2F27D6763B00A69B7B /* Networkable */,
 				2773FE2A27D6723900A69B7B /* Model */,
 				27C99CD727D4CF2C00870E6E /* Component */,
@@ -279,7 +271,6 @@
 				27734B0727CD4EA8007E9DFE /* AppDelegate.swift */,
 				27734B0927CD4EA8007E9DFE /* SceneDelegate.swift */,
 				27734B0D27CD4EA8007E9DFE /* Main.storyboard */,
-				27734B1027CD4EA9007E9DFE /* Assets.xcassets */,
 				27734B1227CD4EA9007E9DFE /* LaunchScreen.storyboard */,
 				27734B1527CD4EA9007E9DFE /* Info.plist */,
 			);
@@ -314,6 +305,7 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				277D2A1227F0E2F800F26F14 /* UIViewControllerExtension.swift */,
 				27EB9C1427DE07AB005DABEE /* LocationManager.swift */,
 				274AA7A327D8B2E000FED3E5 /* AppData.swift */,
 				274AA7A027D8B2BB00FED3E5 /* KeychainOperations.swift */,
@@ -382,7 +374,6 @@
 		2773FE2F27D6763B00A69B7B /* Networkable */ = {
 			isa = PBXGroup;
 			children = (
-				273F32B127DA23B4001FA62F /* AppSetting */,
 				27C89D1B27D7E98300FCB743 /* Car */,
 				27C89D1827D7D03900FCB743 /* Aqar */,
 				27C89D1127D7AC7900FCB743 /* Profile */,
@@ -398,6 +389,15 @@
 				2773FE3527D67CBA00A69B7B /* AuthNetworkable.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		277D2A0F27F0DF8600F26F14 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				27734B1027CD4EA9007E9DFE /* Assets.xcassets */,
+				277D2A1027F0DF9800F26F14 /* Color.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		27C89D1127D7AC7900FCB743 /* Profile */ = {
@@ -521,6 +521,7 @@
 				27734B5527CD7BDE007E9DFE /* Poppins-SemiBoldItalic.ttf in Resources */,
 				27734B5427CD7BDB007E9DFE /* Poppins-SemiBold.ttf in Resources */,
 				27734B1127CD4EA9007E9DFE /* Assets.xcassets in Resources */,
+				277D2A1127F0DF9800F26F14 /* Color.xcassets in Resources */,
 				27734B4A27CD7BBE007E9DFE /* Poppins-Thin.ttf in Resources */,
 				27734B5327CD7BD8007E9DFE /* Poppins-MediumItalic.ttf in Resources */,
 				27734B4827CD7BB9007E9DFE /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -593,6 +594,7 @@
 			files = (
 				276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */,
 				274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */,
+				277D2A1327F0E2F800F26F14 /* UIViewControllerExtension.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */,
@@ -624,7 +626,6 @@
 				2780311E27DFC66200604726 /* AddAqarAdverstimentVC.swift in Sources */,
 				2773FE2927D671FD00A69B7B /* Networkable.swift in Sources */,
 				27EB9C1327DE071D005DABEE /* MapVC.swift in Sources */,
-				273F32B327DA23E5001FA62F /* SettingTarget.swift in Sources */,
 				276732E927CECCD600928288 /* HomeVC.swift in Sources */,
 				274D03F327D026E30094FA57 /* AlertPackageVC.swift in Sources */,
 				2756E05927CF7A6900D45B10 /* TableViewHelper.swift in Sources */,
@@ -638,7 +639,6 @@
 				27734B5B27CD84A7007E9DFE /* SignupVC.swift in Sources */,
 				274E398C27D542AF003A911F /* EditProfileVC.swift in Sources */,
 				27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */,
-				273F32B527DA23F4001FA62F /* SettingNetworkable.swift in Sources */,
 				274AA7A127D8B2BB00FED3E5 /* KeychainWrapper.swift in Sources */,
 				27734B4327CD7022007E9DFE /* FirstOnBoardingVC.swift in Sources */,
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,

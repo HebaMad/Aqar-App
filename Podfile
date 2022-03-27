@@ -10,5 +10,6 @@ target 'Aqar' do
   pod 'SDWebImage', '~> 5.0'
   pod 'YPImagePicker'
   pod 'IQKeyboardManagerSwift', '6.3.0'
+  pod 'SVProgressHUD'
 
 end

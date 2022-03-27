@@ -18,6 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        if let _delegate = UIApplication.shared.delegate as? AppDelegate {
+            _delegate.window = window
+        }
         setRootVC(vc: FirstOnBoardingVC.instantiate())
     }
     func setRootVC(vc:UIViewController){

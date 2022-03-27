@@ -12,7 +12,7 @@ import Moya
 
 protocol CarNetworkable:Networkable  {
     
-    func getAllCar(completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ())
+    func getAllCar(page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ())
     func deleteCar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func CarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 func AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
@@ -30,8 +30,8 @@ class CarManager:CarNetworkable{
    typealias targetType = CarApiTarget
 
  
-    func getAllCar(completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
-        request(target: .getAllCar, completion: completion)
+    func getAllCar(page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
+        request(target: .getAllCar(page: page), completion: completion)
 
     }
     

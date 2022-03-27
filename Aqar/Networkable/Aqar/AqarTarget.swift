@@ -11,7 +11,7 @@ import Foundation
 import Moya
 
 enum AqarApiTarget:TargetType{
-    case getAllAqar
+    case getAllAqar(page:Int)
     case AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateAqar(id:Int,Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
@@ -37,11 +37,13 @@ enum AqarApiTarget:TargetType{
     
     var method: Moya.Method {
         switch self{
+        case .updateAqar:
+            return Method.put
         case .deleteAqar:
             return .delete
         case .getAllAqar,.AqarDetails:
             return .get
-        case .AddAqar,.updateAqar:
+        case .AddAqar:
             // change this later
             return Method.post
           
@@ -53,9 +55,7 @@ enum AqarApiTarget:TargetType{
     var task: Task{
         switch self{
   
-        case .getAllAqar:
-            return .requestPlain
-        case .deleteAqar,.AqarDetails:
+        case .deleteAqar,.AqarDetails,.getAllAqar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
         case .AddAqar:
@@ -124,7 +124,7 @@ enum AqarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddAqar,.updateAqar,.deleteAqar:
+        case .AddAqar,.updateAqar,.deleteAqar,.getAllAqar:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
@@ -144,6 +144,9 @@ enum AqarApiTarget:TargetType{
         
         
         switch self {
+        case .getAllAqar(let page):
+            return["page":page]
+
         case .AqarDetails(let id):
             return ["carId":id]
         case .deleteAqar(let id):

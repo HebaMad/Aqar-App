@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum CarApiTarget:TargetType{
-    case getAllCar
+    case getAllCar(page:Int)
     case AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
@@ -52,9 +52,8 @@ enum CarApiTarget:TargetType{
     var task: Task{
         switch self{
   
-        case .getAllCar:
-            return .requestPlain
-        case .deleteCar,.carDetails:
+   
+        case .deleteCar,.carDetails,.getAllCar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
    
@@ -136,6 +135,9 @@ enum CarApiTarget:TargetType{
         
         
         switch self {
+        case .getAllCar(let page):
+            return["page":page]
+            
         case .carDetails(let id):
             return ["Id":id]
         case .deleteCar(let id):

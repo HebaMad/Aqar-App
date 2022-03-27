@@ -6,11 +6,16 @@
 //
 
 import UIKit
+typealias callback = ( _ status: Bool ) -> Void
 
 class HomeVC: UIViewController {
     var cars:[Car]=[]
     var aqars:[Aqar]=[]
+    private var aqarpage = 1
+    private var aqarhasMore = false
     
+    private var carpage = 1
+    private var carhasMore = false
     @IBOutlet weak var carAqarTable: UITableView!
     
     @IBOutlet weak var carBtn: UIButton!
@@ -25,8 +30,12 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         TableDataSetup()
-        getAllCar()
-        getAllAqar()
+        getAllCar(pageNum: carpage) { status in
+            self.getAllAqar(pageNum: self.aqarpage) { status in
+                
+            }
+
+        }
     }
     
     func TableDataSetup(){
@@ -67,12 +76,14 @@ class HomeVC: UIViewController {
                 if buttonText == "car"{
                     
                     if cars[sender.tag].isFavourite == true{
-                        
+                        self.showLoading()
+
                         deleteCarFav(id: cars[sender.tag].id ?? 0)
 
                         
                     }else{
-                        
+                        self.showLoading()
+
                        AddCarFav(id: cars[sender.tag].id ?? 0)
 
                     }
@@ -81,11 +92,13 @@ class HomeVC: UIViewController {
                 }else{
                     
                     if aqars[sender.tag].isFavourite == true{
-                        
+                        self.showLoading()
+
                         deleteAqarFav(id:  aqars[sender.tag].id ?? 0)
 
                     }else{
-                        
+                        self.showLoading()
+
                         AddAqarFav(id:  aqars[sender.tag].id ?? 0)
                         
                     }
@@ -155,15 +168,39 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         
         
     }
-  
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            
+            let height = scrollView.frame.size.height
+            let contentYoffset = scrollView.contentOffset.y
+            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        if Int(distanceFromBottom) == Int(height) {
+        
+        if buttonText == "car"{
+            if carhasMore == true {
+                carpage+=1
+                getAllCar(pageNum: carpage) { status in
+                    
+                }
+            }
+          
+        }else{
+            if aqarhasMore == true {
+                aqarpage+=1
+                getAllCar(pageNum: aqarpage) { status in
+                    
+                }
+            }
+        }
+    }
+    }
 }
 extension HomeVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }
 
 extension HomeVC{
-    func getAllCar(){
-        CarManager.shared.getAllCar { Response in
+    func getAllCar(pageNum:Int, callback: @escaping callback){
+        CarManager.shared.getAllCar(page:pageNum) { Response in
             
             switch Response{
 
@@ -174,15 +211,16 @@ extension HomeVC{
                     guard let  responsedata = response.data else {return}
 
                 do {
-                    self.cars=responsedata.cars ?? []
+                    self.cars+=responsedata.cars ?? []
                     self.carAqarTable.reloadData()
-
+                    self.carhasMore=responsedata.hasMore ?? false
+                 callback(true)
                 } catch let error {
                 }
                     
                 }else{
                     self.showAlert(title: "Failed", message: response.message)
-
+                    callback(false)
                 }
                 
                   case let .failure(error):
@@ -195,8 +233,8 @@ extension HomeVC{
         }
     }
     
-    func getAllAqar(){
-        AqarManager.shared.getAllAqar { Response in
+    func getAllAqar(pageNum:Int, callback: @escaping callback){
+        AqarManager.shared.getAllAqar(page:pageNum) { Response in
             switch Response{
 
      
@@ -206,13 +244,16 @@ extension HomeVC{
                     guard let  responsedata = response.data else {return}
 
                 do {
-                    self.aqars=responsedata.realStates ?? []
+                    self.aqars+=responsedata.realStates ?? []
+                    self.aqarhasMore=responsedata.hasMore ?? false
+                    callback(true)
 
                 } catch let error {
                 }
                     
                 }else{
                     self.showAlert(title: "Failed", message: response.message)
+                    callback(false)
 
                 }
                 
@@ -227,20 +268,25 @@ extension HomeVC{
     }
     
     func deleteCarFav(id:Int){
-     
-        CarManager.shared.deleteCar(id: id) { Response in
+        ProfileManager.shared.removeFavCar(id: id) { Response in
             switch Response{
 
-         
             case let .success(response):
                 if response.status == true{
-                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                        self.getAllCar()
-                    }
-                    
+                    self.cars=[]
+                    self.getAllCar(pageNum: 1) { status in
+                        self.hideLoading()
+                        self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                        }
+               
+            }
                 }
-                
+                self.hideLoading()
+
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
@@ -251,18 +297,27 @@ extension HomeVC{
         
     }
     func deleteAqarFav(id:Int){
-        AqarManager.shared.deleteAqar(id: id) { Response in
+
+        ProfileManager.shared.removeFavAqar(id: id) { Response in
             switch Response{
 
          
             case let .success(response):
+
                 if response.status == true{
-                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                        self.getAllAqar()
-                    }
+                    self.aqars=[]
+                    self.getAllAqar(pageNum: 1) { status in
+                        self.hideLoading()
+                        self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                        }
+               
+            }
                 }
-                
+
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
@@ -279,14 +334,22 @@ extension HomeVC{
 
          
             case let .success(response):
-                if response.status == true{
-                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                        self.getAllCar()
 
-                    }
+                if response.status == true{
+
+                    self.cars=[]
+                    self.getAllCar(pageNum: 1) { status in
+                        self.hideLoading()
+                        self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                        }
+               
+            }
                 }
                 
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
@@ -299,14 +362,20 @@ extension HomeVC{
             switch Response{
 
             case let .success(response):
-                if response.status == true{
-                    self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                        self.getAllAqar()
 
-                    }
+                if response.status == true{
+                        self.aqars=[]
+                        self.getAllAqar(pageNum: 1) { status in
+                            self.hideLoading()
+                            self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
+                            }
+                   
                 }
-                
+                }
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }

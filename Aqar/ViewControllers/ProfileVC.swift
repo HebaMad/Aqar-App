@@ -76,17 +76,19 @@ print(error)
     
     
     @IBAction func goldenPackageBtn(_ sender: Any) {
-        getAqarPackage(packageType: 3)
-        getCarPackage(packageType: 3)
-        myPackageData(packageType:3)
+        getCarPackage(packageType: 3) { status in
+            self.getAqarPackage(packageType: 3)
+
+        }
 
     }
     
     
     @IBAction func silverPackageBtn(_ sender: Any) {
-        getAqarPackage(packageType: 2)
-        getCarPackage(packageType: 2)
-        myPackageData(packageType:2)
+        getCarPackage(packageType: 2) { status in
+            self.getAqarPackage(packageType: 2)
+
+        }
 
     }
     
@@ -97,11 +99,10 @@ print(error)
         self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
     }
     @IBAction func bronzePackageBtn(_ sender: Any) {
-        getAqarPackage(packageType: 1)
+        getCarPackage(packageType: 1) { status in
+            self.getAqarPackage(packageType: 1)
 
-        getCarPackage(packageType: 1)
-        myPackageData(packageType:1)
-
+        }
     }
     
 }
@@ -197,7 +198,7 @@ extension ProfileVC{
         }
     }
     
-    func  getCarPackage(packageType:Int){
+    func  getCarPackage(packageType:Int,callback: @escaping callback){
         ProfileManager.shared.getUserCar(packageType: packageType) { Response in
             switch Response{
 
@@ -206,11 +207,15 @@ extension ProfileVC{
                 if response.status == true{
                     self.car = response.data?.cars ?? []
                 
-                    
+                  callback(true)
+                }else{
+                    callback(false)
+
                 }
                 
             case let .failure(error):
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    callback(false)
 
                 }
             }
@@ -227,7 +232,12 @@ extension ProfileVC{
             case let .success(response):
                 if response.status == true{
                     self.Aqar = response.data?.realStates ?? []
-                    print(self.Aqar.count)
+                    let vc = MyGoldenAds.instantiate()
+                    vc.packageType=packageType
+                    vc.cars = self.car
+                    print(self.Aqar)
+                    vc.aqars=self.Aqar
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             case let .failure(error):
@@ -238,12 +248,5 @@ extension ProfileVC{
         }
     }
     
-    func myPackageData(packageType:Int){
-        let vc = MyGoldenAds.instantiate()
-        vc.packageType=packageType
-        vc.cars = self.car
-        print(self.Aqar)
-        vc.aqars=self.Aqar
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+
 }

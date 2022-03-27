@@ -33,6 +33,7 @@ struct loginModel:Decodable{
 struct HomeModel:Decodable{
     
     let cars:[Car]?
+    let hasMore:Bool?
    
 }
 struct Car:Codable{
@@ -68,6 +69,7 @@ struct AppSetting:Decodable{
 }
 struct AqarHome:Decodable{
     let realStates:[Aqar]?
+    let hasMore:Bool?
 
 }
 

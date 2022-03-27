@@ -93,7 +93,7 @@ enum ProfileApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav,.removeFavCar,.removeFavAqar,.updateProfile,.addFavCar:
+        case .profileDetails,.getUserCar,.getUserAqar,.getUserAqarFav,.getUserCarFav,.removeFavCar,.removeFavAqar,.updateProfile,.addFavCar,.addFavAqar:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""

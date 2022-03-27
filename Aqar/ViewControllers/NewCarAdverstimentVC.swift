@@ -62,7 +62,7 @@ var id=0
         milesTxt.text = "\(carData.miles ?? 0)"
         speedTxt.text = "\(carData.speed ?? 0)"
         titleTxt.text = carData.title ?? ""
-        address.text=carData.location ?? ""
+       location=carData.location ?? ""
         descriptionTxt.text=carData.description ?? ""
         carModelText.text=carData.modelName ?? ""
         guard let carImages = carData.images else{return}
@@ -142,6 +142,7 @@ var id=0
         let description = try descriptionTxt.validatedText(validationType: .requiredField(field: "description required"))
         
         let carmodel = try carModelText.validatedText(validationType: .requiredField(field: "car model required"))
+            self.showLoading()
             if self.status == "Add"{
         AddCar(modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
             }else{
@@ -168,6 +169,8 @@ extension NewCarAdverstimentVC{
          
             case let .success(response):
                 if response.status == true{
+                    self.hideLoading()
+
             
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
@@ -178,6 +181,8 @@ extension NewCarAdverstimentVC{
                 }
                 
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
@@ -193,7 +198,8 @@ extension NewCarAdverstimentVC{
                 
             case let .success(response):
                 if response.status == true{
-            
+                    self.hideLoading()
+
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
                     }
@@ -203,6 +209,8 @@ extension NewCarAdverstimentVC{
                 }
                 
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }

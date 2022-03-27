@@ -16,7 +16,7 @@ class AlertPackageVC: UIViewController {
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var packageDetailsTxt: UILabel!
     var package:packageType?
-    var packageNum=0
+    var packageNum=3
     override func viewDidLoad() {
         super.viewDidLoad()
         tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))

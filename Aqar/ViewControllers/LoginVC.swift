@@ -28,8 +28,9 @@ class LoginVC: UIViewController {
             
             let userEmail = try userNameTxt.validatedText(validationType: .email)
             let userPassword = try passTxt.validatedText(validationType: .requiredField(field: "password required"))
+            self.showLoading()
+
             login(email: userEmail, password: userPassword)
-//            self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
             
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
@@ -43,9 +44,8 @@ extension LoginVC{
     
     func login(email:String,password:String){
         AuthManager.shared.login(email: email, password: password) { Response in
-            
             switch Response{
-                
+               
             case let .success(response):
                 
                 do {
@@ -55,22 +55,26 @@ extension LoginVC{
                             try KeychainWrapper.set(value: "Bearer"+" "+responsedata.accessToken!  , key: responsedata.email ?? "")
                             AppData.email = responsedata.email ?? ""
                         }
-                        
+                        self.hideLoading()
+
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
                         
                     }else{
-                        
+                        self.hideLoading()
+
                         self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
                         
                     }
                 } catch let error {
-                    
+                    self.hideLoading()
+
                     self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         
                     }
                 }
             case let .failure(error):
-                
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                     
                 }

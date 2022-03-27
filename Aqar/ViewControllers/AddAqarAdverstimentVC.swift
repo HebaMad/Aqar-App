@@ -47,22 +47,25 @@ var id=0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         address.text = location
+   
+
         
     }
     func editData(){
-        guard let carData = aqar else { return  }
-        priceTxt.text = "\(carData.price ?? 0)"
-        numOfGarage.text = "\(carData.numberOfGarages ?? 0)"
-        numOfBedroom.text = "\(carData.numberOfBedrooms ?? 0)"
-        numofBathrooms.text = "\(carData.numberOfBathrooms ?? 0)"
-        numofKitchen.text = "\(carData.numberOfKitchens ?? 0)"
+        guard let AqarData = aqar else { return  }
+        priceTxt.text = "\(AqarData.price ?? 0)"
+        numOfGarage.text = "\(AqarData.numberOfGarages ?? 0)"
+        numOfBedroom.text = "\(AqarData.numberOfBedrooms ?? 0)"
+        numofBathrooms.text = "\(AqarData.numberOfBathrooms ?? 0)"
+        numofKitchen.text = "\(AqarData.numberOfKitchens ?? 0)"
 
-        titleTxt.text = carData.title ?? ""
-        address.text=carData.location ?? ""
-        descriptionTxt.text=carData.description ?? ""
-        guard let carImages = carData.images else{return}
-        for index in 0 ... carImages.count-1 {
-            let data = NSData(contentsOf: URL(string: carImages[index]) ?? URL(fileURLWithPath: ""))
+        titleTxt.text = AqarData.title ?? ""
+        location=AqarData.location ?? ""
+        descriptionTxt.text=AqarData.description ?? ""
+        guard let aqarImages = AqarData.images else{return}
+        uploadBtn.setTitle("\(aqarImages.count)", for: .normal)
+        for index in 0 ... aqarImages.count-1 {
+            let data = NSData(contentsOf: URL(string: aqarImages[index]) ?? URL(fileURLWithPath: ""))
             imagesArray.append(data as! Data)
         }
 
@@ -136,7 +139,7 @@ var id=0
         
         let numGarage = try numOfGarage.validatedText(validationType: .requiredField(field: "num Of Garage required"))
             let numBedroom = try numOfBedroom.validatedText(validationType: .requiredField(field: "num Of Bedroom required"))
-            
+            self.showLoading()
             if self.status == "Add"{
                 AddAqar(NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
             }else{
@@ -160,7 +163,8 @@ extension AddAqarAdverstimentVC{
          
             case let .success(response):
                 if response.status == true{
-            
+                    self.hideLoading()
+
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
                     }
@@ -170,6 +174,8 @@ extension AddAqarAdverstimentVC{
                 }
                 
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
@@ -183,7 +189,7 @@ extension AddAqarAdverstimentVC{
 
             case let .success(response):
                 if response.status == true{
-            
+                    self.hideLoading()
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
                     }
@@ -193,6 +199,8 @@ extension AddAqarAdverstimentVC{
                 }
                 
             case let .failure(error):
+                self.hideLoading()
+
                 self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }

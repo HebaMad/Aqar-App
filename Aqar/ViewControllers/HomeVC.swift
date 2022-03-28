@@ -215,9 +215,8 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         if buttonText == "car"{
             if carhasMore == true {
                 carpage+=1
-                    guard let carData = car else {return}
-
-                    getAllCar(miles: carData.miles ?? 0, speed: carData.speed ?? 0, priceFrom: carData.priceFrom ?? 0.0, priceTo: carData.priceTo ?? 0.0, advertisementType: carData.advertismentType ?? 0, dateFilterType: carData.date ?? 0, page:carpage) { status in
+                
+                getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0){ status in
                         
                     }
              
@@ -227,15 +226,13 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             if aqarhasMore == true {
                 aqarpage+=1
               
-//                    guard let aqarData = aqar else {return}
-                self.getAllAqar(numKitchens: aqar?.numberOfKitchens ?? 0, numBeds: aqar?.numberOfBedrooms ?? 0, numGarages: aqar?.numberOfGarages ?? 0, area: aqar?.area ?? 0, priceFrom: aqar?.priceFrom ?? 0.0, priceTo: aqar?.priceTo ?? 0.0, advertisementType: aqar?.advertismentType ?? 0, dateFilterType: aqar?.date ?? 0, page: aqarpage){ status in
-                        
-                    }
+        self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page:aqarpage ){ status in
                 }
             }
         }
         }
    
+}
 }
 extension HomeVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
@@ -313,6 +310,8 @@ extension HomeVC{
 
                 do {
                     self.aqars+=responsedata.realStates ?? []
+                    self.carAqarTable.reloadData()
+
                     self.aqarhasMore=responsedata.hasMore ?? false
                     callback(true)
 

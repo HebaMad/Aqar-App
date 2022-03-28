@@ -39,7 +39,7 @@
 		276732E127CEAA2900928288 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276732DF27CEAA2900928288 /* HomeCell.xib */; };
 		276732E327CEC6CB00928288 /* UITextFieldDataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E227CEC6CB00928288 /* UITextFieldDataPicker.swift */; };
 		276732E527CECC8400928288 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E427CECC8400928288 /* SearchVC.swift */; };
-		276732E727CECCB300928288 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E627CECCB300928288 /* FilterVC.swift */; };
+		276732E727CECCB300928288 /* CarFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E627CECCB300928288 /* CarFilterVC.swift */; };
 		276732E927CECCD600928288 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E827CECCD600928288 /* HomeVC.swift */; };
 		276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732EA27CECCFD00928288 /* FavouriteVC.swift */; };
 		276732ED27CECD2100928288 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732EC27CECD2100928288 /* ProfileVC.swift */; };
@@ -98,6 +98,7 @@
 		27C99CDB27D4CF3D00870E6E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C99CD927D4CF3D00870E6E /* CustomAlert.xib */; };
 		27C99CDF27D4D18200870E6E /* carAqarTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */; };
 		27C99CE127D4D37C00870E6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CE027D4D37C00870E6E /* Validator.swift */; };
+		27D1107927F19DBD00DF70BD /* AqarFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D1107827F19DBD00DF70BD /* AqarFilterVC.swift */; };
 		27EB9C1327DE071D005DABEE /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB9C1227DE071D005DABEE /* MapVC.swift */; };
 		27EB9C1527DE07AB005DABEE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB9C1427DE07AB005DABEE /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -135,7 +136,7 @@
 		276732DF27CEAA2900928288 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		276732E227CEC6CB00928288 /* UITextFieldDataPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldDataPicker.swift; sourceTree = "<group>"; };
 		276732E427CECC8400928288 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
-		276732E627CECCB300928288 /* FilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		276732E627CECCB300928288 /* CarFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarFilterVC.swift; sourceTree = "<group>"; };
 		276732E827CECCD600928288 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		276732EA27CECCFD00928288 /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
 		276732EC27CECD2100928288 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		27C99CD927D4CF3D00870E6E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carAqarTabBarController.swift; sourceTree = "<group>"; };
 		27C99CE027D4D37C00870E6E /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		27D1107827F19DBD00DF70BD /* AqarFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarFilterVC.swift; sourceTree = "<group>"; };
 		27EB9C1227DE071D005DABEE /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		27EB9C1427DE07AB005DABEE /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D72D741CC8D4A61C29F206D0 /* Pods_Aqar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aqar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,7 +342,7 @@
 				276732D527CE994300928288 /* ResetSuccessfullyVC.swift */,
 				276732D727CE9C0F00928288 /* ResetPasswordVC.swift */,
 				276732E427CECC8400928288 /* SearchVC.swift */,
-				276732E627CECCB300928288 /* FilterVC.swift */,
+				276732E627CECCB300928288 /* CarFilterVC.swift */,
 				276732E827CECCD600928288 /* HomeVC.swift */,
 				276732EA27CECCFD00928288 /* FavouriteVC.swift */,
 				276732EC27CECD2100928288 /* ProfileVC.swift */,
@@ -358,6 +360,7 @@
 				27EB9C1227DE071D005DABEE /* MapVC.swift */,
 				2780311D27DFC66200604726 /* AddAqarAdverstimentVC.swift */,
 				2780311F27E0FA7500604726 /* AddAdverstimentType.swift */,
+				27D1107827F19DBD00DF70BD /* AqarFilterVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */,
 				274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */,
 				277D2A1327F0E2F800F26F14 /* UIViewControllerExtension.swift in Sources */,
+				27D1107927F19DBD00DF70BD /* AqarFilterVC.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */,
@@ -644,7 +648,7 @@
 				27734B4527CD7284007E9DFE /* LoginChoicingVC.swift in Sources */,
 				2753A61527D13C0100A3E762 /* PhotoCell.swift in Sources */,
 				274D03ED27D00E6D0094FA57 /* LogoutAlertVC.swift in Sources */,
-				276732E727CECCB300928288 /* FilterVC.swift in Sources */,
+				276732E727CECCB300928288 /* CarFilterVC.swift in Sources */,
 				2773FE2C27D6755900A69B7B /* BaseResponse.swift in Sources */,
 				27C99CE127D4D37C00870E6E /* Validator.swift in Sources */,
 				27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */,

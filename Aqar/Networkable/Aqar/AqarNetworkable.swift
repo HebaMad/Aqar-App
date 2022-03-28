@@ -16,10 +16,11 @@ protocol AqarNetworkable:Networkable  {
 func AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     
     func UpdateAqar(id:Int,Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
+    
+    func AqarFiltering(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int,completion: @escaping (Result<BaseResponse<AqarHome>, Error>)-> ())
+    
 }
 class AqarManager:AqarNetworkable{
-
-
 
 
    var provider: MoyaProvider<AqarApiTarget> = MoyaProvider<AqarApiTarget>(plugins: [NetworkLoggerPlugin()])
@@ -30,6 +31,13 @@ class AqarManager:AqarNetworkable{
    typealias targetType = AqarApiTarget
 
  
+    func AqarFiltering(numberOfKitchens: Int, numberOfBeds: Int, numberOfGarages: Int, area: Int, priceFrom: Int, priceTo: Int, advertisementType: Int, dateFilterType: Int, page: Int, completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
+        request(target: .AqarFiltering(numberOfKitchens: numberOfKitchens, numberOfBeds: numberOfBeds, numberOfGarages: numberOfGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, page: page), completion: completion)
+    }
+    
+
+
+
     func getAllAqar(page:Int,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
         request(target: .getAllAqar(page: page), completion: completion)
     }

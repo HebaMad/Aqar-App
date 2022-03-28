@@ -29,6 +29,7 @@ var id=0
     @IBOutlet weak var descriptionTxt: UITextView!
     @IBOutlet weak var titleTxt: UITextField!
 
+    @IBOutlet weak var areaTxt: UITextField!
     @IBOutlet weak var AddBtn: UIButtonDesignable!
     
     override func viewDidLoad() {
@@ -139,11 +140,13 @@ var id=0
         
         let numGarage = try numOfGarage.validatedText(validationType: .requiredField(field: "num Of Garage required"))
             let numBedroom = try numOfBedroom.validatedText(validationType: .requiredField(field: "num Of Bedroom required"))
+            let area = try areaTxt.validatedText(validationType: .requiredField(field: "area required"))
+
             self.showLoading()
             if self.status == "Add"{
-                AddAqar(NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+                AddAqar(NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
             }else{
-                updateAqar(id:id,NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+                updateAqar(id:id,NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
             }
             
             
@@ -156,8 +159,8 @@ var id=0
 }
 }
 extension AddAqarAdverstimentVC{
-    func AddAqar(NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
-        AqarManager.shared.AddAqar(Area: "1", NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
+    func AddAqar(NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String,area:Int){
+        AqarManager.shared.AddAqar(Area: area, NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
             switch Response{
 
          
@@ -183,8 +186,8 @@ extension AddAqarAdverstimentVC{
         }
     }
     
-    func updateAqar(id:Int,NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
-        AqarManager.shared.UpdateAqar(id:id,Area: "1", NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
+    func updateAqar(id:Int,NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String,area:Int){
+        AqarManager.shared.UpdateAqar(id:id,Area: area, NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
             switch Response{
 
             case let .success(response):

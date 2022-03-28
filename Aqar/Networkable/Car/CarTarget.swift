@@ -16,7 +16,7 @@ enum CarApiTarget:TargetType{
     
     case deleteCar(id:Int)
     case carDetails(id:Int)
-    
+    case carFiltering(miles:Int,speed:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int)
     var baseURL: URL {
         return URL(string: "\(AppConfig.apiBaseUrl)/CarAdvertisment/")!
     }
@@ -29,7 +29,7 @@ enum CarApiTarget:TargetType{
         case .updateCar:return "Update"
         case .deleteCar : return "Delete"
         case .carDetails:return "GetOne"
-    
+        case .carFiltering:return "GetAll"
         }
     }
     
@@ -37,7 +37,7 @@ enum CarApiTarget:TargetType{
         switch self{
         case .deleteCar:
             return .delete
-        case .getAllCar,.carDetails:
+        case .getAllCar,.carDetails,.carFiltering:
             return .get
         case .AddCar:
             return Method.post
@@ -53,7 +53,7 @@ enum CarApiTarget:TargetType{
         switch self{
   
    
-        case .deleteCar,.carDetails,.getAllCar:
+        case .deleteCar,.carDetails,.getAllCar,.carFiltering:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
    
@@ -115,7 +115,7 @@ enum CarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddCar,.updateCar,.deleteCar,.getAllCar:
+        case .AddCar,.updateCar,.deleteCar,.getAllCar,.carFiltering:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
@@ -135,6 +135,10 @@ enum CarApiTarget:TargetType{
         
         
         switch self {
+            
+        case .carFiltering(let miles,let speed,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
+            
+            return["miles":miles,"speed":speed,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
         case .getAllCar(let page):
             return["page":page]
             

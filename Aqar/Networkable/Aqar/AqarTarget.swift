@@ -18,6 +18,8 @@ enum AqarApiTarget:TargetType{
     
     case deleteAqar(id:Int)
     case AqarDetails(id:Int)
+    case AqarFiltering(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int)
+    
     
     var baseURL: URL {
         return URL(string: "\(AppConfig.apiBaseUrl)/RealEstateAdvertisment/")!
@@ -31,7 +33,7 @@ enum AqarApiTarget:TargetType{
         case .updateAqar:return "Update"
         case .deleteAqar : return "Delete"
         case .AqarDetails:return "GetOne"
-    
+        case .AqarFiltering:return "GetAll"
         }
     }
     
@@ -41,7 +43,7 @@ enum AqarApiTarget:TargetType{
             return Method.put
         case .deleteAqar:
             return .delete
-        case .getAllAqar,.AqarDetails:
+        case .getAllAqar,.AqarDetails,.AqarFiltering:
             return .get
         case .AddAqar:
             // change this later
@@ -55,7 +57,7 @@ enum AqarApiTarget:TargetType{
     var task: Task{
         switch self{
   
-        case .deleteAqar,.AqarDetails,.getAllAqar:
+        case .deleteAqar,.AqarDetails,.getAllAqar,.AqarFiltering:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
         case .AddAqar:
@@ -124,7 +126,7 @@ enum AqarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddAqar,.updateAqar,.deleteAqar,.getAllAqar:
+        case .AddAqar,.updateAqar,.deleteAqar,.getAllAqar,.AqarFiltering:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
@@ -144,6 +146,9 @@ enum AqarApiTarget:TargetType{
         
         
         switch self {
+            
+        case .AqarFiltering(let numberOfKitchens,let numberOfBeds,let numberOfGarages,let area,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
+            return["numberOfKitchens":numberOfKitchens,"numberOfBeds":numberOfBeds,"numberOfGarages":numberOfGarages,"area":area,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
         case .getAllAqar(let page):
             return["page":page]
 

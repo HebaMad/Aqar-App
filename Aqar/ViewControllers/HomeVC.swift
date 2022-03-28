@@ -11,10 +11,10 @@ typealias callback = ( _ status: Bool ) -> Void
 class HomeVC: UIViewController {
     var cars:[Car]=[]
     var aqars:[Aqar]=[]
-    private var aqarpage = 1
+    private var aqarpage = 0
     private var aqarhasMore = false
     
-    private var carpage = 1
+    private var carpage = 0
     private var carhasMore = false
     @IBOutlet weak var carAqarTable: UITableView!
     
@@ -274,7 +274,7 @@ extension HomeVC{
             case let .success(response):
                 if response.status == true{
                     self.cars=[]
-                    self.getAllCar(pageNum: 1) { status in
+                    self.getAllCar(pageNum: 0) { status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -306,7 +306,7 @@ extension HomeVC{
 
                 if response.status == true{
                     self.aqars=[]
-                    self.getAllAqar(pageNum: 1) { status in
+                    self.getAllAqar(pageNum: 0) { status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -338,7 +338,7 @@ extension HomeVC{
                 if response.status == true{
 
                     self.cars=[]
-                    self.getAllCar(pageNum: 1) { status in
+                    self.getAllCar(pageNum: 0) { status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -365,7 +365,7 @@ extension HomeVC{
 
                 if response.status == true{
                         self.aqars=[]
-                        self.getAllAqar(pageNum: 1) { status in
+                        self.getAllAqar(pageNum: 0) { status in
                             self.hideLoading()
                             self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 

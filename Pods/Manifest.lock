@@ -6,6 +6,7 @@ PODS:
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - PryntTrimmerView (4.0.2)
+  - RangeSeekSlider (1.8.0)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
@@ -18,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - IQKeyboardManagerSwift (= 6.3.0)
   - Moya
+  - RangeSeekSlider
   - SDWebImage (~> 5.0)
   - SVProgressHUD
   - YPImagePicker
@@ -28,6 +30,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Moya
     - PryntTrimmerView
+    - RangeSeekSlider
     - SDWebImage
     - SteviaLayout
     - SVProgressHUD
@@ -38,11 +41,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YPImagePicker: 1463a19a36244e209dcb03c30e63559c5afa9602
 
-PODFILE CHECKSUM: d80629cd170584f0837e0c7dc2082d931721882f
+PODFILE CHECKSUM: bf79805b10b0b169f41294d156083ef3555b9d0b
 
 COCOAPODS: 1.11.2

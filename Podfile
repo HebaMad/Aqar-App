@@ -11,5 +11,5 @@ target 'Aqar' do
   pod 'YPImagePicker'
   pod 'IQKeyboardManagerSwift', '6.3.0'
   pod 'SVProgressHUD'
-
+  pod 'RangeSeekSlider'
 end

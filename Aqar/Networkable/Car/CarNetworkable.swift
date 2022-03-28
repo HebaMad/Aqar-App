@@ -12,13 +12,13 @@ import Moya
 
 protocol CarNetworkable:Networkable  {
     
-    func getAllCar(page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ())
+    func getAllCar(miles:Int,speed:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ())
     func deleteCar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func CarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 func AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     
     func updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
-    func carFiltering(miles:Int,speed:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ())
+
 
 }
 class CarManager:CarNetworkable{
@@ -31,13 +31,9 @@ class CarManager:CarNetworkable{
    }()
    typealias targetType = CarApiTarget
 
- 
-    func getAllCar(page:Int,completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
-        request(target: .getAllCar(page: page), completion: completion)
 
-    }
-    func carFiltering(miles: Int, speed: Int, priceFrom: Int, priceTo: Int, advertisementType: Int, dateFilterType: Int, page: Int, completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
-        request(target: .carFiltering(miles: miles, speed: speed, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, page: page), completion: completion)
+    func getAllCar(miles: Int, speed: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int, page: Int, completion: @escaping (Result<BaseResponse<HomeModel>, Error>) -> ()) {
+        request(target: .getAllCar(miles: miles, speed: speed, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType,page: page), completion: completion)
     }
     func deleteCar(id: Int, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {
         request(target: .deleteCar(id: id), completion: completion)

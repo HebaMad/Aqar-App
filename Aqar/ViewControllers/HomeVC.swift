@@ -8,9 +8,20 @@
 import UIKit
 typealias callback = ( _ status: Bool ) -> Void
 
+protocol filteringCarData{
+    func filtering(data:carFilteringData)
+}
+
+protocol filteringAqarData{
+    func filtering(data:aqarData)
+}
 class HomeVC: UIViewController {
+    var status="New"
     var cars:[Car]=[]
     var aqars:[Aqar]=[]
+    var aqar:aqarData?
+    var car:carFilteringData?
+
     private var aqarpage = 0
     private var aqarhasMore = false
     
@@ -30,13 +41,39 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         TableDataSetup()
-        getAllCar(pageNum: carpage) { status in
-            self.getAllAqar(pageNum: self.aqarpage) { status in
+
+        getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
+            
+            self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0) { status in
                 
             }
 
         }
     }
+    
+    
+    @IBAction func filterBtn(_ sender: Any) {
+        if buttonText == "car"{
+
+        let vc = CarFilterVC.instantiate()
+            vc.modalPresentationStyle = .overFullScreen
+            vc.delegate=self
+
+        present(vc, animated: true, completion: nil)
+        
+        
+        }else{
+            let vc = AqarFilterVC.instantiate()
+                vc.modalPresentationStyle = .overFullScreen
+            vc.delegate=self
+            present(vc, animated: true, completion: nil)
+            
+            
+        }
+        
+        
+    }
+    
     
     func TableDataSetup(){
         carAqarTable.register(HomeCell.self)
@@ -178,29 +215,57 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         if buttonText == "car"{
             if carhasMore == true {
                 carpage+=1
-                getAllCar(pageNum: carpage) { status in
-                    
-                }
+                    guard let carData = car else {return}
+
+                    getAllCar(miles: carData.miles ?? 0, speed: carData.speed ?? 0, priceFrom: carData.priceFrom ?? 0.0, priceTo: carData.priceTo ?? 0.0, advertisementType: carData.advertismentType ?? 0, dateFilterType: carData.date ?? 0, page:carpage) { status in
+                        
+                    }
+             
             }
-          
-        }else{
+            }
+        else{
             if aqarhasMore == true {
                 aqarpage+=1
-                getAllCar(pageNum: aqarpage) { status in
-                    
+              
+//                    guard let aqarData = aqar else {return}
+                self.getAllAqar(numKitchens: aqar?.numberOfKitchens ?? 0, numBeds: aqar?.numberOfBedrooms ?? 0, numGarages: aqar?.numberOfGarages ?? 0, area: aqar?.area ?? 0, priceFrom: aqar?.priceFrom ?? 0.0, priceTo: aqar?.priceTo ?? 0.0, advertisementType: aqar?.advertismentType ?? 0, dateFilterType: aqar?.date ?? 0, page: aqarpage){ status in
+                        
+                    }
                 }
             }
         }
-    }
-    }
+        }
+   
 }
 extension HomeVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }
+extension HomeVC:filteringAqarData{
+    func filtering(data:aqarData) {
+        aqar=data
+        self.getAllAqar(numKitchens:data.numberOfKitchens ?? 0, numBeds: data.numberOfBedrooms ?? 0, numGarages:data.numberOfGarages ?? 0, area:data.area ?? 0, priceFrom: data.priceFrom ?? 0.0, priceTo: data.priceTo ?? 0.0, advertisementType:data.advertismentType ?? 0, dateFilterType: data.date ?? 0,page:0){ status in
+            
+        }
+        
+    }
+    
+    
+}
+extension HomeVC:filteringCarData{
+    func filtering(data: carFilteringData) {
+        car=data
+        guard let carData = car else {return}
 
+        getAllCar(miles: carData.miles ?? 0, speed: carData.speed ?? 0, priceFrom: carData.priceFrom ?? 0.0, priceTo: carData.priceTo ?? 0.0, advertisementType: carData.advertismentType ?? 0, dateFilterType: carData.date ?? 0, page:0) { status in
+            
+        }
+    }
+    
+    
+}
 extension HomeVC{
-    func getAllCar(pageNum:Int, callback: @escaping callback){
-        CarManager.shared.getAllCar(page:pageNum) { Response in
+    func getAllCar(miles: Int, speed: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int, page: Int, callback: @escaping callback){
+        CarManager.shared.getAllCar(miles: miles, speed: speed, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, page: page) { Response in
             
             switch Response{
 
@@ -233,8 +298,11 @@ extension HomeVC{
         }
     }
     
-    func getAllAqar(pageNum:Int, callback: @escaping callback){
-        AqarManager.shared.getAllAqar(page:pageNum) { Response in
+    func getAllAqar(numKitchens:Int, numBeds: Int, numGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,page:Int, callback: @escaping callback){
+        
+        AqarManager.shared.getAllAqar(numberOfKitchens: numKitchens, numberOfBeds: numBeds, numberOfGarages: numGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, page: page) { Response in
+        
+      
             switch Response{
 
      
@@ -274,13 +342,14 @@ extension HomeVC{
             case let .success(response):
                 if response.status == true{
                     self.cars=[]
-                    self.getAllCar(pageNum: 0) { status in
+                    
+                    self.getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                         }
-               
-            }
+                    }
+                    
                 }
                 self.hideLoading()
 
@@ -306,7 +375,7 @@ extension HomeVC{
 
                 if response.status == true{
                     self.aqars=[]
-                    self.getAllAqar(pageNum: 0) { status in
+                    self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0){ status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -338,7 +407,7 @@ extension HomeVC{
                 if response.status == true{
 
                     self.cars=[]
-                    self.getAllCar(pageNum: 0) { status in
+                    self.getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
                         self.hideLoading()
                         self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -365,7 +434,7 @@ extension HomeVC{
 
                 if response.status == true{
                         self.aqars=[]
-                        self.getAllAqar(pageNum: 0) { status in
+                    self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0){ status in
                             self.hideLoading()
                             self.showAlert(title:  "Sucess", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -383,5 +452,10 @@ extension HomeVC{
         }
         
     }
+    
+
+    
+    
+   
     
 }

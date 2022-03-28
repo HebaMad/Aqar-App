@@ -9,14 +9,13 @@ import Foundation
 import Moya
 
 enum CarApiTarget:TargetType{
-    case getAllCar(page:Int)
+    case getAllCar(miles:Int,speed:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int)
     case AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case deleteCar(id:Int)
     case carDetails(id:Int)
-    case carFiltering(miles:Int,speed:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int)
     var baseURL: URL {
         return URL(string: "\(AppConfig.apiBaseUrl)/CarAdvertisment/")!
     }
@@ -29,7 +28,6 @@ enum CarApiTarget:TargetType{
         case .updateCar:return "Update"
         case .deleteCar : return "Delete"
         case .carDetails:return "GetOne"
-        case .carFiltering:return "GetAll"
         }
     }
     
@@ -37,7 +35,7 @@ enum CarApiTarget:TargetType{
         switch self{
         case .deleteCar:
             return .delete
-        case .getAllCar,.carDetails,.carFiltering:
+        case .getAllCar,.carDetails:
             return .get
         case .AddCar:
             return Method.post
@@ -53,7 +51,7 @@ enum CarApiTarget:TargetType{
         switch self{
   
    
-        case .deleteCar,.carDetails,.getAllCar,.carFiltering:
+        case .deleteCar,.carDetails,.getAllCar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
    
@@ -115,7 +113,7 @@ enum CarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddCar,.updateCar,.deleteCar,.getAllCar,.carFiltering:
+        case .AddCar,.updateCar,.deleteCar,.getAllCar:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
@@ -136,11 +134,9 @@ enum CarApiTarget:TargetType{
         
         switch self {
             
-        case .carFiltering(let miles,let speed,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
-            
+ 
+        case .getAllCar(let miles,let speed,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
             return["miles":miles,"speed":speed,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
-        case .getAllCar(let page):
-            return["page":page]
             
         case .carDetails(let id):
             return ["Id":id]

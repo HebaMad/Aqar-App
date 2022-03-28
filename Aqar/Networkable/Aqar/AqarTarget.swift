@@ -11,14 +11,14 @@ import Foundation
 import Moya
 
 enum AqarApiTarget:TargetType{
-    case getAllAqar(page:Int)
-    case AddAqar(Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
+    case getAllAqar(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int)
+    case AddAqar(Area:Int,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
-    case updateAqar(id:Int,Area:String,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
+    case updateAqar(id:Int,Area:Int,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case deleteAqar(id:Int)
     case AqarDetails(id:Int)
-    case AqarFiltering(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Int,priceTo:Int,advertisementType:Int,dateFilterType:Int,page:Int)
+
     
     
     var baseURL: URL {
@@ -33,7 +33,6 @@ enum AqarApiTarget:TargetType{
         case .updateAqar:return "Update"
         case .deleteAqar : return "Delete"
         case .AqarDetails:return "GetOne"
-        case .AqarFiltering:return "GetAll"
         }
     }
     
@@ -43,7 +42,7 @@ enum AqarApiTarget:TargetType{
             return Method.put
         case .deleteAqar:
             return .delete
-        case .getAllAqar,.AqarDetails,.AqarFiltering:
+        case .getAllAqar,.AqarDetails:
             return .get
         case .AddAqar:
             // change this later
@@ -57,7 +56,7 @@ enum AqarApiTarget:TargetType{
     var task: Task{
         switch self{
   
-        case .deleteAqar,.AqarDetails,.getAllAqar,.AqarFiltering:
+        case .deleteAqar,.AqarDetails,.getAllAqar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
         case .AddAqar:
@@ -67,7 +66,7 @@ enum AqarApiTarget:TargetType{
             var multipartData:[MultipartFormData]=[]
 
        
-           let area = MultipartFormData(provider: .data(Area.data(using: .utf8)!), name: "Area")
+           let area = MultipartFormData(provider: .data("\(Area)".data(using: .utf8)!), name: "Area")
             let numBedrooms = MultipartFormData(provider: .data("\(NumberOfBedrooms)".data(using: .utf8)!), name: "NumberOfBedrooms")
             let numBathrooms = MultipartFormData(provider: .data("\(NumberOfBathrooms)".data(using: .utf8)!), name: "NumberOfBathrooms")
             let numKitchens = MultipartFormData(provider: .data("\(NumberOfKitchens)".data(using: .utf8)!), name: "NumberOfKitchens")
@@ -95,7 +94,7 @@ enum AqarApiTarget:TargetType{
         case .updateAqar(let id,let Area,let NumberOfBedrooms,let NumberOfBathrooms,let NumberOfKitchens,let NumberOfGarages,let imags,let Title,let Location,let Description,let Price,let AdvertismentType,let PackageType,let Longitude,let Latitude):
             var multipartData:[MultipartFormData]=[]
 
-           let area = MultipartFormData(provider: .data(Area.data(using: .utf8)!), name: "Area")
+            let area = MultipartFormData(provider: .data("\(Area)".data(using: .utf8)!), name: "Area")
             let numBedrooms = MultipartFormData(provider: .data("\(NumberOfBedrooms)".data(using: .utf8)!), name: "NumberOfBedrooms")
             let numBathrooms = MultipartFormData(provider: .data("\(NumberOfBathrooms)".data(using: .utf8)!), name: "NumberOfBathrooms")
             let numKitchens = MultipartFormData(provider: .data("\(NumberOfKitchens)".data(using: .utf8)!), name: "NumberOfKitchens")
@@ -126,7 +125,7 @@ enum AqarApiTarget:TargetType{
     
     var headers: [String : String]?{
         switch self{
-        case .AddAqar,.updateAqar,.deleteAqar,.getAllAqar,.AqarFiltering:
+        case .AddAqar,.updateAqar,.deleteAqar,.getAllAqar:
             
             do {
                 let token = try KeychainWrapper.get(key: AppData.email) ?? ""
@@ -147,10 +146,9 @@ enum AqarApiTarget:TargetType{
         
         switch self {
             
-        case .AqarFiltering(let numberOfKitchens,let numberOfBeds,let numberOfGarages,let area,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
+    
+        case .getAllAqar(let numberOfKitchens,let numberOfBeds,let numberOfGarages,let area,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
             return["numberOfKitchens":numberOfKitchens,"numberOfBeds":numberOfBeds,"numberOfGarages":numberOfGarages,"area":area,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
-        case .getAllAqar(let page):
-            return["page":page]
 
         case .AqarDetails(let id):
             return ["carId":id]

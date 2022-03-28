@@ -59,6 +59,26 @@ struct Car:Codable{
            
 }
 
+struct aqarData{
+    let numberOfBedrooms : Int?
+    let numberOfKitchens : Int?
+    let numberOfGarages : Int?
+    let advertismentType : Int?
+    let priceFrom : Float?
+    let priceTo: Float?
+    let area:Int?
+    let date:Int?
+
+}
+struct carFilteringData{
+    let speed:Int?
+    let miles:Int?
+    let advertismentType : Int?
+    let priceFrom : Float?
+    let priceTo: Float?
+    let date:Int?
+}
+
 struct AppSetting:Decodable{
     
     let id:Int?

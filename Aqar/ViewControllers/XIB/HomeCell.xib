@@ -32,36 +32,55 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rD9-M7-IWd">
                                 <rect key="frame" x="18" y="112" width="349" height="88"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBR-oR-16G">
-                                        <rect key="frame" x="0.0" y="0.0" width="349" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-um-p9f">
+                                        <rect key="frame" x="0.0" y="0.0" width="349" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBR-oR-16G">
+                                                <rect key="frame" x="0.0" y="0.0" width="249" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="BQa-Jj-9KY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKM-pJ-Kga">
+                                                <rect key="frame" x="249" y="0.0" width="100" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="YAx-6J-bTn"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemRedColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Button">
+                                                    <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="BQa-Jj-9KY"/>
+                                            <constraint firstAttribute="height" constant="30" id="Gx5-tw-CaV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem text monteiro " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aV-sm-mBT">
-                                        <rect key="frame" x="0.0" y="20" width="349" height="36"/>
+                                        <rect key="frame" x="0.0" y="30" width="349" height="30"/>
                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57k-Tg-O1D">
-                                        <rect key="frame" x="0.0" y="56" width="349" height="32"/>
+                                        <rect key="frame" x="0.0" y="60" width="349" height="28"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ERc-ob-7p1">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="253" height="28"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HHz-HN-211">
-                                                        <rect key="frame" x="0.0" y="1.5" width="24" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="1.5" width="24" height="24.5"/>
                                                         <color key="tintColor" name="TEXT"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="wn1-ti-g9K"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1533" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFD-VK-LFs">
-                                                        <rect key="frame" x="32" y="0.0" width="221" height="32"/>
+                                                        <rect key="frame" x="32" y="0.0" width="221" height="28"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" name="TEXT"/>
                                                         <nil key="highlightedColor"/>
@@ -69,7 +88,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sai-hY-Sbl">
-                                                <rect key="frame" x="253" y="0.5" width="32" height="31"/>
+                                                <rect key="frame" x="253" y="0.5" width="32" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="h6D-wo-cgw"/>
                                                 </constraints>
@@ -78,7 +97,7 @@
                                                 <state key="normal" backgroundImage="heart.circle" catalog="system"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhf-cF-qqi">
-                                                <rect key="frame" x="285" y="0.0" width="32" height="32"/>
+                                                <rect key="frame" x="285" y="0.0" width="32" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="FrM-gq-1cb"/>
                                                 </constraints>
@@ -87,7 +106,7 @@
                                                 <state key="normal" image="trash" catalog="system"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98N-9a-Q23">
-                                                <rect key="frame" x="317" y="0.0" width="32" height="32"/>
+                                                <rect key="frame" x="317" y="0.0" width="32" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="jy1-yR-2Tv"/>
                                                 </constraints>
@@ -97,7 +116,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="KLp-qO-a6M"/>
+                                            <constraint firstAttribute="height" constant="28" id="KLp-qO-a6M"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -143,6 +162,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="FavButton" destination="Sai-hY-Sbl" id="TwE-Fz-yRk"/>
+                <outlet property="adverstimentTypeTxt" destination="qKM-pJ-Kga" id="tcR-TQ-ZqX"/>
                 <outlet property="backgroundImg" destination="yHn-5Z-VRi" id="VhD-Wt-o2D"/>
                 <outlet property="descriptionText" destination="7aV-sm-mBT" id="fJw-09-VRN"/>
                 <outlet property="editBtn" destination="98N-9a-Q23" id="eh7-B2-IkS"/>

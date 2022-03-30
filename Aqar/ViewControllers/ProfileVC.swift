@@ -6,14 +6,15 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ProfileVC: UIViewController {
     var aboutUsText=""
     var contactUsText=""
     var car:[Car]=[]
     var Aqar:[Aqar]=[]
     var profileItem:[Menu]=[]
-    
+    var userDetails:ProfileModel?
+    @IBOutlet weak var profilePic: UIImageViewDesignable!
     @IBOutlet weak var bronzeAdsTxt: UILabel!
     @IBOutlet weak var silverAdsTxt: UILabel!
     @IBOutlet weak var goldenAdsTxt: UILabel!
@@ -133,7 +134,9 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
                    present(nav, animated: true, completion: nil)
               
         case 1:
-             navigationController?.pushViewController(EditProfileVC.instantiate(), animated: true)
+            let vc = EditProfileVC.instantiate()
+            vc.userData = self.userDetails
+             navigationController?.pushViewController(vc, animated: true)
         case 2:
         let vc = ContactUSVC.instantiate()
             vc.modalPresentationStyle = .overFullScreen
@@ -184,6 +187,8 @@ extension ProfileVC{
                     self.bronzeAdsTxt.text=String(describing:responsedata.bronzeAdsCount ?? 0)
                     self.silverAdsTxt.text=String(describing:responsedata.silverAdsCount ?? 0)
                     self.goldenAdsTxt.text=String(describing:responsedata.goldenAdsCount ?? 0)
+                    self.profilePic.sd_setImage(with: URL(string: responsedata.image ?? ""))
+                    self.userDetails = responsedata
                 }
                 
             case let .failure(error):

@@ -42,9 +42,22 @@ class HomeVC: UIViewController {
 
         TableDataSetup()
 
-        getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
+//        getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
+//
+//            self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0) { status in
+//
+//            }
+//
+//        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+     super.viewWillAppear(animated)
+        cars=[]
+        aqars=[]
+        
+        getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0) { status in
             
-            self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0) { status in
+            self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0) { status in
                 
             }
 
@@ -216,7 +229,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             if carhasMore == true {
                 carpage+=1
                 
-                getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0){ status in
+                getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:carpage){ status in
                         
                     }
              
@@ -240,6 +253,7 @@ extension HomeVC:Storyboarded{
 extension HomeVC:filteringAqarData{
     func filtering(data:aqarData) {
         aqar=data
+        aqars=[]
         self.getAllAqar(numKitchens:data.numberOfKitchens ?? 0, numBeds: data.numberOfBedrooms ?? 0, numGarages:data.numberOfGarages ?? 0, area:data.area ?? 0, priceFrom: data.priceFrom ?? 0.0, priceTo: data.priceTo ?? 0.0, advertisementType:data.advertismentType ?? 0, dateFilterType: data.date ?? 0,page:0){ status in
             
         }
@@ -251,9 +265,9 @@ extension HomeVC:filteringAqarData{
 extension HomeVC:filteringCarData{
     func filtering(data: carFilteringData) {
         car=data
-        guard let carData = car else {return}
+     cars=[]
 
-        getAllCar(miles: carData.miles ?? 0, speed: carData.speed ?? 0, priceFrom: carData.priceFrom ?? 0.0, priceTo: carData.priceTo ?? 0.0, advertisementType: carData.advertismentType ?? 0, dateFilterType: carData.date ?? 0, page:0) { status in
+        getAllCar(miles: car?.miles ?? 0, speed: car?.speed ?? 0, priceFrom: car?.priceFrom ?? 0.0, priceTo: car?.priceTo ?? 0.0, advertisementType: car?.advertismentType ?? 0, dateFilterType: car?.date ?? 0, page:0) { status in
             
         }
     }

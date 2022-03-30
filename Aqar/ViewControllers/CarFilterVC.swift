@@ -12,6 +12,8 @@ class CarFilterVC: UIViewController {
     var car:carFilteringData?
     var minvalue:Float=0.0
     var maxvalue:Float=0.0
+    @IBOutlet weak var priceSlidering: RangeSeekSlider!
+
     @IBOutlet weak var dateSegment: UISegmentedControl!
     @IBOutlet weak var milesTxt: UITextField!
     @IBOutlet weak var speedTxt: UITextField!
@@ -22,7 +24,9 @@ class CarFilterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
-        
+        priceSlidering.numberFormatter.positivePrefix = "$"
+        priceSlidering.numberFormatter.positiveSuffix = "$"
+        priceSlidering.delegate = self
 
     }
   
@@ -53,11 +57,7 @@ class CarFilterVC: UIViewController {
 extension CarFilterVC:Storyboarded{
     static var storyboardName: StoryboardName = .main
 }
-extension CarFilterVC{
-    func filtering(){
-        
-    }
-}
+
 extension CarFilterVC:RangeSeekSliderDelegate{
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
         minvalue=Float(minValue)

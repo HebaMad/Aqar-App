@@ -6,11 +6,11 @@
 //
 
 import UIKit
-
+import SDWebImage
 class EditProfileVC: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var selectedImage:Data?
-    
+    var userData:ProfileModel?
     @IBOutlet weak var profileImg: UIImageViewDesignable!
     @IBOutlet weak var fullNameTxt: UITextField!
     
@@ -20,9 +20,16 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate & UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
+    }
+    func setupData(){
+        profileImg.sd_setImage(with: URL(string:userData?.image ?? "" ))
+        fullNameTxt.text = userData?.fullName ?? ""
+        countryTxt.text = userData?.country ?? ""
+        phoneNum.text = userData?.phoneNumber ?? ""
+        emailTxt.text = userData?.email ?? ""
 
     }
-    
 
     @IBAction func selectPhotoBtn(_ sender: Any) {
         let picker = UIImagePickerController()

@@ -19,6 +19,7 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
     
     @IBOutlet weak var editBtn: UIButton!
     
+    @IBOutlet weak var adverstimentTypeTxt: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -43,6 +44,13 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
             FavButton.tintColor = UIColor(named: "view")
         }
         
+        if carData.advertismentType == 1{
+            adverstimentTypeTxt.setTitle("Rent", for: .normal)
+        }else{
+            adverstimentTypeTxt.setTitle("Purchase", for: .normal)
+
+        }
+        
         
     }
     
@@ -57,6 +65,14 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
             FavButton.tintColor = .red
         }else{
             FavButton.tintColor = UIColor(named: "view")
+        }
+        
+        if aqarData.advertismentType == 1{
+            adverstimentTypeTxt.setTitle("Rent", for: .normal)
+            
+        }else{
+            adverstimentTypeTxt.setTitle("Purchase", for: .normal)
+
         }
         
         

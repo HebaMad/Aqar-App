@@ -30,7 +30,7 @@ dismiss(animated: true, completion: nil)
         do{
             try KeychainWrapper.set(value: "" , key: email )
             AppData.email = email
-            self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+            self.sceneDelegate.setRootVC(vc: LoginChoicingVC.instantiate())
 
         }catch let error {
             

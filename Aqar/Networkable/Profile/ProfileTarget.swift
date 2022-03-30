@@ -79,7 +79,7 @@ enum ProfileApiTarget:TargetType{
 
         case .updateProfile(let FullName,let Country,let PhoneNumber,let Email,let img):
             
-         let pngData = MultipartFormData(provider: .data(img), name: "Image", fileName: "images", mimeType: "image/png")
+         let pngData = MultipartFormData(provider: .data(img),name: "Image", fileName: "image.jpeg", mimeType: "image/jpeg")
            let fullName = MultipartFormData(provider: .data(FullName.data(using: .utf8)!), name: "FullName")
             let country = MultipartFormData(provider: .data(Country.data(using: .utf8)!), name: "Country")
             let phoneNumber = MultipartFormData(provider: .data(PhoneNumber.data(using: .utf8)!), name: "PhoneNumber")

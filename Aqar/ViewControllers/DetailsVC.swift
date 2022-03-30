@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class DetailsVC: UIViewController {
     var stateType="car"
     @IBOutlet weak var descriptionTxt: UILabel!
@@ -21,6 +21,7 @@ class DetailsVC: UIViewController {
     @IBOutlet weak var carageNum: UILabel!
     @IBOutlet weak var bedroomNum: UILabel!
     
+    @IBOutlet weak var adverstimentType: UILabel!
     
     var aqarDetails:Aqar?
     var carDetails:Car?
@@ -83,8 +84,15 @@ extension DetailsVC{
             descriptionTxt.text = carDetails?.description
             addressTxt.text = carDetails?.location
             titleTxt.text = carDetails?.title
-            photoNumBtn.setTitle("1to\(carDetails?.images?.count)", for: .normal)
+            photoNumBtn.setTitle("1to\(carDetails?.images?.count ?? 0)", for: .normal)
             RoomsNumView.isHidden = true
+            backgroundImg.sd_setImage(with: URL(string:carDetails?.mainImage ?? "" ))
+            if carDetails?.advertismentType == 1{
+                adverstimentType.text = "Rent"
+            }else{
+                adverstimentType.text = "Purchase"
+
+            }
         }else{
             
             descriptionTxt.text = aqarDetails?.description
@@ -97,7 +105,13 @@ extension DetailsVC{
             carageNum.text=String(describing: aqarDetails?.numberOfGarages ?? 0)
             bedroomNum.text = String(describing: aqarDetails?.numberOfBedrooms ?? 0)
             
-            
+            backgroundImg.sd_setImage(with: URL(string:aqarDetails?.mainImage ?? "" ))
+            if aqarDetails?.advertismentType == 1{
+                adverstimentType.text = "Rent"
+            }else{
+                adverstimentType.text = "Purchase"
+
+            }
             
         }
         

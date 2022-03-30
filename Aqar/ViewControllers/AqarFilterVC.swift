@@ -30,6 +30,7 @@ var delegate:filteringAqarData?
         tapGesture.addTarget(self, action: #selector(self.handleTap(_:)))
         priceSlidering.numberFormatter.positivePrefix = "$"
         priceSlidering.numberFormatter.positiveSuffix = "$"
+        priceSlidering.delegate = self
         
         
     }

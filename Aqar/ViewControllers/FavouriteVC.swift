@@ -14,21 +14,20 @@ class FavouriteVC: UIViewController {
     var buttonText="car"
     @IBOutlet weak var carAqarTable: UITableView!
     
+    @IBOutlet weak var notRegister: UIView!
     @IBOutlet weak var carBtn: UIButton!
     @IBOutlet weak var carView: UIView!
     
     
-    @IBOutlet weak var RegisterButtons: UIStackView!
     @IBOutlet weak var aqarBtn: UIButton!
     @IBOutlet weak var aqarView: UIView!
     @IBOutlet weak var noDataView: UIView!
 
-    @IBOutlet weak var nodataPic: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         TableDataSetup()
-        RegisterButtons.isHidden = true
         checkVisitor()
         
     }
@@ -44,13 +43,13 @@ class FavouriteVC: UIViewController {
         do {
             let token = try KeychainWrapper.get(key: AppData.email) ?? ""
             if token != ""{
-                
+                notRegister.isHidden=true
+                noDataView.isHidden=true
+
                 favCar()
             }else{
-                noDataView.isHidden=false
-                RegisterButtons.isHidden = false
-
-                nodataPic.image = UIImage(named: "noRegister")
+                notRegister.isHidden=false
+         
 
             }
         }

@@ -10,7 +10,7 @@ import Moya
 
 protocol AqarNetworkable:Networkable  {
     
-    func getAllAqar(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ())
+    func getAllAqar(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,search:String,page:Int,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ())
     func deleteAqar(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
     func aqarDetails(id:Int, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
 func AddAqar(Area:Int,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String, completion: @escaping (Result<BaseResponse<Empty>, Error>)-> ())
@@ -32,8 +32,8 @@ class AqarManager:AqarNetworkable{
  
  
 
-    func getAllAqar(numberOfKitchens: Int, numberOfBeds: Int, numberOfGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,page:Int ,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
-        request(target: .getAllAqar(numberOfKitchens: numberOfKitchens, numberOfBeds: numberOfBeds, numberOfGarages: numberOfGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType,page:page), completion: completion)
+    func getAllAqar(numberOfKitchens: Int, numberOfBeds: Int, numberOfGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,search:String,page:Int ,completion: @escaping (Result<BaseResponse<AqarHome>, Error>) -> ()) {
+        request(target: .getAllAqar(numberOfKitchens: numberOfKitchens, numberOfBeds: numberOfBeds, numberOfGarages: numberOfGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType,search:search,page:page), completion: completion)
     }
     
     func deleteAqar(id: Int, completion: @escaping (Result<BaseResponse<Empty>, Error>) -> ()) {

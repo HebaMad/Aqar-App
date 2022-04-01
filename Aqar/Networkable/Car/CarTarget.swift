@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum CarApiTarget:TargetType{
-    case getAllCar(miles:Int,speed:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int)
+    case getAllCar(miles:Int,speed:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,search:String,page:Int)
     case AddCar(ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateCar(id:Int,ModelName:String,Miles:Int,Speed:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
@@ -135,8 +135,8 @@ enum CarApiTarget:TargetType{
         switch self {
             
  
-        case .getAllCar(let miles,let speed,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
-            return["miles":miles,"speed":speed,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
+        case .getAllCar(let miles,let speed,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let search,let page):
+            return["miles":miles,"speed":speed,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"search":search,"page":page]
             
         case .carDetails(let id):
             return ["Id":id]

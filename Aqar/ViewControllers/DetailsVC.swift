@@ -44,6 +44,13 @@ class DetailsVC: UIViewController {
         }
     }
     
+    @IBAction func messageBtn(_ sender: Any) {
+        
+        self.callWhatsapp(phoneNum: carDetails?.userPhone ?? "")
+        
+        
+    }
+    
     @IBAction func emailBtn(_ sender: Any) {
         if stateType == "car"{
             

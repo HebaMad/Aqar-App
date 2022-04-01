@@ -39,7 +39,22 @@ extension UIViewController{
         return (self.view.window?.windowScene?.delegate)! as! SceneDelegate
     }
  
-    
+    func callWhatsapp(phoneNum:String){
+        if  phoneNum == "" {
+            showAlertMessage(title: "Error", message: "you should add your phone number")
+
+            
+        }else{
+            
+        
+    let phoneNumber =  phoneNum
+let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
+    if UIApplication.shared.canOpenURL(appURL) {
+        
+        UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+    }
+    }
+    }
     
     func callMobile(mobileNum:String){
             if mobileNum == nil || mobileNum == "" {
@@ -60,7 +75,7 @@ extension UIViewController{
         let composeViewController = MFMailComposeViewController()
 
         if email == ""{
-            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+            showAlert(title: "Error", message: "you should add your email", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
         }else{
             
         
@@ -151,7 +166,11 @@ self.layer.mask = mask
 
 extension UIViewController{
     
-    
+    func showNoInternetVC(){
+        let vc = NoInternetVC(nibName: "NoInternetVC", bundle: .main)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
        func convertDateFormater(_ date: String) -> String
            {
                let dateFormatter = DateFormatter()
@@ -381,6 +400,15 @@ fileprivate func imageView(forSubview view: UIView) -> UIImageView? {
 }
 }
    
+
+extension String {
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+            return UIImage(data: data)
+        }
+        return nil
+    }
+}
 extension UIApplication {
     func topViewController() -> UIViewController? {
         var topViewController: UIViewController? = nil
@@ -410,14 +438,5 @@ extension UIApplication {
             }
         }
         return topViewController
-    }
-}
-
-extension String {
-    func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
-            return UIImage(data: data)
-        }
-        return nil
     }
 }

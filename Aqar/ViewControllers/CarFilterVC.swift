@@ -40,7 +40,7 @@ class CarFilterVC: UIViewController {
         let mile = try milesTxt.validatedText(validationType: .requiredField(field: "miles required"))
         let speed = try speedTxt.validatedText(validationType: .requiredField(field: "speed required"))
             
-            car=carFilteringData(speed: Int(speed) ?? 0, miles: Int(mile) ?? 0, advertismentType: self.dateSegment.selectedSegmentIndex+1, priceFrom: self.minvalue, priceTo: self.maxvalue, date: self.adverstimentTypeSegment.selectedSegmentIndex+1)
+            car=carFilteringData(speed: Int(speed) ?? 0, miles: Int(mile) ?? 0, advertismentType: self.dateSegment.selectedSegmentIndex+1, priceFrom: self.minvalue, priceTo: self.maxvalue, date: self.adverstimentTypeSegment.selectedSegmentIndex)
             
             guard let _delegate=self.delegate else {return}
             self.dismiss(animated: true) {

@@ -11,7 +11,7 @@ import Foundation
 import Moya
 
 enum AqarApiTarget:TargetType{
-    case getAllAqar(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,page:Int)
+    case getAllAqar(numberOfKitchens:Int,numberOfBeds:Int,numberOfGarages:Int,area:Int,priceFrom:Float,priceTo:Float,advertisementType:Int,dateFilterType:Int,search:String,page:Int)
     case AddAqar(Area:Int,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
     
     case updateAqar(id:Int,Area:Int,NumberOfBedrooms:Int,NumberOfBathrooms:Int,NumberOfKitchens:Int,NumberOfGarages:Int,imags:[Data],Title:String,Location:String,Description:String,Price:Int,AdvertismentType:Int,PackageType:Int,Longitude:String,Latitude:String)
@@ -147,8 +147,8 @@ enum AqarApiTarget:TargetType{
         switch self {
             
     
-        case .getAllAqar(let numberOfKitchens,let numberOfBeds,let numberOfGarages,let area,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let page):
-            return["numberOfKitchens":numberOfKitchens,"numberOfBeds":numberOfBeds,"numberOfGarages":numberOfGarages,"area":area,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"page":page]
+        case .getAllAqar(let numberOfKitchens,let numberOfBeds,let numberOfGarages,let area,let priceFrom,let priceTo,let advertisementType,let dateFilterType,let search,let page):
+            return["numberOfKitchens":numberOfKitchens,"numberOfBeds":numberOfBeds,"numberOfGarages":numberOfGarages,"area":area,"priceFrom":priceFrom,"priceTo":priceTo,"advertisementType":advertisementType,"dateFilterType":dateFilterType,"search":search,"page":page]
 
         case .AqarDetails(let id):
             return ["carId":id]

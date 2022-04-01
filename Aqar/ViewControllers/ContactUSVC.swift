@@ -7,7 +7,7 @@ import UIKit
 
 class ContactUSVC: UIViewController {
     var contactUS=""
-
+var phone=""
     @IBOutlet var tapGes: UITapGestureRecognizer!
     @IBOutlet weak var contactDetails: UILabel!
     @IBOutlet weak var contactNumber: UIButtonDesignable!
@@ -16,6 +16,8 @@ class ContactUSVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactDetails.text = contactUS
+        contactNumber.setTitle("\(phone)", for: .normal)
+    
         tapGes.addTarget(self, action: #selector(self.handleTap(_:)))
 
 
@@ -29,6 +31,8 @@ class ContactUSVC: UIViewController {
     
     
     @IBAction func phoneCall(_ sender: Any) {
+        
+        self.callMobile(mobileNum: phone)
     }
     
  

@@ -22,16 +22,20 @@ class FavouriteVC: UIViewController {
     @IBOutlet weak var aqarBtn: UIButton!
     @IBOutlet weak var aqarView: UIView!
     @IBOutlet weak var noDataView: UIView!
+    @IBOutlet var searchBar: SearchView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      
+  
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         TableDataSetup()
         checkVisitor()
-        
     }
-    
 
     func TableDataSetup(){
         carAqarTable.register(HomeCell.self)
@@ -77,7 +81,7 @@ print(error)
 }
     
     @IBAction func carButton(_ sender: Any) {
-        
+        favCar()
         buttonText="car"
         carView.backgroundColor = UIColor(named: "buton")
         aqarView.backgroundColor = UIColor(named: "view")
@@ -95,6 +99,7 @@ print(error)
     }
     
     @IBAction func aqarButton(_ sender: Any) {
+        favAqar()
         buttonText="aqar"
         aqarView.backgroundColor = UIColor(named: "buton")
         carView.backgroundColor = UIColor(named: "view")
@@ -169,7 +174,6 @@ extension FavouriteVC{
                         self.noDataView.isHidden=false
                     }
                     self.carAqarTable.reloadData()
-                    self.favAqar()
                 }
                 
             case let .failure(error):

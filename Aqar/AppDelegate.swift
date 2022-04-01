@@ -12,6 +12,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
+        checkNetwork()
+        do {
+            try Network.reachability = Reachability(hostname: "www.google.com")
+        }
+        catch {
+            switch error as? Network.Error {
+            case let .failedToCreateWith(hostname)?:
+                print("Network error:\nFailed to create reachability object With host named:", hostname)
+            case let .failedToInitializeWith(address)?:
+                print("Network error:\nFailed to initialize reachability object With address:", address)
+            case .failedToSetCallout?:
+                print("Network error:\nFailed to set callout")
+            case .failedToSetDispatchQueue?:
+                print("Network error:\nFailed to set DispatchQueue")
+            case .none:
+                print(error)
+            }
+        }
         return true
     }
 
@@ -31,6 +49,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 
+    func checkNetwork(){
+        
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(statusManager),
+                         name: .flagsChanged,
+                         object: nil)
+        updateUserInterface()
+        
+    }
+   
 
-}
+    
+    func updateUserInterface() {
+        switch Network.reachability?.status {
+        case .unreachable:
+            print("Reachable:", Network.reachability?.isReachable)
+
+        case .wwan:
+            print("Status:", Network.reachability?.status)
+
+        case .wifi:
+            print("Wifi:", Network.reachability?.isReachableViaWiFi)
+
+        case .none:
+            print("Reachability Summary")
+
+        }
+        print("Reachability Summary")
+        print("Status:", Network.reachability?.status)
+        print("HostName:", Network.reachability?.hostname ?? "nil")
+        print("Reachable:", Network.reachability?.isReachable)
+        print("Wifi:", Network.reachability?.isReachableViaWiFi)
+    }
+    @objc func statusManager(_ notification: Notification) {
+        updateUserInterface()
+    }
+               }
+
 

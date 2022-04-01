@@ -10,6 +10,7 @@ import SDWebImage
 class ProfileVC: UIViewController {
     var aboutUsText=""
     var contactUsText=""
+    var phone=""
     var car:[Car]=[]
     var Aqar:[Aqar]=[]
     var profileItem:[Menu]=[]
@@ -141,6 +142,7 @@ extension ProfileVC:UITableViewDelegate,UITableViewDataSource{
         let vc = ContactUSVC.instantiate()
             vc.modalPresentationStyle = .overFullScreen
             vc.contactUS=contactUsText
+            vc.phone=self.phone
             present(vc, animated: true, completion: nil)
         case 3:
             let vc = AboutUsVC.instantiate()
@@ -188,6 +190,7 @@ extension ProfileVC{
                     self.silverAdsTxt.text=String(describing:responsedata.silverAdsCount ?? 0)
                     self.goldenAdsTxt.text=String(describing:responsedata.goldenAdsCount ?? 0)
                     self.profilePic.sd_setImage(with: URL(string: responsedata.image ?? ""))
+                    self.phone=responsedata.phoneNumber ?? ""
                     self.userDetails = responsedata
                 }
                 

@@ -11,11 +11,19 @@ class PhotosVC: UIViewController {
     @IBOutlet var displayTable: UICollectionView!
     var stateType="car"
 
+    @IBOutlet weak var nodataFound: UIView!
     var realStatePhotos:[String]=[]
     override func viewDidLoad() {
         super.viewDidLoad()
+        if realStatePhotos.count == 0 {
+            nodataFound.isHidden=false
+        }else{
+            nodataFound.isHidden=true
+
+        
         setupTable()
-        // Do any additional setup after loading the view.
+
+        }
     }
     func setupTable(){
         displayTable.register(PhotoCell.self)

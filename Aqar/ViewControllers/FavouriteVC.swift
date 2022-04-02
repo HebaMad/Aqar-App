@@ -68,7 +68,7 @@ print(error)
         self.sceneDelegate.setRootVC(vc: SignupVC.instantiate())
     }
     @IBAction func loginBtn(_ sender: Any) {
-        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+        self.sceneDelegate.setRootVC(vc: LoginChoicingVC.instantiate())
     }
     @objc func facAction(_ sender : UIButton ) {
         if buttonText == "car"{
@@ -159,7 +159,9 @@ extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
 extension FavouriteVC{
     
     func favCar(){
-    
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserCarFav { Response in
             switch Response{
 
@@ -177,16 +179,24 @@ extension FavouriteVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func favAqar(){
-   
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserAqarFav { Response in
             switch Response{
 
@@ -204,17 +214,25 @@ extension FavouriteVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     
     
     func deleteCarFav(id:Int){
-     
+        internetConnectionChecker { (status) in
+            if status{
+                
         CarManager.shared.deleteCar(id: id) { Response in
             switch Response{
 
@@ -228,16 +246,25 @@ extension FavouriteVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
         
         
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     func deleteAqarFav(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.deleteAqar(id: id) { Response in
             switch Response{
 
@@ -250,13 +277,19 @@ extension FavouriteVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
         
         
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

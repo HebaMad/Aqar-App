@@ -53,39 +53,14 @@ class HomeVC: UIViewController {
 //
 //        }
         
+        searchBar.btnSearch.addTarget(self, action: #selector(searchActioon), for: .touchUpInside)
+        
         searchBar.startHandler {
         }
   
         searchBar.endEditingHandler {
             
-            if (self.searchBar.txtSearch.text)?.count != 0{
-                self.cars = []
-                self.aqars=[]
-              
-                if self.buttonText == "car"{
-
-                self.getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "\(self.searchBar.txtSearch.text ?? "")") { status in
-                }
-                }else{
-                    self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "\(self.searchBar.txtSearch.text ?? "")") { status in
-                        
-                    }
-                    
-                }
-            }else{
-                self.cars = []
-                self.aqars=[]
-                if self.buttonText == "car"{
-
-                self.getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
-                }
-                }else{
-                    self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
-                        
-                    }
-                }
-            
-        }
+            self.searcch()
         }
         
     }
@@ -105,8 +80,40 @@ class HomeVC: UIViewController {
 
         }
     }
-    
-    
+    @objc func searchActioon(_ sender : UIButton ) {
+        searcch()
+     
+}
+    func searcch(){
+        if (self.searchBar.txtSearch.text)?.count != 0{
+            self.cars = []
+            self.aqars=[]
+          
+            if self.buttonText == "car"{
+
+            self.getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "\(self.searchBar.txtSearch.text ?? "")") { status in
+            }
+            }else{
+                self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "\(self.searchBar.txtSearch.text ?? "")") { status in
+                    
+                }
+                
+            }
+        }else{
+            self.cars = []
+            self.aqars=[]
+            if self.buttonText == "car"{
+
+            self.getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
+            }
+            }else{
+                self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
+                    
+                }
+            }
+        
+    }
+    }
     @IBAction func filterBtn(_ sender: Any) {
         if buttonText == "car"{
 
@@ -318,6 +325,11 @@ extension HomeVC:filteringCarData{
 }
 extension HomeVC{
     func getAllCar(miles: Int, speed: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int, page: Int,search:String, callback: @escaping callback){
+        
+        internetConnectionChecker { (status) in
+            if status{
+                
+        
         CarManager.shared.getAllCar(miles: miles, speed: speed, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType,search:search,page: page) { Response in
             
             switch Response{
@@ -343,16 +355,25 @@ extension HomeVC{
                 
                   case let .failure(error):
       
-                      self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                      self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
       
                       }
       
   }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func getAllAqar(numKitchens:Int, numBeds: Int, numGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,page:Int,search:String, callback: @escaping callback){
-        
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.getAllAqar(numberOfKitchens: numKitchens, numberOfBeds: numBeds, numberOfGarages: numGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, search: search, page: page) { Response in
         
       
@@ -381,15 +402,25 @@ extension HomeVC{
                 
                   case let .failure(error):
       
-                      self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                      self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
       
                       }
       
   }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func deleteCarFav(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.removeFavCar(id: id) { Response in
             switch Response{
 
@@ -410,16 +441,21 @@ extension HomeVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
         }
-        
-        
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
         
     }
+    }
+    }
     func deleteAqarFav(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
 
         ProfileManager.shared.removeFavAqar(id: id) { Response in
             switch Response{
@@ -441,7 +477,7 @@ extension HomeVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
@@ -449,9 +485,19 @@ extension HomeVC{
         
         
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func AddCarFav(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.addFavCar(id: id) { Response in
             switch Response{
 
@@ -473,14 +519,24 @@ extension HomeVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     func AddAqarFav(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.addFavAqar(id: id) { Response in
             switch Response{
 
@@ -498,13 +554,18 @@ extension HomeVC{
                 }
             case let .failure(error):
                 self.hideLoading()
-
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
 

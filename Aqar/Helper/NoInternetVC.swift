@@ -19,9 +19,12 @@ class NoInternetVC: UIViewController {
     }
     
     @IBAction func checkInterntConnection(){
-//        if Reachability3.isConnectedToNetwork(){
-//            self.dismiss(animated: true, completion: nil)
-//            
-//        }
+        internetConnectionChecker { (status) in
+            if status{
+     self.dismiss(animated: true, completion: nil)
+
+            }
+
     }
+}
 }

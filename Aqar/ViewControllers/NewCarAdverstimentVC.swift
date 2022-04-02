@@ -36,7 +36,7 @@ var id=0
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var milesTxt: UITextField!
     @IBOutlet weak var speedTxt: UITextField!
-    @IBOutlet weak var descriptionTxt: UITextField!
+    @IBOutlet weak var descriptionTxt: UITextView!
     @IBOutlet weak var carModelText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,16 +65,26 @@ var id=0
         location=carData.location ?? ""
         descriptionTxt.text=carData.description ?? ""
         carModelText.text=carData.modelName ?? ""
-        guard let carImages = carData.images else{return}
+        lat = "\(carData.latitude ?? 0.0)"
+        long = "\(carData.longitude ?? 0.0)"
         
+        
+        
+        
+        guard let carImages = carData.images else{return}
+            uploadBtn.setTitle("\(carImages.count)", for: .normal)
+        if carImages.count != 0 {
+
         for index in 0 ... carImages.count-1 {
             let data = NSData(contentsOf: URL(string: carImages[index]) ?? URL(fileURLWithPath: ""))
             imagesArray.append(data as! Data)
         }
 
 
+        }else{
+            
+        }
     }
-
     @IBAction func uploadCarPhotoBtn(_ sender: Any) {
         self.imagesArray=[]
         
@@ -139,15 +149,15 @@ var id=0
         let price = try priceTxt.validatedText(validationType: .requiredField(field: "price required"))
         let mile = try milesTxt.validatedText(validationType: .requiredField(field: "miles required"))
         let speed = try speedTxt.validatedText(validationType: .requiredField(field: "speed required"))
-        let description = try descriptionTxt.validatedText(validationType: .requiredField(field: "description required"))
+   
         
         let carmodel = try carModelText.validatedText(validationType: .requiredField(field: "car model required"))
             self.showLoading()
             if self.status == "Add"{
-        AddCar(modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+        AddCar(modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: descriptionTxt.text ?? "", price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
             }else{
                 print(imagesArray.count)
-                EditCar(id:id,modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
+                EditCar(id:id,modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: descriptionTxt.text ?? "", price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
             }
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
@@ -162,6 +172,9 @@ extension NewCarAdverstimentVC:Storyboarded{
 extension NewCarAdverstimentVC{
     
     func AddCar(modelName:String,miles:Int,speed:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
+        internetConnectionChecker { (status) in
+            if status{
+                
         CarManager.shared.AddCar(ModelName: modelName, Miles: miles, Speed: speed, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType: packageType, Longitude: long, Latitude: lat) { Response in
             
             switch Response{
@@ -183,14 +196,24 @@ extension NewCarAdverstimentVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something eroro", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
             
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     func EditCar(id:Int,modelName:String,miles:Int,speed:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
+        internetConnectionChecker { (status) in
+            if status{
+                
         CarManager.shared.updateCar(id:id,ModelName: modelName, Miles: miles, Speed: speed, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType: packageType, Longitude: long, Latitude: lat) { Response in
             
             switch Response{
@@ -211,12 +234,19 @@ extension NewCarAdverstimentVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something eroro", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
             
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }
 

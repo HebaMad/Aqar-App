@@ -15,7 +15,7 @@ class ResetSuccessfullyVC: UIViewController {
     }
     
     @IBAction func backToHome(_ sender: Any) {
-        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+        self.sceneDelegate.setRootVC(vc: LoginChoicingVC.instantiate())
     }
     
 

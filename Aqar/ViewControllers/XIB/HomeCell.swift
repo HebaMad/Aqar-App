@@ -36,7 +36,7 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
         backgroundImg.sd_setImage(with: URL(string: carData.mainImage ?? ""))
         titleTxt.text=carData.title
         descriptionText.text=carData.description
-        seenLabel.text="\(carData.views ?? 0)"
+//        seenLabel.text="\(carData.views ?? 0)"
         
         if carData.isFavourite == true {
             FavButton.tintColor = .red
@@ -59,7 +59,7 @@ class HomeCell: UITableViewCell,ReusableView,NibLoadableView {
         backgroundImg.sd_setImage(with: URL(string: aqarData.mainImage ?? ""))
         titleTxt.text=aqarData.title
         descriptionText.text=aqarData.description
-        seenLabel.text="\(aqarData.views ?? 0)"
+//        seenLabel.text="\(aqarData.views ?? 0)"
         
         if aqarData.isFavourite == true {
             FavButton.tintColor = .red

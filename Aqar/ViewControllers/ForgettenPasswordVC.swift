@@ -8,12 +8,19 @@
 import UIKit
 
 class ForgettenPasswordVC: UIViewController {
+    var status = "signup"
     @IBOutlet weak var emailTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
+    @IBAction func backBtn(_ sender: Any) {
+        if status == "signup"{
+        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+        }else{
+            navigationController?.popViewController(animated: true)
+        }
+    }
     @IBAction func sendButton(_ sender: Any) {
         do{
             
@@ -32,6 +39,9 @@ extension ForgettenPasswordVC:Storyboarded{
 }
 extension ForgettenPasswordVC{
     func sendCode(email:String){
+        internetConnectionChecker { (status) in
+            if status{
+                
         AuthManager.shared.sendRecoveryCode(email: email) { Response in
             
             switch Response{
@@ -46,7 +56,7 @@ extension ForgettenPasswordVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
@@ -55,5 +65,12 @@ extension ForgettenPasswordVC{
             
             
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

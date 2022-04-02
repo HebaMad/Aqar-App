@@ -19,19 +19,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nointernet" translatesAutoresizingMaskIntoConstraints="NO" id="qEk-fp-ctb">
-                    <rect key="frame" x="10" y="328" width="394" height="250"/>
+                    <rect key="frame" x="10" y="244" width="394" height="250"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="63x-zn-RaS"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check your internet connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVT-cj-mbR">
-                    <rect key="frame" x="61.5" y="598" width="291" height="21"/>
+                    <rect key="frame" x="61.5" y="514" width="291" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ych-fk-xCM" customClass="MainButton" customModule="Aqar" customModuleProvider="target">
-                    <rect key="frame" x="159" y="649" width="96" height="31"/>
+                    <rect key="frame" x="159" y="565" width="96" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Check now"/>
                     <connections>
@@ -45,7 +45,7 @@
                 <constraint firstItem="YVT-cj-mbR" firstAttribute="top" secondItem="qEk-fp-ctb" secondAttribute="bottom" constant="20" id="49r-R0-alK"/>
                 <constraint firstItem="ych-fk-xCM" firstAttribute="top" secondItem="YVT-cj-mbR" secondAttribute="bottom" constant="30" id="999-K7-jaT"/>
                 <constraint firstItem="qEk-fp-ctb" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="REo-SR-FBU"/>
-                <constraint firstItem="qEk-fp-ctb" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Wmo-VW-95a"/>
+                <constraint firstItem="qEk-fp-ctb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="a35-2H-0oX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qEk-fp-ctb" secondAttribute="trailing" constant="10" id="czc-0T-DfE"/>
                 <constraint firstItem="YVT-cj-mbR" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="e9q-RE-M57"/>
                 <constraint firstItem="qEk-fp-ctb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="f1j-0a-eM2"/>

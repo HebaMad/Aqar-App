@@ -73,6 +73,9 @@ extension ConfirmationCodeVC:Storyboarded{
 extension ConfirmationCodeVC{
     func verifyCode(email:String,code:String){
         
+        internetConnectionChecker { (status) in
+            if status{
+                
         AuthManager.shared.verifyRecoveryCode(email: email, code: code) { Response in
             switch Response{
                 
@@ -103,11 +106,18 @@ extension ConfirmationCodeVC{
                 }
             
     
+            }}
+}else{
+    UIApplication.shared.topViewController()?.showNoInternetVC()
+    
 }
 }
     }
     
     func sendCode(email:String){
+        internetConnectionChecker { (status) in
+            if status{
+                
         AuthManager.shared.sendRecoveryCode(email: email) { Response in
             
             switch Response{
@@ -119,7 +129,7 @@ extension ConfirmationCodeVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
@@ -128,5 +138,12 @@ extension ConfirmationCodeVC{
             
             
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

@@ -47,6 +47,9 @@ extension ResetPasswordVC:Storyboarded{
 }
 extension ResetPasswordVC{
     func changePassword(email:String,password:String){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.changePassword(email: email, password: password) { Response in
             
             switch Response{
@@ -59,10 +62,17 @@ extension ResetPasswordVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

@@ -31,6 +31,11 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate & UINaviga
 
     }
 
+    @IBAction func changePassword(_ sender: Any) {
+        let vc = ForgettenPasswordVC.instantiate()
+        vc.status = "edit"
+        navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func selectPhotoBtn(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -62,10 +67,10 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate & UINaviga
             
             let email = try emailTxt.validatedText(validationType: .email)
             let username = try fullNameTxt.validatedText(validationType: .username)
-            let phonenum = try phoneNum.validatedText(validationType: .phoneNumber)
+            let phonenum = try phoneNum.validatedText(validationType: .requiredField(field: "phone required"))
             let country = try countryTxt.validatedText(validationType: .requiredField(field: "country required"))
             
-            
+            self.showLoading()
             editProfile(email: email, country: country, phoneNum: phonenum, fullname: username, img: pic)
          
         }catch(let error){
@@ -83,13 +88,16 @@ extension EditProfileVC:Storyboarded{
 }
 extension EditProfileVC{
     func editProfile(email:String,country:String,phoneNum:String,fullname:String,img:Data){
-        
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.updateProfile(FullName: fullname, Country: country, PhoneNumber: phoneNum, Email: email, img: img) { Response in
             switch Response{
-                
+               
                 
             case let .success(response):
-                
+                self.hideLoading()
+
                 if response.status == true {
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.navigationController?.popViewController(animated: true)
@@ -99,7 +107,9 @@ extension EditProfileVC{
                 }
                 }
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.hideLoading()
+
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                     
                 }
                 
@@ -107,5 +117,12 @@ extension EditProfileVC{
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

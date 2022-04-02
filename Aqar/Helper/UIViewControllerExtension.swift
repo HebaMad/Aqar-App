@@ -97,7 +97,7 @@ extension UIViewController {
         if UIViewController.isConnectedToInternet() {
             callback(true)
         }else{
-            showAlertMessage(title: "Error", message: "Check your internet Connection please & try again")
+            callback(false)
 
         }
     }

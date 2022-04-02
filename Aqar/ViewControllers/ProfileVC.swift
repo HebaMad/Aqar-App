@@ -27,28 +27,13 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        notRegistedView.isHidden = true
-        checkVisitor()
+        
       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do {
-            let token = try KeychainWrapper.get(key: AppData.email) ?? ""
-            if token != ""{
-                setupData()
-                getUserData()
-              
-            }else{
-                notRegistedView.isHidden=false
-
-
-            }
-        }
-        catch{
-print(error)
-            
-        }
+        notRegistedView.isHidden = true
+        checkVisitor()
     }
     
     func setupData(){
@@ -98,7 +83,7 @@ print(error)
         self.sceneDelegate.setRootVC(vc: SignupVC.instantiate())
     }
     @IBAction func loginBtn(_ sender: Any) {
-        self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())
+        self.sceneDelegate.setRootVC(vc: LoginChoicingVC.instantiate())
     }
     @IBAction func bronzePackageBtn(_ sender: Any) {
         getCarPackage(packageType: 1) { status in
@@ -173,6 +158,9 @@ extension ProfileVC{
     
     
     func getUserData(){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.profileDetails { Response in
             
             switch Response{
@@ -196,17 +184,27 @@ extension ProfileVC{
                 
             case let .failure(error):
                 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
+                self.showAlert(title:  "Notice", message: "something eroro", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+
                 }
             }
             
             
             
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func  getCarPackage(packageType:Int,callback: @escaping callback){
+        self.internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserCar(packageType: packageType) { Response in
             switch Response{
 
@@ -222,17 +220,26 @@ extension ProfileVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    callback(false)
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+callback(false)
                 }
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     
     func getAqarPackage(packageType:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserAqar(packageType: packageType) { Response in
             switch Response{
 
@@ -249,11 +256,17 @@ extension ProfileVC{
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
 

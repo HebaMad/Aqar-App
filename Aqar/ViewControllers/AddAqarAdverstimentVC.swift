@@ -59,17 +59,22 @@ var id=0
         numOfBedroom.text = "\(AqarData.numberOfBedrooms ?? 0)"
         numofBathrooms.text = "\(AqarData.numberOfBathrooms ?? 0)"
         numofKitchen.text = "\(AqarData.numberOfKitchens ?? 0)"
-
+        lat = "\(AqarData.latitude ?? 0.0)"
+        long = "\(AqarData.longitude ?? 0.0)"
+        areaTxt.text = "\(AqarData.area ?? 0)"
         titleTxt.text = AqarData.title ?? ""
         location=AqarData.location ?? ""
         descriptionTxt.text=AqarData.description ?? ""
         guard let aqarImages = AqarData.images else{return}
         uploadBtn.setTitle("\(aqarImages.count)", for: .normal)
+        if aqarImages.count != 0 {
         for index in 0 ... aqarImages.count-1 {
             let data = NSData(contentsOf: URL(string: aqarImages[index]) ?? URL(fileURLWithPath: ""))
             imagesArray.append(data as! Data)
         }
-
+        }else{
+            
+        }
 
     }
     @IBAction func uploadCarPhotoBtn(_ sender: Any) {
@@ -144,9 +149,9 @@ var id=0
 
             self.showLoading()
             if self.status == "Add"{
-                AddAqar(NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
+                AddAqar(NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: descriptionTxt.text ?? "", price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
             }else{
-                updateAqar(id:id,NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description: description, price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
+                updateAqar(id:id,NumberOfBedrooms: Int(numBedroom) ?? 0, NumberOfKitchens: Int(numKitchen) ?? 0, NumberOfBathrooms: Int(numBathrooms) ?? 0, NumberOfGarages: Int(numGarage) ?? 0, img: imagesArray, title: title, location: location, description:descriptionTxt.text ?? "", price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long,area:Int(area) ?? 0)
             }
             
             
@@ -160,6 +165,10 @@ var id=0
 }
 extension AddAqarAdverstimentVC{
     func AddAqar(NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String,area:Int){
+        
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.AddAqar(Area: area, NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
             switch Response{
 
@@ -174,6 +183,11 @@ extension AddAqarAdverstimentVC{
                     
                     
                     
+                }else{
+                    self.hideLoading()
+
+                    self.showAlert(title:  "Error", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                    }
                 }
                 
             case let .failure(error):
@@ -184,9 +198,19 @@ extension AddAqarAdverstimentVC{
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     func updateAqar(id:Int,NumberOfBedrooms:Int,NumberOfKitchens:Int,NumberOfBathrooms:Int,NumberOfGarages:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String,area:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.UpdateAqar(id:id,Area: area, NumberOfBedrooms: NumberOfBedrooms, NumberOfBathrooms: NumberOfBathrooms, NumberOfKitchens: NumberOfKitchens, NumberOfGarages: NumberOfGarages, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType:packageType , Longitude: lat, Latitude: long) { Response in
             switch Response{
 
@@ -204,11 +228,18 @@ extension AddAqarAdverstimentVC{
             case let .failure(error):
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     

@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
             let userEmail = try userNameTxt.validatedText(validationType: .email)
             let userPassword = try passTxt.validatedText(validationType: .requiredField(field: "password required"))
             self.showLoading()
-
+            
             login(email: userEmail, password: userPassword)
             
         }catch(let error){
@@ -43,48 +43,51 @@ extension LoginVC:Storyboarded{
 extension LoginVC{
     
     func login(email:String,password:String){
-        AuthManager.shared.login(email: email, password: password) { Response in
-            switch Response{
-               
-            case let .success(response):
+        
+        internetConnectionChecker { (status) in
+            if status{
                 
-                do {
-                    if response.status == true{
-                        guard let  responsedata = response.data else {  return  }
-                        do{
-                            try KeychainWrapper.set(value: "Bearer"+" "+responsedata.accessToken!  , key: responsedata.email ?? "")
-                            AppData.email = responsedata.email ?? ""
+                AuthManager.shared.login(email: email, password: password) { Response in
+                    switch Response{
+                        
+                    case let .success(response):
+                        
+                        do {
+                            if response.status == true{
+                                guard let  responsedata = response.data else {  return  }
+                                do{
+                                    try KeychainWrapper.set(value: "Bearer"+" "+responsedata.accessToken!  , key: responsedata.email ?? "")
+                                    AppData.email = responsedata.email ?? ""
+                                }
+                                self.hideLoading()
+                                
+                                self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
+                                
+                            }else{
+                                self.hideLoading()
+                                
+                                self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+                            }
+                        } catch let error {
+                            self.hideLoading()
+                            
+                            self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                                
+                            }
                         }
+                    case let .failure(error):
                         self.hideLoading()
-
-                        self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
                         
-                    }else{
-                        self.hideLoading()
-
-                        self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
-                        
-                    }
-                } catch let error {
-                    self.hideLoading()
-
-                    self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                        
-                    }
-                }
-            case let .failure(error):
+                        self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
+                        }}}
+                
+            }else{
                 self.hideLoading()
 
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
-                }
-                
+                self.showNoInternetVC()
                 
             }
-            
-            
         }
-        
     }
     
     

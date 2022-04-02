@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="Aqar" customModuleProvider="target">
             <connections>
+                <outlet property="btnSearch" destination="g4H-3O-NHX" id="ooc-jX-XFD"/>
                 <outlet property="txtSearch" destination="Ctf-1P-FCj" id="ftX-ag-49u"/>
             </connections>
         </placeholder>
@@ -24,19 +25,19 @@
                         <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-kb-uZU">
                             <rect key="frame" x="0.0" y="0.0" width="442" height="53"/>
                             <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-1P-FCj">
+                                    <rect key="frame" x="4" y="4" width="394" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4H-3O-NHX">
-                                    <rect key="frame" x="4" y="4" width="40" height="45"/>
+                                    <rect key="frame" x="398" y="4" width="40" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="V1e-XD-4ZY"/>
                                     </constraints>
                                     <color key="tintColor" name="buton"/>
                                     <state key="normal" image="magnifyingglass" catalog="system"/>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ctf-1P-FCj">
-                                    <rect key="frame" x="44" y="4" width="394" height="45"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                             </subviews>
                             <directionalEdgeInsets key="directionalLayoutMargins" top="4" leading="4" bottom="4" trailing="4"/>
                         </stackView>

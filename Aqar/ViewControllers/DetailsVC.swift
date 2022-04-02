@@ -23,6 +23,8 @@ class DetailsVC: UIViewController {
     
     @IBOutlet weak var adverstimentType: UILabel!
     
+    @IBOutlet weak var separatorLine: UIView!
+    @IBOutlet weak var areaTxt: UILabel!
     var aqarDetails:Aqar?
     var carDetails:Car?
     override func viewDidLoad() {
@@ -35,13 +37,8 @@ class DetailsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func callBtn(_ sender: Any) {
-        if stateType == "car"{
             
             self.callMobile(mobileNum: carDetails?.userPhone ?? "")
-        }else{
-            self.callMobile(mobileNum: aqarDetails?.userPhone ?? "")
-            
-        }
     }
     
     @IBAction func messageBtn(_ sender: Any) {
@@ -52,13 +49,9 @@ class DetailsVC: UIViewController {
     }
     
     @IBAction func emailBtn(_ sender: Any) {
-        if stateType == "car"{
             
             self.sendEmail(email: carDetails?.userEmail ?? "")
-        }else{
-            self.sendEmail(email: aqarDetails?.userEmail ?? "")
-            
-        }
+       
     }
     
     @IBAction func realStatePhotos(_ sender: Any) {
@@ -93,6 +86,7 @@ extension DetailsVC{
             titleTxt.text = carDetails?.title
             photoNumBtn.setTitle("1to\(carDetails?.images?.count ?? 0)", for: .normal)
             RoomsNumView.isHidden = true
+            separatorLine.isHidden = true
             backgroundImg.sd_setImage(with: URL(string:carDetails?.mainImage ?? "" ))
             if carDetails?.advertismentType == 1{
                 adverstimentType.text = "Rent"
@@ -119,7 +113,7 @@ extension DetailsVC{
                 adverstimentType.text = "Purchase"
 
             }
-            
+            areaTxt.text="\(aqarDetails?.area ?? 0)"
         }
         
     }

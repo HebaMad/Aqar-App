@@ -27,14 +27,20 @@ class MyGoldenAds: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if cars.count != 0{
             noDataView.isHidden=true
+            setupTableData()
+
             
         }else{
             noDataView.isHidden=false
         }
         
-        setupTableData()
     }
     func setupTableData(){
         adsTable.register(HomeCell.self)
@@ -151,6 +157,9 @@ extension MyGoldenAds:UITableViewDelegate,UITableViewDataSource{
 
 extension MyGoldenAds{
     func  getCarPackage(packageType:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserCar(packageType: packageType) { Response in
             switch Response{
 
@@ -158,22 +167,37 @@ extension MyGoldenAds{
             case let .success(response):
                 if response.status == true{
                     self.cars = response.data?.cars ?? []
-                    self.adsTable.reloadData()
+                    if self.cars.count != 0{
+                        self.noDataView.isHidden=true
+                        self.adsTable.reloadData()
+
+                    }else{
+                        self.noDataView.isHidden=false
+                    }
 
                     
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
         
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     
     
     func getAqarPackage(packageType:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         ProfileManager.shared.getUserAqar(packageType: packageType) { Response in
             switch Response{
 
@@ -181,17 +205,33 @@ extension MyGoldenAds{
             case let .success(response):
                 if response.status == true{
                     self.aqars = response.data?.realStates ?? []
-                    self.adsTable.reloadData()
+                    if self.aqars.count != 0{
+                        self.noDataView.isHidden=true
+                        self.adsTable.reloadData()
+
+                    }else{
+                        self.noDataView.isHidden=false
+                    }
+
                 }
                 
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     func deleteCar(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         CarManager.shared.deleteCar(id: id) { Response in
             switch Response{
                 
@@ -207,15 +247,24 @@ extension MyGoldenAds{
                 }
                 }
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
                 
                 
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
     func deleteAqar(id:Int){
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.deleteAqar(id: id) { Response in
             switch Response{
                 
@@ -231,12 +280,18 @@ extension MyGoldenAds{
                 }
                 }
             case let .failure(error):
-                self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                    
+                self.showAlert(title:  "Notice", message: "something error", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                 }
                 
                 
             }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
+    
+    
     }
 }

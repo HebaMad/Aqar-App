@@ -40,11 +40,11 @@ extension UIViewController{
     }
  
     func callWhatsapp(phoneNum:String){
-        if  phoneNum == "" {
-            showAlertMessage(title: "Error", message: "you should add your phone number")
-
-            
+        if phoneNum == ""{
+            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
         }else{
+            
+        
             
         
     let phoneNumber =  phoneNum
@@ -57,7 +57,7 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
     }
     
     func callMobile(mobileNum:String){
-            if mobileNum == nil || mobileNum == "" {
+            if  mobileNum == "" {
             showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
             }else{
                 

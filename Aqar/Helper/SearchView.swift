@@ -15,6 +15,7 @@ class SearchView: UIView {
            open var searchHandler:EditingHanlder?
            open var startHandler : EditingHanlder?
     open var autoCompleteHandler : EditingHanlder?
+
     
     
            open func startHandler(_ startHandler:@escaping EditingHanlder)->Self{

@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let _delegate = UIApplication.shared.delegate as? AppDelegate {
             _delegate.window = window
         }
-        setRootVC(vc: FirstOnBoardingVC.instantiate())
+        saveLogin()
+        
     }
     func setRootVC(vc:UIViewController){
         
@@ -30,6 +31,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         }
 
+    
+    func saveLogin(){
+        
+        do {
+            let token = try KeychainWrapper.get(key: AppData.email) ?? ""
+            if token != ""{
+                setRootVC(vc: carAqarTabBarController.instantiate())
+            }else{
+         
+                setRootVC(vc: FirstOnBoardingVC.instantiate())
+            }
+        }
+        catch{
+print(error)
+            
+        }
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

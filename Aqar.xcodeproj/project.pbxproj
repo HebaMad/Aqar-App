@@ -87,7 +87,6 @@
 		2780312027E0FA7500604726 /* AddAdverstimentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780311F27E0FA7500604726 /* AddAdverstimentType.swift */; };
 		27C2923927F4E29F003FCD7B /* NoInternetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C2923827F4E29F003FCD7B /* NoInternetVC.xib */; };
 		27C2923B27F4E2A6003FCD7B /* NoInternetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2923A27F4E2A6003FCD7B /* NoInternetVC.swift */; };
-		27C2923D27F4EB0A003FCD7B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2923C27F4EB0A003FCD7B /* Reachability.swift */; };
 		27C89D1327D7AC9800FCB743 /* ProfileTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */; };
 		27C89D1527D7ACB100FCB743 /* ProfileNetworkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */; };
 		27C89D1727D7D03400FCB743 /* AqarTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C89D1627D7D03400FCB743 /* AqarTarget.swift */; };
@@ -189,7 +188,6 @@
 		2780311F27E0FA7500604726 /* AddAdverstimentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdverstimentType.swift; sourceTree = "<group>"; };
 		27C2923827F4E29F003FCD7B /* NoInternetVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetVC.xib; sourceTree = "<group>"; };
 		27C2923A27F4E2A6003FCD7B /* NoInternetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetVC.swift; sourceTree = "<group>"; };
-		27C2923C27F4EB0A003FCD7B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		27C89D1227D7AC9800FCB743 /* ProfileTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTarget.swift; sourceTree = "<group>"; };
 		27C89D1427D7ACB100FCB743 /* ProfileNetworkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkable.swift; sourceTree = "<group>"; };
 		27C89D1627D7D03400FCB743 /* AqarTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AqarTarget.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		27734B3827CD647C007E9DFE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				27C2923C27F4EB0A003FCD7B /* Reachability.swift */,
 				27C2923A27F4E2A6003FCD7B /* NoInternetVC.swift */,
 				27C2923827F4E29F003FCD7B /* NoInternetVC.xib */,
 				277D2A1227F0E2F800F26F14 /* UIViewControllerExtension.swift */,
@@ -611,7 +608,6 @@
 				27D1107927F19DBD00DF70BD /* AqarFilterVC.swift in Sources */,
 				27C2923B27F4E2A6003FCD7B /* NoInternetVC.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
-				27C2923D27F4EB0A003FCD7B /* Reachability.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */,
 				274AA7A427D8B2E000FED3E5 /* AppData.swift in Sources */,

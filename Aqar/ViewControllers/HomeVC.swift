@@ -371,9 +371,7 @@ extension HomeVC{
     }
     
     func getAllAqar(numKitchens:Int, numBeds: Int, numGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,page:Int,search:String, callback: @escaping callback){
-        internetConnectionChecker { (status) in
-            if status{
-                
+ 
         AqarManager.shared.getAllAqar(numberOfKitchens: numKitchens, numberOfBeds: numBeds, numberOfGarages: numGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, search: search, page: page) { Response in
         
       
@@ -408,13 +406,6 @@ extension HomeVC{
       
   }
         }
-    }else{
-        UIApplication.shared.topViewController()?.showNoInternetVC()
-        
-    }
-    }
-    
-    
     }
     
     func deleteCarFav(id:Int){

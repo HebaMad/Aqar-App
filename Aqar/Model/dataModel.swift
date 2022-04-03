@@ -140,4 +140,5 @@ struct ProfileModel:Decodable{
     var isActive:Bool
     var contactUs:String?
     var aboutUs:String?
+    let contactUsNo:String?
 }

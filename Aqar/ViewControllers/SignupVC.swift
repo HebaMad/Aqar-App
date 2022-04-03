@@ -67,6 +67,7 @@ extension SignupVC{
                         
                       do {
                           self.showAlert(title: "Success", message: response.message, confirmBtnTitle: "OK", cancelBtnTitle: "", hideCancelBtn: true) { action in
+                              self.showLoading()
                               self.sendCode(email: email)
                           }
                       } catch let error {
@@ -99,6 +100,7 @@ extension SignupVC{
             switch Response{
             case let .success(response):
                 if response.status == true{
+                    self.hideLoading()
                     let vc=ConfirmationCodeVC.instantiate()
                     vc.email=email
                     self.sceneDelegate.setRootVC(vc:vc)

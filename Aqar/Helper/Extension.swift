@@ -62,7 +62,7 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
             }else{
                 
             let number = Int(mobileNum)
-                let url:NSURL = URL(string: "TEL://\(number!)") as? NSURL ?? NSURL()
+                let url:NSURL = URL(string: "TEL://\(number ?? 0 )") as NSURL? ?? NSURL()
                 print(url)
 
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)

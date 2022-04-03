@@ -178,7 +178,7 @@ extension ProfileVC{
                     self.silverAdsTxt.text=String(describing:responsedata.silverAdsCount ?? 0)
                     self.goldenAdsTxt.text=String(describing:responsedata.goldenAdsCount ?? 0)
                     self.profilePic.sd_setImage(with: URL(string: responsedata.image ?? ""))
-                    self.phone=responsedata.phoneNumber ?? ""
+                    self.phone=responsedata.contactUsNo ?? ""
                     self.userDetails = responsedata
                 }
                 

@@ -32,9 +32,10 @@ class MyGoldenAds: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupTableData()
+
         if cars.count != 0{
             noDataView.isHidden=true
-            setupTableData()
 
             
         }else{
@@ -106,13 +107,15 @@ class MyGoldenAds: UIViewController {
         aqarBtn.setTitleColor(.black, for: .normal)
         carBtn.setTitleColor(UIColor(named: "GRAY"), for: .normal)
         print(aqars.count)
+
         if aqars.count != 0{
             noDataView.isHidden=true
+            self.adsTable.reloadData()
+
             
         }else{
             noDataView.isHidden=false
         }
-        self.adsTable.reloadData()
         
         
     }

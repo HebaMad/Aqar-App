@@ -90,7 +90,7 @@ extension ConfirmationCodeVC{
 
                         }else{
                             
-                            self.sceneDelegate.setRootVC(vc:carAqarTabBarController.instantiate())
+                            self.sceneDelegate.setRootVC(vc:LoginVC.instantiate())
 
                         }
                         

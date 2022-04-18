@@ -41,7 +41,7 @@ extension UIViewController{
  
     func callWhatsapp(phoneNum:String){
         if phoneNum == ""{
-            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+            showAlert(title: "Error", message: "Number not found", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
         }else{
             
         
@@ -58,7 +58,7 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
     
     func callMobile(mobileNum:String){
             if  mobileNum == "" {
-            showAlert(title: "Error", message: "you should add your phone number", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+            showAlert(title: "Error", message: "Number not found", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
             }else{
                 
             let number = Int(mobileNum)
@@ -75,7 +75,7 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
         let composeViewController = MFMailComposeViewController()
 
         if email == ""{
-            showAlert(title: "Error", message: "you should add your email", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+            showAlert(title: "Error", message: "Email not found", confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
         }else{
             
         

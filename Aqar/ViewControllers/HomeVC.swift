@@ -45,13 +45,19 @@ class HomeVC: UIViewController {
 
         TableDataSetup()
 
-//        getAllCar(miles: self.car?.miles ?? 0, speed: self.car?.speed ?? 0, priceFrom: self.car?.priceFrom ?? 0.0, priceTo: self.car?.priceTo ?? 0.0, advertisementType: self.car?.advertismentType ?? 3, dateFilterType: self.car?.date ?? 3, page:0) { status in
-//
-//            self.getAllAqar(numKitchens: self.aqar?.numberOfKitchens ?? 0, numBeds: self.aqar?.numberOfBedrooms ?? 0, numGarages: self.aqar?.numberOfGarages ?? 0, area: self.aqar?.area ?? 0, priceFrom: self.aqar?.priceFrom ?? 0.0, priceTo: self.aqar?.priceTo ?? 0.0, advertisementType: self.aqar?.advertismentType ?? 0, dateFilterType: self.aqar?.date ?? 0, page: 0) { status in
-//
-//            }
-//
-//        }
+        cars=[]
+        aqars=[]
+        car = nil
+        aqar = nil
+
+        getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
+            self.showLoading()
+
+            self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
+                self.hideLoading()
+            }
+
+        }
         
         searchBar.btnSearch.addTarget(self, action: #selector(searchActioon), for: .touchUpInside)
         
@@ -70,10 +76,10 @@ class HomeVC: UIViewController {
         aqars=[]
         car = nil
         aqar = nil
-        self.showLoading()
 
         getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
-            
+            self.showLoading()
+
             self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
                 self.hideLoading()
             }
@@ -371,7 +377,9 @@ extension HomeVC{
     }
     
     func getAllAqar(numKitchens:Int, numBeds: Int, numGarages: Int, area: Int, priceFrom: Float, priceTo: Float, advertisementType: Int, dateFilterType: Int,page:Int,search:String, callback: @escaping callback){
- 
+        internetConnectionChecker { (status) in
+            if status{
+                
         AqarManager.shared.getAllAqar(numberOfKitchens: numKitchens, numberOfBeds: numBeds, numberOfGarages: numGarages, area: area, priceFrom: priceFrom, priceTo: priceTo, advertisementType: advertisementType, dateFilterType: dateFilterType, search: search, page: page) { Response in
         
       
@@ -406,6 +414,11 @@ extension HomeVC{
       
   }
         }
+    }else{
+        UIApplication.shared.topViewController()?.showNoInternetVC()
+        
+    }
+    }
     }
     
     func deleteCarFav(id:Int){

@@ -59,8 +59,6 @@ enum AqarApiTarget:TargetType{
         case .deleteAqar,.AqarDetails,.getAllAqar:
             return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
 
-        case .AddAqar:
-            return .requestParameters(parameters: param, encoding: URLEncoding.httpBody)
 
         case .AddAqar(let Area,let NumberOfBedrooms,let NumberOfBathrooms,let NumberOfKitchens,let NumberOfGarages,let imags,let Title,let Location,let Description,let Price,let AdvertismentType,let PackageType,let Longitude,let Latitude):
             var multipartData:[MultipartFormData]=[]

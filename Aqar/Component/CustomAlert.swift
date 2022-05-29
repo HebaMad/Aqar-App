@@ -52,19 +52,19 @@ final class CustomAlert:UIView{
    
    
    
-//   private func customSetup(){
-//       mainView.layer.cornerRadius = 20
-//       mainView.layer.masksToBounds = true
-//    okButton.setBorder(with: UIColor(color: .textPrimary) ?? .lightGray, width: 1)
-//    cancelButton.setBorder(with: UIColor(color: .textPrimary) ?? .lightGray, width: 1)
-//   }
+   private func customSetup(){
+       mainView.layer.cornerRadius = 20
+       mainView.layer.masksToBounds = true
+       okButton.setBorder(with: .clear, width: 1)
+       cancelButton.setBorder(with: .clear, width: 1)
+   }
    
    
    
    func xibSetup() {
        view = loadViewFromNib()
        addSubview(view)
-//       customSetup()
+       customSetup()
    }
    
    

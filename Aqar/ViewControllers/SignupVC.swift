@@ -14,7 +14,8 @@ class SignupVC: UIViewController {
     @IBOutlet weak var countryTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     
-    
+    var iconClick = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,8 +24,8 @@ class SignupVC: UIViewController {
     @IBAction func signupBtn(_ sender: Any) {
         do{
             
-            let email = try emailTxt.validatedText(validationType: .email)
-            let username = try usernameTxt.validatedText(validationType: .username)
+            let email = try emailTxt.validatedText(validationType: .requiredField(field: "email required"))
+            let username = try usernameTxt.validatedText(validationType: .requiredField(field: "username required"))
             let phonenum = try phoneTxt.validatedText(validationType: .requiredField(field: "phone required"))
             let password = try passwordTxt.validatedText(validationType: .requiredField(field: "password required"))
             let country = try countryTxt.validatedText(validationType: .requiredField(field: "country required"))
@@ -38,6 +39,18 @@ class SignupVC: UIViewController {
       
 
     }
+    
+    @IBAction func show(_ sender: Any) {
+        if(iconClick == true) {
+            passwordTxt.isSecureTextEntry = false
+        } else {
+            passwordTxt.isSecureTextEntry = true
+        }
+        
+        iconClick = !iconClick
+        
+    }
+    
     
     @IBAction func signinBtn(_ sender: Any) {
         self.sceneDelegate.setRootVC(vc: LoginVC.instantiate())

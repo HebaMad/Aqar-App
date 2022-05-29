@@ -9,12 +9,13 @@ class ContactUSVC: UIViewController {
     var contactUS=""
 var phone=""
     @IBOutlet var tapGes: UITapGestureRecognizer!
-    @IBOutlet weak var contactDetails: UILabel!
     @IBOutlet weak var contactNumber: UIButtonDesignable!
     
+    @IBOutlet weak var contactDetails: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(contactUS)
         contactDetails.text = contactUS
         contactNumber.setTitle("\(phone)", for: .normal)
     

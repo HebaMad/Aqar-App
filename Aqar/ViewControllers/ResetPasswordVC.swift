@@ -7,12 +7,38 @@ import UIKit
 
 class ResetPasswordVC: UIViewController {
 var email=""
+    var iconClick1 = true
+    var iconClick2 = true
+
+
     @IBOutlet weak var newPasswordTxt: UITextField!
     
     @IBOutlet weak var confirmPasswordTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func showNewPassword(_ sender: Any) {
+        if(iconClick1 == true) {
+            newPasswordTxt.isSecureTextEntry = false
+        } else {
+            newPasswordTxt.isSecureTextEntry = true
+        }
+        
+        iconClick1 = !iconClick1
+        
+    }
+    
+    @IBAction func showConfirmNewPassword(_ sender: Any) {
+        if(iconClick2 == true) {
+            confirmPasswordTxt.isSecureTextEntry = false
+        } else {
+            confirmPasswordTxt.isSecureTextEntry = true
+        }
+        
+        iconClick2 = !iconClick2
+        
     }
     
     @IBAction func backBtn(_ sender: Any) {

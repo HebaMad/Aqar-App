@@ -10,8 +10,8 @@ import UIKit
 class AboutUsVC: UIViewController {
 var aboutusTxt=""
     @IBOutlet var tapGesture: UITapGestureRecognizer!
-    @IBOutlet weak var aboutUsText: UILabel!
     
+    @IBOutlet weak var aboutUsText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         

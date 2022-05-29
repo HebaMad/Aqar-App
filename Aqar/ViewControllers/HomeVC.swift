@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 typealias callback = ( _ status: Bool ) -> Void
 
 protocol filteringCarData{
@@ -69,22 +70,25 @@ class HomeVC: UIViewController {
             self.searcch()
         }
         
+        
+
+        
     }
     override func viewWillAppear(_ animated: Bool) {
      super.viewWillAppear(animated)
-        cars=[]
-        aqars=[]
-        car = nil
-        aqar = nil
-
-        getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
-            self.showLoading()
-
-            self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
-                self.hideLoading()
-            }
-
-        }
+//        cars=[]
+//        aqars=[]
+//        car = nil
+//        aqar = nil
+//
+//        getAllCar(miles: 0, speed: 0, priceFrom: 0.0, priceTo: 0.0, advertisementType: 3, dateFilterType:  3, page:0, search: "") { status in
+//            self.showLoading()
+//
+//            self.getAllAqar(numKitchens:  0, numBeds: 0, numGarages:  0, area:  0, priceFrom:  0.0, priceTo:  0.0, advertisementType:  3, dateFilterType:  3, page: 0, search: "") { status in
+//                self.hideLoading()
+//            }
+//
+//        }
     }
     @objc func searchActioon(_ sender : UIButton ) {
         searcch()

@@ -64,16 +64,68 @@ var Fulladdress = ""
     }
             
     func setupLocation(){
-        guard let loc = locationmanager else {return}
+        
+        LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
 
-     if   LocationManager.shared.isLocationEnabled(){
-         mapView.showsUserLocation=true
-         loc.getCurrentReverseGeoCodedLocation { location, placemark, error in
-             let region = MKCoordinateRegion.init(center: location!.coordinate, latitudinalMeters: self.regionInMeters, longitudinalMeters: self.regionInMeters)
-             self.mapView.setRegion(region, animated: true)
-         }
-        }
-   
+                    if let error = error {
+                        return
+                    }
+            guard let location = location else {
+                        self.showAlert(title: "Location Permission Required", message: "You should activate your location ", confirmBtnTitle: "OK", cancelBtnTitle: "", hideCancelBtn: true) { (action) in
+                            UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
+                        }
+                        return
+                    }
+            
+            LocationManager.shared.getAddressFromLatLon(pdblLatitude: "\(location.coordinate.latitude)", withLongitude: "\(location.coordinate.longitude)", callback: { status,addresses,country   in
+                if status{
+                    self.Fulladdress=addresses ?? "no clear address"
+                }
+            })
+            let lat: Double = Double("\(location.coordinate.latitude)")!
+            let lon: Double = Double("\(location.coordinate.longitude)")!
+            self.lat = "\(lat)"
+            self.long = "\(lon)"
+
+            let center = CLLocationCoordinate2DMake(lat, lon)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                               let region = MKCoordinateRegion(center: center, span: span)
+                               self.mapView.setRegion(region, animated: true)
+                               let annotation = MKPointAnnotation()
+                               annotation.coordinate = center
+            
+//                               if let email = self.userEmail{
+//                                   annotation.title = email
+//                               }
+
+                               self.mapView.addAnnotation(annotation)
+            
+            
+//            let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: self.regionInMeters, longitudinalMeters: self.regionInMeters)
+//            self.mapView.setRegion(region, animated: true)
+//                    print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
+//
+//
+            
+            do{
+                
+//                self.home(levelid: 1, lat:"\( location.coordinate.latitude)", long: "\(location.coordinate.longitude)")
+                
+            }catch(let error){
+                self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
+            }
+                }
+        
+        
+//        guard let loc = locationmanager else {return}
+//
+//     if   LocationManager.shared.isLocationEnabled(){
+//         mapView.showsUserLocation=true
+//         loc.getCurrentReverseGeoCodedLocation { location, placemark, error in
+//             let region = MKCoordinateRegion.init(center: location!.coordinate, latitudinalMeters: self.regionInMeters, longitudinalMeters: self.regionInMeters)
+//             self.mapView.setRegion(region, animated: true)
+//         }
+//        }
         
         }
     

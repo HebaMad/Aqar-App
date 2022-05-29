@@ -32,7 +32,7 @@ class ProfileVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        notRegistedView.isHidden = true
+//        notRegistedView.isHidden = true
         checkVisitor()
     }
     
@@ -46,6 +46,8 @@ class ProfileVC: UIViewController {
         do {
             let token = try KeychainWrapper.get(key: AppData.email) ?? ""
             if token != ""{
+                notRegistedView.isHidden=true
+
                 setupData()
                 getUserData()
               

@@ -159,6 +159,7 @@ var id=0
                 print(imagesArray.count)
                 EditCar(id:id,modelName: carmodel, miles: Int(mile) ?? 0, speed: Int(speed) ?? 0, img: imagesArray, title: title, location: location, description: descriptionTxt.text ?? "", price: Int(price) ?? 0, advertismentType: adverstementType.selectedSegmentIndex+1, packageType: packageNumber, lat: lat, long: long)
             }
+            
         }catch(let error){
             self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
         }
@@ -176,13 +177,13 @@ extension NewCarAdverstimentVC{
             if status{
                 
         CarManager.shared.AddCar(ModelName: modelName, Miles: miles, Speed: speed, imags: img, Title: title, Location: location, Description: description, Price: price, AdvertismentType: advertismentType, PackageType: packageType, Longitude: long, Latitude: lat) { Response in
-            
+            self.hideLoading()
+
             switch Response{
 
          
             case let .success(response):
                 if response.status == true{
-                    self.hideLoading()
 
             
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
@@ -194,7 +195,6 @@ extension NewCarAdverstimentVC{
                 }
                 
             case let .failure(error):
-                self.hideLoading()
 
                 self.showAlert(title:  "Notice", message: "something eroro", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 
@@ -211,6 +211,8 @@ extension NewCarAdverstimentVC{
     
     }
     func EditCar(id:Int,modelName:String,miles:Int,speed:Int,img:[Data],title:String,location:String,description:String,price:Int,advertismentType:Int,packageType:Int,lat:String,long:String){
+        self.hideLoading()
+
         internetConnectionChecker { (status) in
             if status{
                 
@@ -221,7 +223,6 @@ extension NewCarAdverstimentVC{
                 
             case let .success(response):
                 if response.status == true{
-                    self.hideLoading()
 
                     self.showAlert(title:  "Success", message: response.message, confirmBtnTitle: "Ok", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
                         self.sceneDelegate.setRootVC(vc: carAqarTabBarController.instantiate())
@@ -232,7 +233,6 @@ extension NewCarAdverstimentVC{
                 }
                 
             case let .failure(error):
-                self.hideLoading()
 
                 self.showAlert(title:  "Notice", message: "something eroro", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
 

@@ -62,7 +62,9 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
             }else{
                 
             let number = Int(mobileNum)
-                let url:NSURL = URL(string: "TEL://\(number ?? 0 )") as NSURL? ?? NSURL()
+                print("TEL://971569760818")
+                guard let url = URL(string: "TEL://"+"+971569760818") else { return  }
+//                let url:NSURL = URL(string: "TEL://\(mobileNum ?? "" )") as NSURL? ?? NSURL()
                 print(url)
 
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
@@ -84,7 +86,7 @@ let appURL = URL(string: "https://wa.me/\(phoneNumber)")!
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
             mail.setToRecipients([email])
-            mail.setMessageBody("<h1>Hello there, This is a test.<h1>", isHTML: true)
+            mail.setMessageBody("<h1>Hello there", isHTML: true)
             present(mail, animated: true)
         } else {
             showAlert(title: "Error", message: "Cannot send email")

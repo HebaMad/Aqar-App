@@ -8,7 +8,8 @@
 import UIKit
 
 class LoginVC: UIViewController {
-    
+    var iconClick = true
+
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var userNameTxt: UITextField!
     override func viewDidLoad() {
@@ -23,6 +24,22 @@ class LoginVC: UIViewController {
         
     }
     
+    @IBAction func show(_ sender: Any) {
+        if(iconClick == true) {
+            passTxt.isSecureTextEntry = false
+        } else {
+            passTxt.isSecureTextEntry = true
+        }
+        
+        iconClick = !iconClick
+        
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func loginBtn(_ sender: Any) {
         do{
             
@@ -33,7 +50,11 @@ class LoginVC: UIViewController {
             login(email: userEmail, password: userPassword)
             
         }catch(let error){
-            self.showAlert(title: "Warning", message: (error as! ValidationError).message,hideCancelBtn: true)
+            self.showAlert(title: "Warning", message:(error as! ValidationError).message, confirmBtnTitle: "Try Again", cancelBtnTitle: "", hideCancelBtn: true){ (action) in
+                self.dismiss(animated: true)
+            }
+    
+            
         }
     }
 }
@@ -66,13 +87,17 @@ extension LoginVC{
                             }else{
                                 self.hideLoading()
                                 
-                                self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true, complitionHandler: nil)
+                                self.showAlert(title: "Failed", message: response.message, confirmBtnTitle: "ok", cancelBtnTitle: "", hideCancelBtn: true) { (action) in
+                                    self.dismiss(animated: true)
+
+                                }
                             }
                         } catch let error {
                             self.hideLoading()
                             
                             self.showAlert(title:  "Notice", message: "\(error)", confirmBtnTitle: "Try Again", cancelBtnTitle: nil, hideCancelBtn: true) { (action) in
-                                
+                                self.dismiss(animated: true)
+
                             }
                         }
                     case let .failure(error):

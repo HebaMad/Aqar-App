@@ -43,6 +43,7 @@
 		276732E927CECCD600928288 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732E827CECCD600928288 /* HomeVC.swift */; };
 		276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732EA27CECCFD00928288 /* FavouriteVC.swift */; };
 		276732ED27CECD2100928288 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276732EC27CECD2100928288 /* ProfileVC.swift */; };
+		276DBE222844074D0017B7B6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DBE212844074D0017B7B6 /* CustomAlert.swift */; };
 		27734B0827CD4EA8007E9DFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B0727CD4EA8007E9DFE /* AppDelegate.swift */; };
 		27734B0A27CD4EA8007E9DFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27734B0927CD4EA8007E9DFE /* SceneDelegate.swift */; };
 		27734B0F27CD4EA8007E9DFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27734B0D27CD4EA8007E9DFE /* Main.storyboard */; };
@@ -96,7 +97,6 @@
 		27C99CD127D4BB0900870E6E /* AlertsPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */; };
 		27C99CD227D4BB0900870E6E /* StoryBoarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD027D4BB0900870E6E /* StoryBoarded.swift */; };
 		27C99CD627D4CEED00870E6E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD527D4CEED00870E6E /* Extension.swift */; };
-		27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CD827D4CF3C00870E6E /* CustomAlert.swift */; };
 		27C99CDB27D4CF3D00870E6E /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C99CD927D4CF3D00870E6E /* CustomAlert.xib */; };
 		27C99CDF27D4D18200870E6E /* carAqarTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */; };
 		27C99CE127D4D37C00870E6E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C99CE027D4D37C00870E6E /* Validator.swift */; };
@@ -142,6 +142,7 @@
 		276732E827CECCD600928288 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		276732EA27CECCFD00928288 /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
 		276732EC27CECD2100928288 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		276DBE212844074D0017B7B6 /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		27734B0427CD4EA8007E9DFE /* Aqar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27734B0727CD4EA8007E9DFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27734B0927CD4EA8007E9DFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,7 +198,6 @@
 		27C99CCF27D4BB0900870E6E /* AlertsPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsPresenting.swift; sourceTree = "<group>"; };
 		27C99CD027D4BB0900870E6E /* StoryBoarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoarded.swift; sourceTree = "<group>"; };
 		27C99CD527D4CEED00870E6E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		27C99CD827D4CF3C00870E6E /* CustomAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		27C99CD927D4CF3D00870E6E /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
 		27C99CDE27D4D18200870E6E /* carAqarTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carAqarTabBarController.swift; sourceTree = "<group>"; };
 		27C99CE027D4D37C00870E6E /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -439,8 +439,8 @@
 		27C99CD727D4CF2C00870E6E /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				27C99CD827D4CF3C00870E6E /* CustomAlert.swift */,
 				27C99CD927D4CF3D00870E6E /* CustomAlert.xib */,
+				276DBE212844074D0017B7B6 /* CustomAlert.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -605,13 +605,13 @@
 				276732EB27CECCFD00928288 /* FavouriteVC.swift in Sources */,
 				274D03E627CFE0010094FA57 /* MenuCell.swift in Sources */,
 				277D2A1327F0E2F800F26F14 /* UIViewControllerExtension.swift in Sources */,
+				276DBE222844074D0017B7B6 /* CustomAlert.swift in Sources */,
 				27D1107927F19DBD00DF70BD /* AqarFilterVC.swift in Sources */,
 				27C2923B27F4E2A6003FCD7B /* NoInternetVC.swift in Sources */,
 				2756E05527CF791B00D45B10 /* NibLoadableView.swift in Sources */,
 				27734B5D27CD86A1007E9DFE /* BottomBorderTextField.swift in Sources */,
 				2746CAC227D0C256008A7D6A /* NewCarAdverstimentVC.swift in Sources */,
 				274AA7A427D8B2E000FED3E5 /* AppData.swift in Sources */,
-				27C99CDA27D4CF3D00870E6E /* CustomAlert.swift in Sources */,
 				2780312027E0FA7500604726 /* AddAdverstimentType.swift in Sources */,
 				27734B3D27CD64AB007E9DFE /* UIViewDesignable.swift in Sources */,
 				276732D427CE932600928288 /* ForgettenPasswordVC.swift in Sources */,
@@ -837,7 +837,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.com.CarWAqar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -873,7 +873,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
+				MARKETING_VERSION = 3;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.com.CarWAqar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

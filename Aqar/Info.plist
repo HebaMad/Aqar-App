@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We want to access Camera  to complete your Ad</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -28,6 +30,12 @@
 		<string>Poppins-Bold.ttf</string>
 		<string>Poppins-BoldItalic.ttf</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We want to use your location to make you complete your Ad</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want to use your location to make you complete your Ad</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Used to access Image Gallery to complete your Ad</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
